@@ -1,31 +1,46 @@
-.navbar{
-    width: 100%;
-    position: fixed;
-    background-color: rgb(22, 22, 22);
-    height: 110.67px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.navbar {
+  width: 100%;
+  background-color: rgb(22, 22, 22);
+  height: 110.67px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo{
-    padding-left: 85px;
+.logo {
+  padding-left: 85px;
 }
 
-.diffButtons{
-    color: #fff;
-    display: flex;
-    flex-direction: row;
-    margin-right: 85px;
-    width: 30%;
-    justify-content: space-evenly;
+.diffButtons {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  margin-right: 85px;
+  width: 30%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.signUp{
-
+.signUp {
+  color: #00c3d0;
+  border: 2px solid transparent;
+  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
+  border-image-slice: 1;
+  width: 128px;
+  height: 49.33px;
+  border-radius: 5px !important;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: transparent;
 }
 
-.login{
-    
+.login {
+  color: #fff;
+  width: 128px;
+  height: 49.33px;
+  background: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
 }

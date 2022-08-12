@@ -1,11 +1,11 @@
 import { Routes, Navigate, Route, BrowserRouter } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Main from "./components/Main";
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<Navbar />} />
+          <Route path="/" exact element={<Main />} />
         </Routes>
       </BrowserRouter>
     </div>
