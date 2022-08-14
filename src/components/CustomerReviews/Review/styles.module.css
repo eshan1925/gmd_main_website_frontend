@@ -1,0 +1,44 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 336.08px;
+  height: 194.88px;
+  background: #18191a;
+  box-shadow: 0px 5px 25px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+  margin: 25px;
+  padding: 25px;
+}
+
+.profilePic {
+  width: 65px;
+  height: 65px;
+  border-radius: 250px;
+}
+
+.name {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 34px;
+  color: #ffffff;
+}
+
+.position {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  color: #fefefe;
+}
+
+.review {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 22px;
+  color: #ffffff;
+}
