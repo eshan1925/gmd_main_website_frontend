@@ -1,0 +1,49 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  background: #18191a;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  width: 75%;
+
+  margin: 5%;
+  margin-left: 12%;
+}
+
+.blogContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-right: 12px;
+}
+
+.blogTitle {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+  /* identical to box height, or 120% */
+  color: #ffffff;
+}
+
+.content {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  /* or 188% */
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.date {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+}

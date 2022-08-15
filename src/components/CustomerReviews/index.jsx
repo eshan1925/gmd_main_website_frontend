@@ -7,7 +7,7 @@ const CustomerReviews = () => {
     <div className={styles.main}>
       <div className={styles.centerHeadings}>
         <div id={styles.subHeading}>
-          Meet the rare species of exclusive designers
+          Made in India for the world!
         </div>
         <div className={styles.heading}>Listen to our customers</div>
       </div>
