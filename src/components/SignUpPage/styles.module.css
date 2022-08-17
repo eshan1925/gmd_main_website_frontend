@@ -1,0 +1,148 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  background: #18191a;
+  height: 100vh;
+  align-items: center;
+}
+
+.loginImage {
+  width: 850px;
+  height: 780px;
+}
+
+.loginDiv {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  width: 500px;
+  margin-left: 95px;
+  margin-top: 75px;
+}
+
+.gmdLogo {
+  height: 59px;
+  width: 184px;
+  cursor: pointer;
+}
+
+.mainHeading {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 49px;
+  background: linear-gradient(94.77deg, #02c2d0 0%, #6c4ffe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-top: 40px;
+  margin-bottom: 35px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.input {
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  background-color: #18191a;
+  height: 40px;
+  width: 350px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+::placeholder {
+  color: #fff;
+  text-align: center;
+  opacity: 0.7;
+}
+
+label {
+  font-family: "Avenir LT Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 20px;
+}
+
+.checkBoxAndFP {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 360px;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+}
+
+.forgotPassword {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+  background: linear-gradient(91.62deg, #12b2d7 0%, #516ef2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.rememberMe {
+  font-family: "Avenir LT Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 5%;
+  height: 150px;
+  justify-content: space-evenly;
+}
+
+.loginButton {
+  width: 350px;
+  height: 52px;
+  font-weight: 700;
+  background: #18191a;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background: -webkit-linear-gradient(89.56deg, #00c3cf 2.36%, #6f4bff 99.24%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.signUpButton {
+  width: 350px;
+  height: 52px;
+  color: #00c3d0;
+  border: 2px solid transparent;
+  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
+  border-image-slice: 1;
+  border-radius: 5px !important;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+hr {
+  background: #dcdcdc;
+  opacity: 0.5;
+  width: 250px;
+}
