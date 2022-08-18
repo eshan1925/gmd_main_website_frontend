@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -23,6 +24,26 @@ const LoginPage = () => {
     navigate("/");
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "http://localhost:8080/api/auth";
+      const { data: res } = await axios.post(url, data);
+      localStorage.setItem("token", res.data);
+      localStorage.setItem("userData", JSON.stringify(res.userData));
+
+      window.location = `/project-manager/${res.userData._id}`;
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
+  };
+
   return (
     <div className={styles.main}>
       <img
@@ -40,7 +61,7 @@ const LoginPage = () => {
         <div className={styles.mainHeading}>
           Get Started with <br /> Get Me Design
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>Enter your Email*</label>
           <input
             type="email"
@@ -61,6 +82,7 @@ const LoginPage = () => {
             className={styles.input}
             placeholder="Password"
           />
+          {error && <div className={styles.error_msg}>{error}</div>}
           <div className={styles.checkBoxAndFP}>
             <div className={styles.checkbox}>
               <input type="checkbox" />{" "}

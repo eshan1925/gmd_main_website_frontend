@@ -6,13 +6,13 @@ import AllAboutDesigns from "./AllAboutDesigns";
 import DesignerBase from "./DesignerBase";
 import Leaders from "./Leaders";
 import LearnAboutGMD from "./LearnAboutGMD";
-import React from 'react'
+import React from "react";
 
 const AboutUs = () => {
   return (
     <div className={styles.main}>
-    <Navbar />
-        <div className={styles.mainPage}>
+      <Navbar />
+      <div className={styles.mainPage}>
         <div className={styles.content}>
           <div>
             <div className={styles.tagline}>
@@ -22,7 +22,7 @@ const AboutUs = () => {
             <div className={styles.subTagline}>
               Hire Designers around the world with ease.
             </div>
-            <a href="mailto:abc@example.com">
+            <a href="contactus@getmedesign.com">
               <button href="#contactus" className={styles.getInTouch}>
                 Get in Touch
               </button>
@@ -88,7 +88,7 @@ const AboutUs = () => {
       <CustomerReviews />
       <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default AboutUs;

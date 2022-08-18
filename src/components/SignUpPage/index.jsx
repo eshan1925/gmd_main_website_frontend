@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({ email: "", password: "", name: "" });
   const [error, setError] = useState("");
-
+  const [msg, setMsg] = useState("");
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -21,6 +22,25 @@ const SignUp = () => {
 
   const navigateToHome = () => {
     navigate("/");
+  };
+
+  const handleSubmit = async (e) => {
+    setError("");
+    setMsg("");
+    e.preventDefault();
+    try {
+      const url = "http://localhost:8080/api/users";
+      const { data: res } = await axios.post(url, data);
+      setMsg(res.message);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
   };
 
   return (
@@ -40,7 +60,7 @@ const SignUp = () => {
         <div className={styles.mainHeading}>
           Get Started with <br /> Get Me Design
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>Your Full Name*</label>
           <input
             type="text"
@@ -71,6 +91,8 @@ const SignUp = () => {
             className={styles.input}
             placeholder="Password"
           />
+          {error && <div className={styles.error_msg}>{error}</div>}
+          {msg && <div className={styles.success_msg}>{msg}</div>}
           <div className={styles.checkBoxAndFP}>
             <div className={styles.checkbox}>
               <input type="checkbox" />{" "}

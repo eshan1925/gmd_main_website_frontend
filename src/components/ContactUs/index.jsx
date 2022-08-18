@@ -31,8 +31,9 @@ const ContactUs = () => {
             <input className={styles.number} placeholder="Phone Number*" />
             <input className={styles.email} placeholder="Email ID*" />
           </div>
-          <a href="mailto:abc@example.com"><button className={styles.submit}>Submit</button></a>
-          
+          <a href="contactus@getmedesign.com">
+            <button className={styles.submit}>Submit</button>
+          </a>
         </div>
       </div>
     </div>
