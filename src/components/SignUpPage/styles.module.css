@@ -17,12 +17,12 @@
   height: 700px;
   width: 500px;
   margin-left: 95px;
-  margin-top: 75px;
+  margin-top: 15px;
 }
 
 .gmdLogo {
-  height: 59px;
-  width: 184px;
+  height: 49px;
+  width: 164px;
   cursor: pointer;
 }
 
@@ -30,15 +30,15 @@
   font-family: "Product Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 49px;
+  font-size: 35px;
+  line-height: 39px;
   background: linear-gradient(94.77deg, #02c2d0 0%, #6c4ffe 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-  margin-top: 40px;
-  margin-bottom: 35px;
+  margin-top: 30px;
+  margin-bottom: 25px;
 }
 
 form {
@@ -51,10 +51,11 @@ form {
   border: 1px solid #ffffff;
   border-radius: 8px;
   background-color: #18191a;
-  height: 40px;
-  width: 350px;
-  margin-top: 15px;
+  height: 35px;
+  width: 330px;
+  margin-top: 10px;
   margin-bottom: 15px;
+  color: #fff;
 }
 ::placeholder {
   color: #fff;
@@ -66,7 +67,7 @@ label {
   font-family: "Avenir LT Pro";
   font-style: normal;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 20px;
 }
 
@@ -75,6 +76,7 @@ label {
   flex-direction: row;
   justify-content: space-between;
   width: 360px;
+  margin-top: 5px;
 }
 
 .checkbox {
@@ -110,7 +112,7 @@ label {
   display: flex;
   flex-direction: column;
   width: 400px;
-  margin-top: 5%;
+  margin-top: 3%;
   height: 150px;
   justify-content: space-evenly;
 }
@@ -149,9 +151,11 @@ hr {
 
 .error_msg,
 .success_msg {
-  width: 350px;
+  width: 308px;
+  height: 15px;
   padding: 15px;
-  margin: 5px 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 14px;
   background-color: #f34646;
   color: white;

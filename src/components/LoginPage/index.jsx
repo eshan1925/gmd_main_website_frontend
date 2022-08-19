@@ -32,7 +32,7 @@ const LoginPage = () => {
       localStorage.setItem("token", res.data);
       localStorage.setItem("userData", JSON.stringify(res.userData));
 
-      window.location = `/project-manager/${res.userData._id}`;
+      window.location = `/`;
     } catch (error) {
       if (
         error.response &&
