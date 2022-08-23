@@ -1,0 +1,19 @@
+button{
+    display: flex;
+	flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 0.5px solid #717474;
+    border-radius: 5px;
+    background-color: #191a1a;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 18px;
+    height: 35px;
+}
+
+button:hover{
+    background-color: #717474;
+    border-color: #cdcfcf;
+}

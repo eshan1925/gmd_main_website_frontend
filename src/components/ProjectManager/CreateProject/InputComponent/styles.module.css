@@ -1,0 +1,23 @@
+.mainInput {
+  background-color: #18191a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 1.7%;
+}
+
+.title {
+  font-size: larger;
+}
+
+input {
+  background-color: #18191a;
+  margin-top: 2.5em;
+  width: 250px;
+  height: 25px;
+  border-radius: 5px;
+  color: #fff;
+}
+::placeholder {
+  text-align: center;
+}

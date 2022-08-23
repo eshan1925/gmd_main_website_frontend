@@ -1,0 +1,46 @@
+.main {
+  background-color: #18191a;
+  color: white;
+}
+
+.rowflex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.NT {
+  margin-left: 2%;
+  margin-bottom: 1em;
+}
+
+textarea {
+  background-color: #18191a;
+  margin-left: 2%;
+  width: 90%;
+  height: 145px;
+  border-radius: 5px;
+}
+
+.mainInput {
+  background-color: #18191a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 1.7%;
+}
+
+.title {
+  font-size: larger;
+}
+
+input {
+  background-color: #18191a;
+  margin-top: 2.5em;
+  width: 250px;
+  height: 25px;
+  border-radius: 5px;
+}
+::placeholder {
+  text-align: center;
+}

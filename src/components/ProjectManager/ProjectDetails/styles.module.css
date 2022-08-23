@@ -1,0 +1,40 @@
+.projectHeading {
+  font-size: 25px;
+}
+
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.projectDescription {
+  display: flex;
+  flex-direction: row;
+  border: 0.5px solid #717474;
+  border-radius: 5px;
+  padding: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.projectProgress {
+  width: 200px;
+  margin-right: 3%;
+}
+
+.descDate{
+    display: flex;
+    flex-direction: column;
+}
+
+.dueDate {
+  background-color: #717474;
+  border-radius: 25px;
+  width: 100px;
+  text-align: center;
+  margin-top: 1%;
+  font-size: 12px;
+  height: 15px;
+}
