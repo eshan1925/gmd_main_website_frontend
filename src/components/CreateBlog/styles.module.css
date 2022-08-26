@@ -5,28 +5,6 @@
   color: white;
   overflow-y: hidden;
   overflow-x: hidden;
-  font-family: "Product Sans";
-}
-
-.logo {
-  padding-left: 85px;
-  cursor: pointer;
-  height: 40px;
-  width: 120px;
-}
-
-.logOut{
-  margin: 3%;
-  color: #00c3d0;
-  border: 2px solid transparent;
-  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
-  border-image-slice: 1;
-  width: 120px;
-  height: 45px;
-  border-radius: 5px !important;
-  cursor: pointer;
-  font-weight: 700;
-  background-color: transparent;
 }
 
 .navbar {
@@ -45,6 +23,28 @@
   margin-left: 20px;
 }
 
+.logo {
+  padding-left: 85px;
+  cursor: pointer;
+  height: 40px;
+  width: 120px;
+}
+
+.logOut {
+  margin: 3%;
+  color: #00c3d0;
+  border: 2px solid transparent;
+  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
+  border-image-slice: 1;
+  width: 120px;
+  height: 45px;
+  border-radius: 5px !important;
+  margin-right: 65px;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: transparent;
+}
+
 .white_btn {
   border: none;
   outline: none;
@@ -57,6 +57,44 @@
   cursor: pointer;
   margin-right: 20px;
   color: #191a1a;
+}
+
+.profile_view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #717474;
+  padding: 3%;
+  width: 15%;
+}
+
+.profile_stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid #717474;
+  border-radius: 5px;
+  padding: 10px;
+  padding-bottom: 35px;
+  margin-bottom: 25px;
+}
+
+.profile_pic {
+  height: 200px;
+  width: 200px;
+  padding-bottom: 10%;
+}
+
+.profile_info {
+  text-align: center;
+}
+
+.pro_subscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }
 
 .project_manager {
@@ -77,66 +115,9 @@
   font-weight: 300;
 }
 
-.project_options {
-  margin-top: 3%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.create_project {
-  width: 175px;
-}
-
-.project_status {
-  background-color: #484848;
-  width: 160px;
-  height: 35px;
-  color: white;
-  border-radius: 25px;
-  text-align: center;
-}
-.profile_view {
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #717474;
-  padding: 1.5%;
-  width: 18%;
-}
-
-.profile_stats {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 0.5px solid #717474;
-  border-radius: 5px;
-  padding: 10px;
-  padding-bottom: 35px;
-  margin-bottom: 20px;
-  height: 240px;
-}
-
-.profile_pic {
-  height: 200px;
-  width: 200px;
-  padding-bottom: 8%;
-}
-
-.profile_info {
-  text-align: center;
-}
-
-.pro_subscription {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-}
-
 #scrollControl {
   overflow: auto;
-  height: calc(100% - 250px);
+  height: calc(100% - 210px);
 }
 
 #scrollControl::-webkit-scrollbar {
@@ -148,23 +129,50 @@
   scrollbar-width: none;
 }
 
-button {
+.blogBar {
+  margin-top: 2%;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 0.5px solid #717474;
-  border-radius: 5px;
-  background-color: #191a1a;
-  color: white;
-  font-weight: 600;
-  width: 100%;
-  margin-bottom: 15px;
-  height: 25px;
+  font-size: larger;
+}
+
+.blogSelectionMenu {
+  margin-right: 65px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #717474;
-  border-color: #cdcfcf;
+.blogCardsSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#AllBlogs {
+  border-bottom: 1px solid rgba(202, 202, 202, 0.86);
+}
+
+.pathAndButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.createBlogButton {
+  width: 170px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.path_Details {
+  margin-bottom: 15px;
+}
+
+input {
+  color: white;
+}
+
+.blogTitleInput{
+  margin-bottom: 15px;
 }

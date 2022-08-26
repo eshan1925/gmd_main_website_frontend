@@ -45,7 +45,6 @@ const ProjectDetails = () => {
             var dueDate = new Date(data.dueDate);
             dueDate = dueDate.toISOString();
             dueDate = dueDate.substr(0,10);
-            console.log(typeof dueDate);
             for (var i = 0; i < numberOfTasks; i++) {
 
                 if (data.tasks[i].isCompleted) {

@@ -75,12 +75,14 @@ label {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 360px;
 }
 
 .checkbox {
   display: flex;
   flex-direction: row;
+  width: 200px;
 }
 
 .forgotPassword {

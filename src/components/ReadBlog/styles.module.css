@@ -27,6 +27,7 @@
   cursor: pointer;
   font-weight: 700;
   background-color: transparent;
+  margin-right: 75px;
 }
 
 .navbar {
@@ -99,9 +100,10 @@
 .profile_view {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border-right: 1px solid #717474;
-  padding: 1.5%;
-  width: 18%;
+  padding: 3%;
+  width: 15%;
 }
 
 .profile_stats {
@@ -113,14 +115,13 @@
   border-radius: 5px;
   padding: 10px;
   padding-bottom: 35px;
-  margin-bottom: 20px;
-  height: 240px;
+  margin-bottom: 25px;
 }
 
 .profile_pic {
   height: 200px;
   width: 200px;
-  padding-bottom: 8%;
+  padding-bottom: 10%;
 }
 
 .profile_info {
@@ -136,7 +137,8 @@
 
 #scrollControl {
   overflow: auto;
-  height: calc(100% - 250px);
+  /* height: 100%; */
+  height: calc(100% - 88%);
 }
 
 #scrollControl::-webkit-scrollbar {
@@ -159,12 +161,30 @@ button {
   color: white;
   font-weight: 600;
   width: 100%;
-  margin-bottom: 15px;
-  height: 25px;
-  cursor: pointer;
+  margin-bottom: 18px;
+  height: 35px;
 }
 
 button:hover {
   background-color: #717474;
   border-color: #cdcfcf;
+}
+
+.blogTitle {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  width: 100%;
+  background-color: #191a1a;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.blogContent {
+  margin-top: 10px;
+}
+
+.image {
+  height: 150px;
+  width: 250px;
 }

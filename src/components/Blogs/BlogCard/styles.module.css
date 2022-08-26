@@ -1,0 +1,125 @@
+
+.container {
+  transition: box-shadow .3s;
+  width: 260px;
+  height: 570px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin-block: 1rem;
+  color: black;
+  transition: transform .2s;
+}
+
+.container:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.card_image .user__image {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 12em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  height: 370px;
+  overflow: hidden;
+  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: #ece9e6;
+  background: linear-gradient(to right, #ffffff, #ece9e6);
+}
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tag {
+  align-self: flex-start;
+  padding: 0.25em 0.75em;
+  border-radius: 1em;
+  font-size: 0.75rem;
+}
+
+.tag + .tag {
+  margin-left: 0.5em;
+}
+
+.tag_blue {
+  align-self: flex-start;
+  padding: 0.25em 0.75em;
+  border-radius: 1em;
+  font-size: 0.75rem;
+  background: #56ccf2;
+  background: linear-gradient(to bottom, #2f80ed, #56ccf2);
+  color: #fafafa;
+}
+
+.tag-brown {
+  background: #d1913c;
+  background: linear-gradient(to bottom, #ffd194, #d1913c);
+  color: #fafafa;
+}
+
+.tag-red {
+  background: #cb2d3e;
+  background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+  color: #fafafa;
+}
+
+.card__body h4 {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  margin-bottom: 0px;
+}
+
+p {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  margin-bottom: 0px;
+}
+
+.card__footer {
+  margin-top: 0px;
+}
+
+.user {
+  width: 100%;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user__image {
+  margin-top: 0px;
+  padding: 0px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+.user__info {
+  height: 22px;
+  margin-left: 15px;
+  width: 70%;
+  font-size:9.87px;
+  font-weight: 800;
+  padding-bottom: 7px;
+}
+
+.position{
+    font-weight: 600;
+    color: #515151;
+}

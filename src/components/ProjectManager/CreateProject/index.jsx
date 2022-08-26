@@ -26,7 +26,6 @@ const CreateProject = (props) => {
                 console.log(error.response.data.message);
             }
         }
-        console.log(data);
     }
 
     return (
