@@ -3,44 +3,21 @@ import React from "react";
 import ProjectDetails from "./ProjectDetails";
 import CustomizedDialogs from "./PopupBox/index";
 import CreateProject from "./CreateProject";
-import { useNavigate } from "react-router-dom";
 import ProfileView from "../ProfileView";
+import UserNavbar from "../UserNavbar";
 
 const ProjectManager = (props) => {
   const [value, setValue] = React.useState("Open");
-  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
 
   const userData = JSON.parse(props.userData);
-  const userid = userData._id;
-  const navigateToHome = () => {
-    navigate("/");
-  };
-
-  const navigateToLogin = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userData");
-    navigate("/login");
-  };
 
   return (
     <div className={styles.main_container}>
-      <nav className={styles.navbar}>
-        <div >
-          <img
-          className={styles.logo}
-            onClick={navigateToHome}
-            src={require("../../images/gmdLogo.png")}
-            alt="logo"
-          />
-        </div>
-        <button onClick={navigateToLogin} className={styles.logOut}>
-          LogOut
-        </button>
-      </nav>
+      <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
         <ProfileView userData={userData} />
         <div className={styles.project_view}>

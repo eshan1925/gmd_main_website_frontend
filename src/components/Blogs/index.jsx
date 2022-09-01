@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import BlogCard from "./BlogCard";
 import axios from "axios";
 import ProfileView from "../ProfileView";
+import UserNavbar from "../UserNavbar";
 
 const BlogsComponent = (props) => {
 
@@ -34,15 +35,6 @@ const BlogsComponent = (props) => {
     navigate("/blogs/" + userid + "/favourite");
   };
 
-  const navigateToHome = () => {
-    navigate("/");
-  };
-
-  const navigateToLogin = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userData");
-    navigate("/login");
-  };
 
   React.useEffect(() => {
     getBlogs();
@@ -95,21 +87,7 @@ const BlogsComponent = (props) => {
 
   return (
     <div className={styles.main_container_1}>
-      <nav className={styles.subNavbar}>
-        <div>
-          <img
-            className={styles.logo}
-            onClick={navigateToHome}
-            src={require("../../images/gmdLogo.png")}
-            alt="logo"
-          />
-        </div>
-        <div>
-          <button onClick={navigateToLogin} className={styles.logOut}>
-            LogOut
-          </button>
-        </div>
-      </nav>
+      <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
         <ProfileView userData={userData} />
         <div className={styles.project_view}>

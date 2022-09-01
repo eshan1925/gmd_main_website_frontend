@@ -7,6 +7,7 @@ import ProjectManager from "./components/ProjectManager";
 import BlogsComponent from "./components/Blogs";
 import CreateBlog from "./components/CreateBlog";
 import ReadBlog from "./components/ReadBlog";
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
   const user = localStorage.getItem("token");
@@ -64,14 +65,21 @@ function App() {
             <Route
               path="/blogs/:id/all-blogs/:blogid"
               exact
-              element={<ReadBlog userData={userData} category="all-blogs"/>}
+              element={<ReadBlog userData={userData} category="all-blogs" />}
             />
           )}
           {user && (
             <Route
               path="/blogs/:id/my-blogs/:blogid"
               exact
-              element={<ReadBlog userData={userData} category="my-blogs"/>}
+              element={<ReadBlog userData={userData} category="my-blogs" />}
+            />
+          )}
+          {user && (
+            <Route
+              path="/profile/:id"
+              exact
+              element={<ProfilePage userData={userData} />}
             />
           )}
         </Routes>

@@ -1,14 +1,11 @@
 import React from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
-import ReactMarkdown from 'react-markdown'
 import ProfileView from "../ProfileView";
 import MDEditor from "@uiw/react-md-editor";
+import UserNavbar from "../UserNavbar";
 
 const ReadBlog = (props) => {
-  const navigate = useNavigate();
-
   var a = window.location.pathname;
   var b = a.split("/");
   var c = b[b.length - 1];
@@ -18,7 +15,7 @@ const ReadBlog = (props) => {
   var category = props.category;
   const getBlogData = async () => {
     await axios
-      .get("http://localhost:8080/blogs/" + userid + "/"+category+"/" + c)
+      .get("http://localhost:8080/blogs/" + userid + "/" + category + "/" + c)
       .then((response) => {
         const foundContent = response.data[0];
         setBlogData(foundContent);
@@ -29,43 +26,19 @@ const ReadBlog = (props) => {
     getBlogData();
   });
 
-  const navigateToLogin = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userData");
-    navigate("/login");
-  };
-
-  const navigateToHome = () => {
-    navigate("/");
-  };
-
   var creationDate = new Date(blogData["timeOfCreation"]);
   creationDate = creationDate.toDateString();
 
   const readBlogStyle = {
-    whiteSpace:"pre-wrap",
+    whiteSpace: "pre-wrap",
     fontFamily: "Product Sans",
-    backgroundColor:"transparent"
-  }
+    backgroundColor: "transparent",
+  };
   return (
     <div className={styles.main_container}>
-    <nav className={styles.navbar}>
-        <div>
-          <img
-            className={styles.logo}
-            onClick={navigateToHome}
-            src={require("../../images/gmdLogo.png")}
-            alt="logo"
-          />
-        </div>
-        <div>
-          <button onClick={navigateToLogin} className={styles.logOut}>
-            LogOut
-          </button>
-        </div>
-      </nav>
+      <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
-      <ProfileView userData={userData} />
+        <ProfileView userData={userData} />
         <div className={styles.project_view}>
           <div>
             <div className={styles.pathAndButton}>
@@ -79,10 +52,10 @@ const ReadBlog = (props) => {
                 <img src={blogData["image"]} alt={blogData["blogTitle"]} />
               </div> */}
               <div className={styles.blogContent}>
-              <MDEditor.Markdown
-              source={blogData["blogContent"]}
-              style={readBlogStyle}
-              />
+                <MDEditor.Markdown
+                  source={blogData["blogContent"]}
+                  style={readBlogStyle}
+                />
                 {/* <ReactMarkdown>
                 {blogData["blogContent"]}
                 </ReactMarkdown> */}
@@ -92,7 +65,7 @@ const ReadBlog = (props) => {
                 Created By-: {blogData["creatorName"]}
               </div>
               <div className={styles.creationTime}>
-              Created On -: {creationDate}
+                Created On -: {creationDate}
               </div>
             </div>
           </div>

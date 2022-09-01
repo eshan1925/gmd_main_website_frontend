@@ -5,12 +5,9 @@ import FileBase64 from "react-file-base64";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ProfileView from "../ProfileView";
+import UserNavbar from "../UserNavbar";
 
 const CreateBlog = (props) => {
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location = "/";
-  };
 
   const userData = JSON.parse(props.userData);
   const userid = userData._id;
@@ -37,33 +34,10 @@ const CreateBlog = (props) => {
 
   const navigate = useNavigate();
 
-  const navigateToLogin = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userData");
-    navigate("/login");
-  };
-
-  const navigateToHome = () => {
-    navigate("/");
-  };
 
   return (
     <div className={styles.main_container}>
-      <nav className={styles.navbar}>
-        <div>
-          <img
-            className={styles.logo}
-            onClick={navigateToHome}
-            src={require("../../images/gmdLogo.png")}
-            alt="logo"
-          />
-        </div>
-        <div>
-          <button onClick={navigateToLogin} className={styles.logOut}>
-            LogOut
-          </button>
-        </div>
-      </nav>
+      <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
         <ProfileView userData={userData} />
         <div className={styles.project_view}>
@@ -81,7 +55,7 @@ const CreateBlog = (props) => {
             </div>
             Blog Title-:&nbsp;&nbsp;
             <input
-            className={styles.blogTitleInput}
+              className={styles.blogTitleInput}
               type="text"
               placeholder="Enter Blog title"
               value={data.blogTitle}
