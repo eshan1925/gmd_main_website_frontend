@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+.iconProfile {
+  height: 25px;
+}
+
+
 .logo {
   padding-left: 85px;
   cursor: pointer;
@@ -23,8 +28,14 @@
   align-items: center;
 }
 
-.about {
+.about,
+.howItWorks {
   cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.about {
+  margin-right: 15px;
 }
 
 .signUp {
@@ -50,6 +61,7 @@
   font-weight: 600;
 }
 
+
 .nameImage {
   display: flex;
   flex-direction: row;
@@ -57,12 +69,14 @@
   align-items: center;
   margin-right: 50px;
   height: 45px;
+  cursor: pointer;
 }
 
 .userPic {
   width: 60px;
   height: 55px;
   border-radius: 50%;
+  margin-right: 15px;
   cursor: pointer;
 }
 
@@ -79,6 +93,7 @@
   overflow: hidden;
   transition: max-height 0.5s;
   border-radius: 38px;
+  z-index: 2;
 }
 .subMenuWrap.openMenu {
   max-height: 400px;
@@ -89,14 +104,19 @@
   padding: 20px;
   margin: 10px;
   z-index: 1;
+  height: 290px;
+  width: max-content;
 }
 .userInfo {
   display: flex;
   align-items: center;
+  height: 80px;
+  width: 180px;
 }
 .userInfo h3 {
   color: black;
   font-weight: bold;
+  font-size:medium;
 }
 .userInfo img {
   width: 60px;

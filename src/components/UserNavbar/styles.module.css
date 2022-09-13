@@ -5,6 +5,10 @@
   width: 120px;
 }
 
+.iconProfile {
+  height: 25px;
+}
+
 .logOut {
   margin: 3%;
   color: #00c3d0;
@@ -40,6 +44,7 @@
   width: 60px;
   border-radius: 50%;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .subMenuWrap {
@@ -51,6 +56,7 @@
   overflow: hidden;
   transition: max-height 0.5s;
   border-radius: 38px;
+  z-index: 2;
 }
 .subMenuWrap.openMenu {
   max-height: 400px;
@@ -59,17 +65,22 @@
   background: white;
   padding: 20px;
   margin: 10px;
+  height: 290px;
+  width: max-content;
 }
 .userInfo {
   display: flex;
   align-items: center;
+  height: 80px;
+  width: 180px;
 }
 .userInfo h3 {
   color: black;
   font-weight: bold;
+  font-size:medium;
 }
 .userInfo img {
-  width: 60px;
+  width: 50px;
   border-radius: 50%;
   margin-right: 15px;
 }
@@ -115,4 +126,5 @@
   justify-content: center;
   align-items: center;
   margin-right: 50px;
+  cursor: pointer;
 }

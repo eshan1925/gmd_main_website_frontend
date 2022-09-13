@@ -42,7 +42,7 @@ const Footer = () => {
           <div className={styles.normal}>Tutorials</div>
         </div>
       </div>
-      <hr />
+      <hr id={styles.hr}/>
       <div id={styles.absoluteFooter}>
         <div className={styles.copyright}>Copyright 2021 Getmedesign</div>
         <div>

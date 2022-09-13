@@ -1,3 +1,7 @@
+* {
+  font-family: "Poppins", sans-serif !important ;
+}
+
 .main {
   display: flex;
   flex-direction: row;
@@ -27,7 +31,6 @@
 }
 
 .mainHeading {
-  font-family: "Product Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 35px;
@@ -79,13 +82,29 @@ label {
   margin-top: 5px;
 }
 
+.rememberMe{
+  margin-top: 2px;
+}
+
+.rememberMe,
+.forgotPassword {
+  width: 300px;
+  height: 25px;
+}
+
+.checkboxx {
+  margin-top: 0px;
+  width: 50px;
+  margin-right: 10px;
+}
+
 .checkbox {
   display: flex;
   flex-direction: row;
+  width: 200px;
 }
 
 .forgotPassword {
-  font-family: "Product Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 14px;

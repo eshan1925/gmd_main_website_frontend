@@ -61,8 +61,8 @@ const CreateBlog = (props) => {
               value={data.blogTitle}
               onChange={(e) => setData({ ...data, blogTitle: e.target.value })}
             />
-            <div className="container">
-              <MDEditor value={value} onChange={setValue} />
+            <div>
+              <MDEditor id={styles.container} value={value} onChange={setValue} />
               <MDEditor.Markdown
                 source={value}
                 style={{ whiteSpace: "pre-wrap" }}

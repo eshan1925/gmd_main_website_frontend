@@ -10,8 +10,8 @@ import ReadBlog from "./components/ReadBlog";
 import ProfilePage from "./components/ProfilePage";
 
 function App() {
-  const user = localStorage.getItem("token");
-  const userData = localStorage.getItem("userData");
+  const user = sessionStorage.getItem("token");
+  const userData = sessionStorage.getItem("userData");
   return (
     <div>
       <BrowserRouter>

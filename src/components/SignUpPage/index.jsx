@@ -95,7 +95,7 @@ const SignUp = () => {
           {msg && <div className={styles.success_msg}>{msg}</div>}
           <div className={styles.checkBoxAndFP}>
             <div className={styles.checkbox}>
-              <input type="checkbox" />{" "}
+              <input className={styles.checkboxx} type="checkbox" />{" "}
               <div className={styles.rememberMe}>Remember Me</div>
             </div>
             <div className={styles.forgotPassword}>Forgot Password ?</div>

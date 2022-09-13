@@ -4,6 +4,7 @@
   border-right: 1px solid #717474;
   padding: 1.5%;
   width: 18%;
+  transition: 0.5s;
 }
 
 .profile_stats {
@@ -14,45 +15,105 @@
   border: 0.5px solid #717474;
   border-radius: 5px;
   padding: 10px;
-  padding-bottom: 35px;
+  padding-bottom: 10px;
   margin-bottom: 20px;
-  height: 240px;
+  height: 200px;
 }
 
 .profile_pic {
-  height: 200px;
-  width: 200px;
-  padding-bottom: 8%;
+  height: 120px;
+  width: 120px;
+  padding-bottom: 8px;
 }
 
 .profile_info {
   text-align: center;
+  font-weight: 600;
 }
 
-button {
+#friendsAndGroups {
+  font-weight: 400;
+}
+
+.navigationButton {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: start;
+  padding-left: 15px;
   align-items: center;
   border: 0.5px solid #717474;
   border-radius: 5px;
   background-color: #191a1a;
   color: white;
-  font-weight: 600;
+  font-weight: 400;
   width: 100%;
-  margin-bottom: 15px;
-  height: 25px;
+  margin-bottom: 7px;
+  height: 35px;
   cursor: pointer;
 }
 
-button:hover {
+.navigationButton:hover {
   background-color: #717474;
   border-color: #cdcfcf;
 }
 
+.buttonHeading {
+  width: 100px;
+  text-align: start;
+  margin-left: 20px;
+}
+
+.buttonIcon {
+  width: 25px;
+  height: 25px;
+}
 .pro_subscription {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+  margin-top: 7px;
+  border: 0.5px solid #717474;
+  border-radius: 5px;
+}
+
+.buttonName {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.shrinker {
+  text-align: center;
+  background-color: #00a6ff;
+  color: white;
+  border-radius: 25px;
+  width: 150px;
+  height: 25px;
+  margin-left: 50px;
+  margin-bottom: 7px;
+  margin-top: 0px;
+}
+
+.expander {
+  text-align: center;
+  background-color: #00a6ff;
+  color: white;
+  border-radius: 25px;
+  width: 45px;
+  height: 45px;
+  margin-left: 50px;
+  margin-bottom: 7px;
+  margin-top: 0px;
+}
+
+.expansionMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  width: 1%;
 }

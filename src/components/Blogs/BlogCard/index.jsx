@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import React from "react";
-import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const BlogCard = (props) => {
   const userId = props.userId;
@@ -11,6 +11,25 @@ const BlogCard = (props) => {
     navigate("/blogs/" + userId + "/all-blogs/" + blogId);
   };
 
+  const [writer, setWriterData] = React.useState("");
+
+  const getDataOfWriter = async () => {
+    await axios
+      .get("http://localhost:8080/profile/" + props.userId)
+      .then((response) => {
+        const foundDetails = response.data;
+        setWriterData(foundDetails[0]);
+      });
+  };
+
+  React.useEffect(() => {
+    getDataOfWriter();
+  });
+
+  var dateOfCreation = new Date(props.creationTime);
+  dateOfCreation  = dateOfCreation.toISOString();
+  dateOfCreation = dateOfCreation.substr(0,10);
+
   return (
     <div onClick={navigateToSelectedBlog} className={styles.container}>
       <div className={styles.card}>
@@ -19,25 +38,26 @@ const BlogCard = (props) => {
             src={props.image}
             alt="card__image"
             className={styles.card__image}
-            width="600"
+            width="260px"
+            height="200px"
           />
         </div>
         <div className={styles.card__body}>
           <h4>{props.title}</h4>
-          <p>
-            <ReactMarkdown>{props.content}</ReactMarkdown>
-          </p>
+          {/* <p>
+            <MDEditor.Markdown source={blogContentsSmall} />
+          </p> */}
         </div>
         <div className={styles.card__footer}>
           <div className={styles.user}>
             <img
-              src="https://i.pravatar.cc/40?img=1"
+              src={writer.profilePic}
               alt="user__image"
               className={styles.user__image}
             />
             <div className={styles.user__info}>
               <div>{props.creatorName}</div>
-              <div className={styles.position}>{props.creationTime}</div>
+              <div className={styles.position}>{dateOfCreation}</div>
             </div>
           </div>
         </div>

@@ -133,7 +133,7 @@
 
 #scrollControl {
   overflow: auto;
-  height: calc(100% - 20%);
+  height: calc(100% - 30%);
 }
 
 #scrollControl::-webkit-scrollbar {
@@ -178,8 +178,9 @@ button:hover {
 }
 
 .userPic {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
+  margin-bottom: 15px;
 }
 
 table {
@@ -276,4 +277,8 @@ and also iPads specifically.
   font-weight: 700;
   background-color: transparent;
   margin-top: 12px;
+}
+
+.space{
+  margin-top: 15px;
 }

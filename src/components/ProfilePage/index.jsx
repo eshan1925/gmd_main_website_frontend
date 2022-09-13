@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ProfileView from "../ProfileView";
 import UserNavbar from "../UserNavbar";
+import CustomizedDialogs from "./PopupBox/index";
+import EditProfile from "./EditProfile";
 
 const ProfilePage = (props) => {
   const navigate = useNavigate();
@@ -18,6 +20,8 @@ const ProfilePage = (props) => {
       .then((response) => {
         const foundContent = response.data[0];
         setUserDataFromDB(foundContent);
+        sessionStorage.removeItem("userData");
+        sessionStorage.setItem("userData",JSON.stringify(userDatafromDB));
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
@@ -26,8 +30,8 @@ const ProfilePage = (props) => {
   });
 
   const navigateToEditProfile = () => {
-    navigate("/profile/"+userData["_id"]+"/edit-profile");
-  }
+    navigate("/profile/" + userData["_id"] + "/edit-profile");
+  };
 
   return (
     <div className={styles.main_container}>
@@ -48,7 +52,7 @@ const ProfilePage = (props) => {
       </nav> */}
       <UserNavbar userInfo={userDatafromDB} />
       <div className={styles.project_manager}>
-        <ProfileView userData={userData} />
+        <ProfileView userData={userDatafromDB} />
         <div className={styles.project_view}>
           <div>
             <div className={styles.pathAndButton}>
@@ -59,7 +63,7 @@ const ProfilePage = (props) => {
             <div id={styles.scrollControl}>
               <div className={styles.profileDetails}>
                 <img
-                  src={userData["profilePic"]}
+                  src={userDatafromDB["profilePic"]}
                   className={styles.userPic}
                   alt=""
                 />
@@ -67,45 +71,50 @@ const ProfilePage = (props) => {
                   <tbody>
                     <tr>
                       <td data-column="First Name">Name</td>
-                      <td data-column="Last Name">{userData["name"]}</td>
+                      <td data-column="Last Name">{userDatafromDB["name"]}</td>
                     </tr>
                     <tr>
                       <td data-column="First Name">Email</td>
-                      <td data-column="Last Name">{userData["email"]}</td>
+                      <td data-column="Last Name">{userDatafromDB["email"]}</td>
                     </tr>
                     <tr>
                       <td data-column="First Name">Date of Birth</td>
-                      <td data-column="Last Name">{userData["dateOfBirth"]}</td>
+                      <td data-column="Last Name">{userDatafromDB["dateOfBirth"]}</td>
                     </tr>
                     <tr>
                       <td data-column="First Name">Gender</td>
-                      <td data-column="Last Name">{userData["gender"]}</td>
+                      <td data-column="Last Name">{userDatafromDB["gender"]}</td>
                     </tr>
                     <tr>
                       <td data-column="First Name">City</td>
-                      <td data-column="Last Name">{userData["city"]}</td>
+                      <td data-column="Last Name">{userDatafromDB["city"]}</td>
                     </tr>
                     <tr>
                       <td data-column="First Name">Country</td>
-                      <td data-column="Last Name">{userData["country"]}</td>
+                      <td data-column="Last Name">{userDatafromDB["country"]}</td>
                     </tr>
                     <tr>
                       <td data-column="First Name">User Id</td>
-                      <td data-column="Last Name">{userData["_id"]}</td>
+                      <td data-column="Last Name">{userDatafromDB["_id"]}</td>
                     </tr>
                     <tr>
                       <td data-column="First Name">Badges List</td>
-                      <td data-column="Last Name">{userData["badgesList"]}</td>
+                      <td data-column="Last Name">{userDatafromDB["badgesList"]}</td>
                     </tr>
                     <tr>
                       <td data-column="First Name">Bio</td>
-                      <td data-column="Last Name">{userData["Bio"]}</td>
+                      <td data-column="Last Name">{userDatafromDB["Bio"]}</td>
                     </tr>
                   </tbody>
                 </table>
-                <button onClick={navigateToEditProfile} className={styles.signUp}>
+                {/* <button onClick={navigateToEditProfile} className={styles.signUp}>
               Edit Profile
-            </button>
+            </button> */}
+                <div className={styles.space}>
+                  <CustomizedDialogs>
+                    <EditProfile />
+                  </CustomizedDialogs>
+                </div>
               </div>
             </div>
           </div>

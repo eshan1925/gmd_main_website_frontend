@@ -3,12 +3,14 @@ import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  var userData = localStorage.getItem("userData");
+  var userData = sessionStorage.getItem("userData");
   userData = JSON.parse(userData);
   // console.log(userData);
   const navigate = useNavigate();
 
   const navigateToLogin = () => {
+    sessionStorage.removeItem("userData");
+    sessionStorage.removeItem("token");
     navigate("/login");
   };
 
@@ -75,17 +77,17 @@ const Navbar = () => {
                 <hr />
 
                 <div className={styles.subMenuLink} onClick={navigateToProfile}>
-                  <img src={require("../../images/profile.png")} alt="" />
+                  <img className={styles.iconProfile} src={require("../../images/profile.png")} alt="" />
                   <p>View Profile</p>
                   <span> > </span>
                 </div>
                 <div className={styles.subMenuLink} onClick={navigateToAboutUs}>
-                  <img src={require("../../images/help.png")} alt="" />
+                  <img className={styles.iconProfile} src={require("../../images/help.png")} alt="" />
                   <p>About Us</p>
                   <span> > </span>
                 </div>
                 <div className={styles.subMenuLink} onClick={navigateToLogin}>
-                  <img src={require("../../images/logout.png")} alt="" />
+                  <img className={styles.iconProfile} src={require("../../images/logout.png")} alt="" />
                   <p>Log Out</p>
                   <span> > </span>
                 </div>

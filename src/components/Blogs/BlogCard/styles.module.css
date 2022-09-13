@@ -1,26 +1,29 @@
-
 .container {
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
   width: 260px;
-  height: 570px;
+  height: 520px;
   display: flex;
   flex-wrap: wrap;
   max-width: 600px;
   margin-block: 1rem;
   color: black;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
-.container:hover{
+.container:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 
-.card_image .user__image {
+.card__image .user__image {
   max-width: 100%;
   display: block;
   object-fit: cover;
   height: 12em;
+}
+
+.card__image {
+  z-index: -1;
 }
 
 .card {
@@ -114,12 +117,12 @@ p {
   height: 22px;
   margin-left: 15px;
   width: 70%;
-  font-size:9.87px;
+  font-size: 9.87px;
   font-weight: 800;
   padding-bottom: 7px;
 }
 
-.position{
-    font-weight: 600;
-    color: #515151;
+.position {
+  font-weight: 600;
+  color: #515151;
 }

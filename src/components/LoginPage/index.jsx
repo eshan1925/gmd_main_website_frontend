@@ -29,8 +29,8 @@ const LoginPage = () => {
     try {
       const url = "http://localhost:8080/api/auth";
       const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data);
-      localStorage.setItem("userData", JSON.stringify(res.userData));
+      sessionStorage.setItem("token", res.data);
+      sessionStorage.setItem("userData", JSON.stringify(res.userData));
 
       window.location = `/project-manager/${res.userData._id}`;
     } catch (error) {
@@ -44,8 +44,39 @@ const LoginPage = () => {
     }
   };
 
+  const getCookieData = () =>{
+    // console.log(getCookie("myEmail"));
+    // console.log(getCookie("myPwd"));
+    setData({"email":getCookie("myEmail"),"password":getCookie("myPwd")});
+  }
+
+  // React.useEffect(() => {
+  //   getCookieData();
+  // });
+
+  const setCookie = () => {
+    document.cookie = "myEmail="+data.email+";path=http:localhost:3000";
+    document.cookie = "myPwd="+data.password+";path=http:localhost:3000";
+  };
+
+  const getCookie = (cname) => {
+    var name = cname+"=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i=0;i<ca.length;i++){
+      var c = ca[i];
+      while(c.charAt(0)===' '){
+        c= c.substring(1);
+      }
+      if(c.indexOf(name)===0){
+        return c.substring(name.length,c.length);
+      }
+    }
+    return "";
+  }
+
   return (
-    <div className={styles.main}>
+    <div onLoad={getCookieData} className={styles.main}>
       <img
         className={styles.loginImage}
         src={require("../../images/login.png")}
@@ -85,7 +116,7 @@ const LoginPage = () => {
           {error && <div className={styles.error_msg}>{error}</div>}
           <div className={styles.checkBoxAndFP}>
             <div className={styles.checkbox}>
-              <input type="checkbox" />{" "}
+              <input onClick={setCookie} className={styles.checkboxx} type="checkbox" />{" "}
               <div className={styles.rememberMe}>Remember Me</div>
             </div>
             <div className={styles.forgotPassword}>Forgot Password ?</div>

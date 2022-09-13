@@ -39,8 +39,9 @@
   color: #ffffff;
 }
 
-hr {
-  width: 98%;
+#hr {
+  margin-right: 25px;
+  width: 78%;
 }
 
 #absoluteFooter {

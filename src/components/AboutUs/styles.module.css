@@ -1,3 +1,7 @@
+* {
+  font-family: "Poppins", sans-serif !important ;
+}
+
 .main {
   display: flex;
   flex-direction: column;

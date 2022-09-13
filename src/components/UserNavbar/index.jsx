@@ -6,8 +6,8 @@ const UserNavbar = (props) => {
   var userData = props.userInfo;
   const navigate = useNavigate();
   const navigateToLogin = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userData");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("userData");
     navigate("/login");
   };
 
@@ -68,7 +68,7 @@ const UserNavbar = (props) => {
             <hr />
 
             <div className={styles.subMenuLink} onClick={navigateToProfile}>
-              <img src={require("../../images/profile.png")} alt="" />
+              <img className={styles.iconProfile} src={require("../../images/profile.png")} alt="" />
               <p>View Profile</p>
               <span> > </span>
             </div>
@@ -79,12 +79,12 @@ const UserNavbar = (props) => {
             <span> > </span>
           </div> */}
             <div className={styles.subMenuLink} onClick={navigateToAboutUs}>
-              <img src={require("../../images/help.png")} alt="" />
+              <img className={styles.iconProfile} src={require("../../images/help.png")} alt="" />
               <p>About Us</p>
               <span> > </span>
             </div>
             <div className={styles.subMenuLink} onClick={navigateToLogin}>
-              <img src={require("../../images/logout.png")} alt="" />
+              <img className={styles.iconProfile} src={require("../../images/logout.png")} alt="" />
               <p>Log Out</p>
               <span> > </span>
             </div>
