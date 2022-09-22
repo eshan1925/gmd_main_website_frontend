@@ -16,12 +16,12 @@ const ProfilePage = (props) => {
 
   const getUserData = async () => {
     await axios
-      .get("http://localhost:8080/profile/" + userid)
+      .get("http://54.165.16.58:8080/profile/" + userid)
       .then((response) => {
         const foundContent = response.data[0];
         setUserDataFromDB(foundContent);
         sessionStorage.removeItem("userData");
-        sessionStorage.setItem("userData",JSON.stringify(userDatafromDB));
+        sessionStorage.setItem("userData", JSON.stringify(userDatafromDB));
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
@@ -79,11 +79,15 @@ const ProfilePage = (props) => {
                     </tr>
                     <tr>
                       <td data-column="First Name">Date of Birth</td>
-                      <td data-column="Last Name">{userDatafromDB["dateOfBirth"]}</td>
+                      <td data-column="Last Name">
+                        {userDatafromDB["dateOfBirth"]}
+                      </td>
                     </tr>
                     <tr>
                       <td data-column="First Name">Gender</td>
-                      <td data-column="Last Name">{userDatafromDB["gender"]}</td>
+                      <td data-column="Last Name">
+                        {userDatafromDB["gender"]}
+                      </td>
                     </tr>
                     <tr>
                       <td data-column="First Name">City</td>
@@ -91,7 +95,9 @@ const ProfilePage = (props) => {
                     </tr>
                     <tr>
                       <td data-column="First Name">Country</td>
-                      <td data-column="Last Name">{userDatafromDB["country"]}</td>
+                      <td data-column="Last Name">
+                        {userDatafromDB["country"]}
+                      </td>
                     </tr>
                     <tr>
                       <td data-column="First Name">User Id</td>
@@ -99,7 +105,9 @@ const ProfilePage = (props) => {
                     </tr>
                     <tr>
                       <td data-column="First Name">Badges List</td>
-                      <td data-column="Last Name">{userDatafromDB["badgesList"]}</td>
+                      <td data-column="Last Name">
+                        {userDatafromDB["badgesList"]}
+                      </td>
                     </tr>
                     <tr>
                       <td data-column="First Name">Bio</td>

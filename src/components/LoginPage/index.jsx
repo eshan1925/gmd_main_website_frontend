@@ -27,7 +27,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/auth";
+      const url = "http://54.165.16.58:8080/api/auth";
       const { data: res } = await axios.post(url, data);
       sessionStorage.setItem("token", res.data);
       sessionStorage.setItem("userData", JSON.stringify(res.userData));
@@ -44,36 +44,36 @@ const LoginPage = () => {
     }
   };
 
-  const getCookieData = () =>{
+  const getCookieData = () => {
     // console.log(getCookie("myEmail"));
     // console.log(getCookie("myPwd"));
-    setData({"email":getCookie("myEmail"),"password":getCookie("myPwd")});
-  }
+    setData({ email: getCookie("myEmail"), password: getCookie("myPwd") });
+  };
 
   // React.useEffect(() => {
   //   getCookieData();
   // });
 
   const setCookie = () => {
-    document.cookie = "myEmail="+data.email+";path=http:localhost:3000";
-    document.cookie = "myPwd="+data.password+";path=http:localhost:3000";
+    document.cookie = "myEmail=" + data.email + ";path=http:localhost:3000";
+    document.cookie = "myPwd=" + data.password + ";path=http:localhost:3000";
   };
 
   const getCookie = (cname) => {
-    var name = cname+"=";
+    var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i=0;i<ca.length;i++){
+    var ca = decodedCookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
       var c = ca[i];
-      while(c.charAt(0)===' '){
-        c= c.substring(1);
+      while (c.charAt(0) === " ") {
+        c = c.substring(1);
       }
-      if(c.indexOf(name)===0){
-        return c.substring(name.length,c.length);
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
       }
     }
     return "";
-  }
+  };
 
   return (
     <div onLoad={getCookieData} className={styles.main}>
@@ -116,7 +116,11 @@ const LoginPage = () => {
           {error && <div className={styles.error_msg}>{error}</div>}
           <div className={styles.checkBoxAndFP}>
             <div className={styles.checkbox}>
-              <input onClick={setCookie} className={styles.checkboxx} type="checkbox" />{" "}
+              <input
+                onClick={setCookie}
+                className={styles.checkboxx}
+                type="checkbox"
+              />{" "}
               <div className={styles.rememberMe}>Remember Me</div>
             </div>
             <div className={styles.forgotPassword}>Forgot Password ?</div>

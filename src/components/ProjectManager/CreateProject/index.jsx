@@ -23,7 +23,7 @@ const CreateProject = (props) => {
     e.preventDefault();
     try {
       data.creatorOfProject = props.userId;
-      const url = "http://localhost:8080/createproject";
+      const url = "http://54.165.16.58:8080/createproject";
       const { data: res } = await axios.post(url, data);
       window.location = "/";
     } catch (error) {

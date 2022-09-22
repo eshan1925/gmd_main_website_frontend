@@ -7,7 +7,6 @@ import ProfileView from "../ProfileView";
 import UserNavbar from "../UserNavbar";
 
 const BlogsComponent = (props) => {
-
   const userData = JSON.parse(props.userData);
   const userid = userData._id;
   const [blogs, getAllBlogs] = React.useState("");
@@ -35,7 +34,6 @@ const BlogsComponent = (props) => {
     navigate("/blogs/" + userid + "/favourite");
   };
 
-
   React.useEffect(() => {
     getBlogs();
   });
@@ -43,7 +41,7 @@ const BlogsComponent = (props) => {
   const getBlogs = async () => {
     setLoading(true);
     await axios
-      .get("http://localhost:8080/blogs/" + userid + "/" + blogCategory)
+      .get("http://54.165.16.58:8080/blogs/" + userid + "/" + blogCategory)
       .then((response) => {
         const foundBlogs = response.data;
         getAllBlogs(foundBlogs);

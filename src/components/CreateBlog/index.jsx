@@ -8,7 +8,6 @@ import ProfileView from "../ProfileView";
 import UserNavbar from "../UserNavbar";
 
 const CreateBlog = (props) => {
-
   const userData = JSON.parse(props.userData);
   const userid = userData._id;
   const creatorName = userData.name;
@@ -24,7 +23,7 @@ const CreateBlog = (props) => {
     data["timeOfCreation"] = today;
     data["blogContent"] = value;
     try {
-      const url = "http://localhost:8080/new-blog-post";
+      const url = "http://54.165.16.58:8080/new-blog-post";
       const { data: res } = await axios.post(url, data);
       navigate("/blogs/" + userid + "/my-blogs");
     } catch (error) {
@@ -33,7 +32,6 @@ const CreateBlog = (props) => {
   };
 
   const navigate = useNavigate();
-
 
   return (
     <div className={styles.main_container}>
@@ -62,7 +60,11 @@ const CreateBlog = (props) => {
               onChange={(e) => setData({ ...data, blogTitle: e.target.value })}
             />
             <div>
-              <MDEditor id={styles.container} value={value} onChange={setValue} />
+              <MDEditor
+                id={styles.container}
+                value={value}
+                onChange={setValue}
+              />
               <MDEditor.Markdown
                 source={value}
                 style={{ whiteSpace: "pre-wrap" }}

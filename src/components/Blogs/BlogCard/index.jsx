@@ -15,7 +15,7 @@ const BlogCard = (props) => {
 
   const getDataOfWriter = async () => {
     await axios
-      .get("http://localhost:8080/profile/" + props.userId)
+      .get("http://54.165.16.58:8080/profile/" + props.userId)
       .then((response) => {
         const foundDetails = response.data;
         setWriterData(foundDetails[0]);
@@ -27,8 +27,8 @@ const BlogCard = (props) => {
   });
 
   var dateOfCreation = new Date(props.creationTime);
-  dateOfCreation  = dateOfCreation.toISOString();
-  dateOfCreation = dateOfCreation.substr(0,10);
+  dateOfCreation = dateOfCreation.toISOString();
+  dateOfCreation = dateOfCreation.substr(0, 10);
 
   return (
     <div onClick={navigateToSelectedBlog} className={styles.container}>
