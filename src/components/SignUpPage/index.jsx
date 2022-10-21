@@ -29,7 +29,7 @@ const SignUp = () => {
     setMsg("");
     e.preventDefault();
     try {
-      const url = "http://54.165.16.58:8080/api/users";
+      const url = "http://localhost:8080/api/users";
       const { data: res } = await axios.post(url, data);
       setMsg(res.message);
     } catch (error) {

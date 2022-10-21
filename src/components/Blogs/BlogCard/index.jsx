@@ -15,7 +15,7 @@ const BlogCard = (props) => {
 
   const getDataOfWriter = async () => {
     await axios
-      .get("http://54.165.16.58:8080/profile/" + props.userId)
+      .get("http://localhost:8080/profile/" + props.userId)
       .then((response) => {
         const foundDetails = response.data;
         setWriterData(foundDetails[0]);

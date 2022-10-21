@@ -41,7 +41,7 @@ const BlogsComponent = (props) => {
   const getBlogs = async () => {
     setLoading(true);
     await axios
-      .get("http://54.165.16.58:8080/blogs/" + userid + "/" + blogCategory)
+      .get("http://localhost:8080/blogs/" + userid + "/" + blogCategory)
       .then((response) => {
         const foundBlogs = response.data;
         getAllBlogs(foundBlogs);

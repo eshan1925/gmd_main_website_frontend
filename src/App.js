@@ -8,6 +8,8 @@ import BlogsComponent from "./components/Blogs";
 import CreateBlog from "./components/CreateBlog";
 import ReadBlog from "./components/ReadBlog";
 import ProfilePage from "./components/ProfilePage";
+import SocialMediaFeed from "./components/SocialMediaFeed";
+import SocialMediaFeedProfile from "./components/SocialMediaFeed/SocialMediaFeedProfile";
 
 function App() {
   const user = sessionStorage.getItem("token");
@@ -20,6 +22,23 @@ function App() {
           <Route path="/about-us" exact element={<AboutUs />} />
           <Route path="/login" exact element={<LoginPage />} />
           <Route path="/signup" exact element={<SignUp />} />
+          {user && <Route path="/social-feed" exact element={<AboutUs />} />}
+          {user && (
+            <Route
+              path="/feeds/:id"
+              exact
+              element={<SocialMediaFeed userData={userData} />}
+            />
+          )}
+
+          {user && (
+            <Route
+              path="/feeds/profile/:id"
+              exact
+              element={<SocialMediaFeedProfile userData={userData} />}
+            />
+          )}
+
           {user && (
             <Route
               path="/project-manager/:id"

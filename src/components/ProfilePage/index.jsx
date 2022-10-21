@@ -16,7 +16,7 @@ const ProfilePage = (props) => {
 
   const getUserData = async () => {
     await axios
-      .get("http://54.165.16.58:8080/profile/" + userid)
+      .get("http://localhost:8080/profile/" + userid)
       .then((response) => {
         const foundContent = response.data[0];
         setUserDataFromDB(foundContent);

@@ -14,6 +14,7 @@ const EditProfile = () => {
   //     dateOfBirth: `${userData.dateOfBirth}`,
   //     profilePic: `${userData.profilePic}`,
   const [data, setData] = useState({
+    _id: userData["_id"],
     name: userData["name"],
     gender: userData["gender"],
     Bio: userData["Bio"],
@@ -31,8 +32,11 @@ const EditProfile = () => {
     e.preventDefault();
     try {
       const url =
-        "http://54.165.16.58:8080/profile/" + userData._id + "/edit-profile";
-      const { data: res } = await axios.post(url, data);
+        (process.env.BACKEND_PORT || "http://localhost") +
+        ":8080/profile/" +
+        userData._id +
+        "/edit-profile";
+      const { data: res } = await axios.put(url, data);
 
       // const url2 = "http:/localhost:8080/profile/"+userData._id;
       // const data2 = await axios.get(url2).then((response)=>{
@@ -58,6 +62,7 @@ const EditProfile = () => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Name</div>
             <input
+            className={styles.inputContainer}
               name="name"
               value={data.name}
               type="text"
@@ -68,6 +73,7 @@ const EditProfile = () => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Gender</div>
             <input
+            className={styles.inputContainer}
               name="gender"
               value={data.gender}
               type="text"
@@ -80,6 +86,7 @@ const EditProfile = () => {
           <div className={styles.mainInput}>
             <div className={styles.title}>City</div>
             <input
+            className={styles.inputContainer}
               name="city"
               value={data.city}
               type="text"
@@ -90,6 +97,7 @@ const EditProfile = () => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Country</div>
             <input
+            className={styles.inputContainer}
               name="country"
               value={data.country}
               type="text"
@@ -110,6 +118,7 @@ const EditProfile = () => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Date of Birth</div>
             <input
+            className={styles.inputContainer}
               name="dateOfBirth"
               value={data.dateOfBirth}
               type="date"

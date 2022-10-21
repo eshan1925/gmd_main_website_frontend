@@ -11,11 +11,11 @@ const ProjectDetails = () => {
   const userId = userData._id;
   // var config = {
   //     method: 'get',
-  //     url: 'http://54.165.16.58:8080/project-manager/' + userId,
+  //     url: 'http://localhost:8080/project-manager/' + userId,
   //     headers: {}
   // };
 
-  const url = "http://54.165.16.58:8080/project-manager/" + userId;
+  const url = "http://localhost:8080/project-manager/" + userId;
 
   useEffect(() => {
     getAllProjects();
