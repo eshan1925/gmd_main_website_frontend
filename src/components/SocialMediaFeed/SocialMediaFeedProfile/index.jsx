@@ -14,18 +14,22 @@ const SocialMediaFeedProfile = (props) => {
   const text = window.location.pathname;
   const myPath = text.split("/");
   const userWithTheProfile = myPath[myPath.length - 1];
+  // console.log(user.followers.includes(userWithTheProfile));
+
   const [followed, setFollowed] = useState(
-    user.following.includes(userWithTheProfile)
   );
   const [currentUserForProfilePageView, setCurrentUserforProfilePageView] =
     useState({});
   const [posts, setPosts] = useState([]);
-  
 
   useEffect(() => {
     // console.log(userData._id);
-
     const fetchPosts = async () => {
+      var instantUser = await axios.get(
+        "http://localhost:8080/profile/" + user._id
+      );
+      instantUser = instantUser.data[0];
+      setFollowed(instantUser.followers.includes(userWithTheProfile));
       var currentUserProfile = await axios.get(
         "http://localhost:8080/profile/" + userWithTheProfile
       );
@@ -46,12 +50,9 @@ const SocialMediaFeedProfile = (props) => {
   const handleClick = async () => {
     try {
       if (followed) {
-        await axios.put(
-          `http://localhost:8080/profile/${user._id}/unfollow`,
-          {
-            userId: userWithTheProfile,
-          }
-        );
+        await axios.put(`http://localhost:8080/profile/${user._id}/unfollow`, {
+          userId: userWithTheProfile,
+        });
       } else {
         await axios.put(`http://localhost:8080/profile/${user._id}/follow`, {
           userId: userWithTheProfile,
