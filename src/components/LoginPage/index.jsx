@@ -27,12 +27,12 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://54.165.16.58:8080/api/auth";
+      const url = "http://localhost:8080/api/auth";
       const { data: res } = await axios.post(url, data);
       sessionStorage.setItem("token", res.data);
       sessionStorage.setItem("userData", JSON.stringify(res.userData));
 
-      window.location = `/project-manager/${res.userData._id}`;
+      window.location = `/feeds/${res.userData._id}`;
     } catch (error) {
       if (
         error.response &&

@@ -23,7 +23,7 @@ const CreateBlog = (props) => {
     data["timeOfCreation"] = today;
     data["blogContent"] = value;
     try {
-      const url = "http://54.165.16.58:8080/new-blog-post";
+      const url = "http://localhost:8080/new-blog-post";
       const { data: res } = await axios.post(url, data);
       navigate("/blogs/" + userid + "/my-blogs");
     } catch (error) {

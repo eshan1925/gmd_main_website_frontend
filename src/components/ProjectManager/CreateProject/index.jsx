@@ -23,7 +23,7 @@ const CreateProject = (props) => {
     e.preventDefault();
     try {
       data.creatorOfProject = props.userId;
-      const url = "http://54.165.16.58:8080/createproject";
+      const url = "http://localhost:8080/createproject";
       const { data: res } = await axios.post(url, data);
       window.location = "/";
     } catch (error) {
@@ -44,6 +44,7 @@ const CreateProject = (props) => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Name of the Project</div>
             <input
+            className={styles.inputt}
               name="title"
               value={data.title}
               type="text"
@@ -54,6 +55,7 @@ const CreateProject = (props) => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Categories of the Project</div>
             <input
+            className={styles.inputt}
               name="tags"
               value={data.tags}
               type="text"
@@ -66,6 +68,7 @@ const CreateProject = (props) => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Location</div>
             <input
+            className={styles.inputt}
               name="location"
               value={data.location}
               type="text"
@@ -76,6 +79,7 @@ const CreateProject = (props) => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Language</div>
             <input
+            className={styles.inputt}
               name="language"
               value={data.language}
               type="text"
@@ -88,6 +92,7 @@ const CreateProject = (props) => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Attachments</div>
             <input
+            className={styles.inputt}
               name="attachments"
               value={data.attachments}
               type="file"
@@ -97,6 +102,7 @@ const CreateProject = (props) => {
           <div className={styles.mainInput}>
             <div className={styles.title}>Due Date</div>
             <input
+            className={styles.inputt}
               name="dueDate"
               value={data.dueDate}
               type="date"
@@ -112,7 +118,8 @@ const CreateProject = (props) => {
           placeholder="Describe your Project"
           onChange={handleChange}
         />
-        <input type="hidden" name="creatorOfProject" value={props.userId} />
+        <input
+        className={styles.inputt} type="hidden" name="creatorOfProject" value={props.userId} />
         <button className={styles.submitButton} type="submit">
           Create Project
         </button>

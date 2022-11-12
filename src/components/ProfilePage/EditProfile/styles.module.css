@@ -46,7 +46,7 @@ textarea {
   font-size: larger;
 }
 
-input {
+.inputContainer {
   background-color: #18191a;
   margin-top: 2.5em;
   width: 250px;

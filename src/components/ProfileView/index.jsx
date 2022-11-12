@@ -54,8 +54,7 @@ const ProfileView = (props) => {
               <div className={styles.profile_info}>
                 {userData.name}✅<br />
                 <div id={styles.friendsAndGroups}>
-                  0 Friends&nbsp;&nbsp;{" "}
-                  0 Groups
+                  0 Friends&nbsp;&nbsp; 0 Groups
                 </div>
               </div>
             </div>
@@ -65,7 +64,11 @@ const ProfileView = (props) => {
                 onClick={navigateToProjects}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon} src={require("../../images/Icons/project.png")} alt="" />
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../images/Icons/project.png")}
+                    alt=""
+                  />
                   <div className={styles.buttonHeading}>Projects</div>
                 </div>
               </button>
@@ -74,7 +77,11 @@ const ProfileView = (props) => {
                 onClick={navigateToTasks}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon} src={require("../../images/Icons/tasks.png")} alt="" />
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../images/Icons/tasks.png")}
+                    alt=""
+                  />
                   <div className={styles.buttonHeading}>Tasks</div>
                 </div>
               </button>
@@ -83,7 +90,8 @@ const ProfileView = (props) => {
                 onClick={navigateToBlogs}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon}
+                  <img
+                    className={styles.buttonIcon}
                     src={require("../../images/Icons/meetings.png")}
                     alt=""
                   />
@@ -95,11 +103,12 @@ const ProfileView = (props) => {
                 onClick={navigateToCalendar}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon}
+                  <img
+                    className={styles.buttonIcon}
                     src={require("../../images/Icons/calendar.png")}
                     alt=""
                   />
-                 <div className={styles.buttonHeading}>Calendar</div>
+                  <div className={styles.buttonHeading}>Calendar</div>
                 </div>
               </button>
               <button
@@ -107,7 +116,8 @@ const ProfileView = (props) => {
                 onClick={navigateToMeetings}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon}
+                  <img
+                    className={styles.buttonIcon}
                     src={require("../../images/Icons/meetings.png")}
                     alt=""
                   />
@@ -119,7 +129,8 @@ const ProfileView = (props) => {
                 onClick={navigateToPayments}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon}
+                  <img
+                    className={styles.buttonIcon}
                     src={require("../../images/Icons/payments.png")}
                     alt=""
                   />
@@ -138,11 +149,11 @@ const ProfileView = (props) => {
           </div>
         </>
       ) : (
-          <div className={styles.expansionMenu}>
-            <button onClick={sideBarValue} className={styles.expander}>
-              >
-            </button>
-          </div>
+        <div className={styles.expansionMenu}>
+          <button onClick={sideBarValue} className={styles.expander}>
+            >
+          </button>
+        </div>
       )}
     </>
   );
