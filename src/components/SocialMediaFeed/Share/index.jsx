@@ -21,7 +21,10 @@ const Share = () => {
     };
 
     try {
-      await axios.post("http://localhost:8080/api/posts/", newPost);
+      await axios.post(
+        "https://get-me-design-backend.herokuapp.com/api/posts/",
+        newPost
+      );
       window.location.reload();
     } catch (error) {}
   };

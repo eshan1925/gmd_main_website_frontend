@@ -1,10 +1,9 @@
 import React from "react";
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./post.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import axios from "axios";
 import { format } from "timeago.js";
-
 
 const Post = ({ post }) => {
   const [like, setLike] = useState(post.likes.length);
@@ -13,15 +12,14 @@ const Post = ({ post }) => {
   // const { user: currentUser } = useContext(AuthContext);
   const currentUser = JSON.parse(sessionStorage.getItem("userData"));
 
-
-  useEffect(()=>{
+  useEffect(() => {
     setIsLiked(post.likes.includes(currentUser._id));
-  },[currentUser._id,post.likes]);
+  }, [currentUser._id, post.likes]);
 
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        `http://localhost:8080/profile/${post.userId}`
+        `https://get-me-design-backend.herokuapp.com/profile/${post.userId}`
       );
       setUser(res.data[0]);
     };
@@ -29,18 +27,20 @@ const Post = ({ post }) => {
     console.log(user);
   }, [post.userId]);
 
-
   const likeHandler = async () => {
     try {
-      await axios.put("http://localhost:8080/api/posts/" + post._id + "/like", {
-        userId: currentUser._id,
-      });
+      await axios.put(
+        "https://get-me-design-backend.herokuapp.com/api/posts/" +
+          post._id +
+          "/like",
+        {
+          userId: currentUser._id,
+        }
+      );
     } catch (error) {}
-      setLike(isLiked ? like - 1 : like + 1);
-      setIsLiked(!isLiked);
+    setLike(isLiked ? like - 1 : like + 1);
+    setIsLiked(!isLiked);
   };
-
-  
 
   return (
     <div className="post">
@@ -50,9 +50,7 @@ const Post = ({ post }) => {
             <a href={`profile/${user._id}`}>
               <img
                 className="postProfileImg"
-                src={
-                  user.profilePic
-                }
+                src={user.profilePic}
                 alt=""
               ></img>
             </a>

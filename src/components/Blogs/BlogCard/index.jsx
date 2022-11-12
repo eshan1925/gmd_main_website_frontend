@@ -15,7 +15,9 @@ const BlogCard = (props) => {
 
   const getDataOfWriter = async () => {
     await axios
-      .get("http://localhost:8080/profile/" + props.userId)
+      .get(
+        "https://get-me-design-backend.herokuapp.com/profile/" + props.userId
+      )
       .then((response) => {
         const foundDetails = response.data;
         setWriterData(foundDetails[0]);

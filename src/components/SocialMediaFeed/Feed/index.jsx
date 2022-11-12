@@ -15,7 +15,8 @@ const Feed = (props) => {
 
     const fetchPosts = async () => {
       const res = await axios.get(
-        "http://localhost:8080/api/posts/timeline/" + userData._id
+        "https://get-me-design-backend.herokuapp.com/api/posts/timeline/" +
+          userData._id
       );
 
       setPosts(

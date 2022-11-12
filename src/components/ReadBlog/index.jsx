@@ -15,7 +15,14 @@ const ReadBlog = (props) => {
   var category = props.category;
   const getBlogData = async () => {
     await axios
-      .get("http://localhost:8080/blogs/" + userid + "/" + category + "/" + c)
+      .get(
+        "https://get-me-design-backend.herokuapp.com/blogs/" +
+          userid +
+          "/" +
+          category +
+          "/" +
+          c
+      )
       .then((response) => {
         const foundContent = response.data[0];
         setBlogData(foundContent);

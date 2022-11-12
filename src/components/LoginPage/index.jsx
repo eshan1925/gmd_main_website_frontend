@@ -27,7 +27,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/auth";
+      const url = "https://get-me-design-backend.herokuapp.com/api/auth";
       const { data: res } = await axios.post(url, data);
       sessionStorage.setItem("token", res.data);
       sessionStorage.setItem("userData", JSON.stringify(res.userData));

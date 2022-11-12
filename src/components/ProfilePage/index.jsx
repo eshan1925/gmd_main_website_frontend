@@ -16,7 +16,7 @@ const ProfilePage = (props) => {
 
   const getUserData = async () => {
     await axios
-      .get("http://localhost:8080/profile/" + userid)
+      .get("https://get-me-design-backend.herokuapp.com/profile/" + userid)
       .then((response) => {
         const foundContent = response.data[0];
         setUserDataFromDB(foundContent);

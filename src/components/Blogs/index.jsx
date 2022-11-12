@@ -41,7 +41,12 @@ const BlogsComponent = (props) => {
   const getBlogs = async () => {
     setLoading(true);
     await axios
-      .get("http://localhost:8080/blogs/" + userid + "/" + blogCategory)
+      .get(
+        "https://get-me-design-backend.herokuapp.com/blogs/" +
+          userid +
+          "/" +
+          blogCategory
+      )
       .then((response) => {
         const foundBlogs = response.data;
         getAllBlogs(foundBlogs);

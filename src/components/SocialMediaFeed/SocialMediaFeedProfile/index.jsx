@@ -16,8 +16,7 @@ const SocialMediaFeedProfile = (props) => {
   const userWithTheProfile = myPath[myPath.length - 1];
   // console.log(user.followers.includes(userWithTheProfile));
 
-  const [followed, setFollowed] = useState(
-  );
+  const [followed, setFollowed] = useState();
   const [currentUserForProfilePageView, setCurrentUserforProfilePageView] =
     useState({});
   const [posts, setPosts] = useState([]);
@@ -26,16 +25,18 @@ const SocialMediaFeedProfile = (props) => {
     // console.log(userData._id);
     const fetchPosts = async () => {
       var instantUser = await axios.get(
-        "http://localhost:8080/profile/" + user._id
+        "https://get-me-design-backend.herokuapp.com/profile/" + user._id
       );
       instantUser = instantUser.data[0];
       setFollowed(instantUser.followers.includes(userWithTheProfile));
       var currentUserProfile = await axios.get(
-        "http://localhost:8080/profile/" + userWithTheProfile
+        "https://get-me-design-backend.herokuapp.com/profile/" +
+          userWithTheProfile
       );
       setCurrentUserforProfilePageView(currentUserProfile["data"][0]);
       const res = await axios.get(
-        "http://localhost:8080/api/posts/profile/" + userWithTheProfile
+        "https://get-me-design-backend.herokuapp.com/api/posts/profile/" +
+          userWithTheProfile
       );
 
       setPosts(
@@ -50,13 +51,19 @@ const SocialMediaFeedProfile = (props) => {
   const handleClick = async () => {
     try {
       if (followed) {
-        await axios.put(`http://localhost:8080/profile/${user._id}/unfollow`, {
-          userId: userWithTheProfile,
-        });
+        await axios.put(
+          `https://get-me-design-backend.herokuapp.com/profile/${user._id}/unfollow`,
+          {
+            userId: userWithTheProfile,
+          }
+        );
       } else {
-        await axios.put(`http://localhost:8080/profile/${user._id}/follow`, {
-          userId: userWithTheProfile,
-        });
+        await axios.put(
+          `https://get-me-design-backend.herokuapp.com/profile/${user._id}/follow`,
+          {
+            userId: userWithTheProfile,
+          }
+        );
       }
       setFollowed(!followed);
     } catch (err) {
