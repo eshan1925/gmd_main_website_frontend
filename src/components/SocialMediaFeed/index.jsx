@@ -1,6 +1,7 @@
 import React from "react";
 import SocialProfileView from "./SocialProfileView";
 import UserNavbar from "../UserNavbar";
+import Rightbar from "../SocialMediaFeed/Rightbar";
 import Feed from "./Feed";
 import "./extra.css";
 
@@ -12,8 +13,7 @@ const SocialMediaFeed = (props) => {
       <div className="homeContainer">
         <SocialProfileView userData={userData} />
         <Feed user={userData} homePage={false} />
-        <SocialProfileView userData={userData} />
-        {/* <Rightbar profile=""/> */}
+        <Rightbar profile="" />
       </div>
     </>
   );
