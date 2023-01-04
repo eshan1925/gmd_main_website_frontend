@@ -2,133 +2,381 @@ import React from "react";
 import styles from "./styles.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ProfileView from "../ProfileView";
+import SocialProfileView from "../SocialMediaFeed/SocialProfileView";
+import "../SocialMediaFeed/extra.css";
 import UserNavbar from "../UserNavbar";
 import CustomizedDialogs from "./PopupBox/index";
 import EditProfile from "./EditProfile";
+import EditProfilePic from "./EditProfilePic";
+import CustomizedDialogsCoverImg from "./EditCoverImagePopUp/index";
+import EditCoverImage from "./EditCoverImage";
+import Post from "../SocialMediaFeed/Post";
+// import Share from "../SocialMediaFeed/Share";
+// import { Add, Remove } from "@mui/icons-material";
+// import Rightbar from "../SocialMediaFeed/Rightbar";
+import CircularProgress from "@mui/material/CircularProgress";
+import Connections from "./Connections";
+import CustomizedDialogsProfilePic from "./EditProfilePicPopUp/index";
 
 const ProfilePage = (props) => {
   const navigate = useNavigate();
-  const userData = JSON.parse(props.userData);
-  const userid = userData._id;
+  const userData = JSON.parse(props.userData); //currentUserData
+  const userid = userData._id; //currentUserID
+  const [selectedMenu, setSelectedMenu] = React.useState("1");
+  const [currentUserForProfilePageView, setCurrentUserforProfilePageView] =
+    React.useState({}); //?
+  const [posts, setPosts] = React.useState([]); //currentPosts
 
-  const [userDatafromDB, setUserDataFromDB] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [loadingService, setLoadingService] = React.useState(false);
+  const [profileLoading, setProfileLoading] = React.useState(false);
+  const [userDataForTheView, setUserDataForTheView] = React.useState({}); //UserData
+  const [projects, setProjects] = React.useState([]);
+  const [services, setServices] = React.useState([]);
 
-  const getUserData = async () => {
+  const fetchCurrentProjects = async (e) => {
+    setLoading(true);
     await axios
-      .get("https://get-me-design-backend.herokuapp.com/profile/" + userid)
+      .get("http://localhost:8080/dynamicPortfolio/projects/" + userid)
       .then((response) => {
-        const foundContent = response.data[0];
-        setUserDataFromDB(foundContent);
-        sessionStorage.removeItem("userData");
-        sessionStorage.setItem("userData", JSON.stringify(userDatafromDB));
+        const currentProjects = response.data;
+        setProjects(currentProjects);
+
+        setLoading(false);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  };
+
+  const fetchCurrentServices = async (e) => {
+    setLoadingService(true);
+    await axios
+      .get("http://localhost:8080/dynamicPortfolio/services/" + userid)
+      .then((response) => {
+        const currentProjects = response.data;
+        setServices(currentProjects);
+
+        setLoadingService(false);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  };
+
+  const fetchUserProfileInfo = async (e) => {
+    setProfileLoading(true);
+    await axios
+      .get("http://localhost:8080/profile/" + userid)
+      .then((response) => {
+        const fetchedDataFromRoute = response.data;
+        setUserDataForTheView(fetchedDataFromRoute);
+        setProfileLoading(false);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
   React.useEffect(() => {
-    getUserData();
-  });
+    const fetchPosts = async () => {
+      var currentUserProfile = await axios.get(
+        "http://localhost:8080/profile/" + userid
+      );
+      setCurrentUserforProfilePageView(currentUserProfile["data"][0]);
+      const res = await axios.get(
+        "http://localhost:8080/api/posts/profile/" + userid
+      );
+
+      setPosts(
+        res.data.sort((p1, p2) => {
+          return new Date(p2.createdAt) - new Date(p1.createdAt);
+        })
+      );
+    };
+    fetchPosts();
+    fetchCurrentProjects();
+    fetchCurrentServices();
+    fetchUserProfileInfo();
+  }, [userid]);
+
+  var getPCInArr = [];
+  getPCInArr = projects;
+  var projectsToGetRendered = [];
+
+  if (getPCInArr.length === 0) {
+    projectsToGetRendered.length = 0;
+    projectsToGetRendered.push(
+      <center>
+        <h1>No Projects created!!!</h1>
+      </center>
+    );
+  } else {
+    projectsToGetRendered.length = 0;
+    getPCInArr.forEach((data) => {
+      projectsToGetRendered.push(
+        <div className="card">
+          <div className="box">
+            <div className="content">
+              <img
+                className="backgroundImage"
+                src={data.image}
+                alt="projectImage"
+              />
+              <h3>{data.title}</h3>
+              <a href={data.link}>Visit</a>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
+
+  var getSCINArr = [];
+  getSCINArr = services;
+  var servicesToGetRendered = [];
+  if (getSCINArr.length === 0) {
+    servicesToGetRendered.length = 0;
+    servicesToGetRendered.push(
+      <center>
+        <h1>No Projects created!!!</h1>
+      </center>
+    );
+  } else {
+    servicesToGetRendered.length = 0;
+    getSCINArr.forEach((data) => {
+      servicesToGetRendered.push(
+        <div className="card">
+          <div className="box">
+            <div className="content">
+              <img
+                className="backgroundImage"
+                src={data.image}
+                alt="projectImage"
+              />
+              <h3>{data.title}</h3>
+              <a href="#">Visit</a>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
 
   const navigateToEditProfile = () => {
     navigate("/profile/" + userData["_id"] + "/edit-profile");
   };
 
+  const navigateToSocialFeed = () => {
+    navigate("/social-feed/" + userData["_id"]);
+  };
+
+  const activityMenuClick = () => {
+    setSelectedMenu("1");
+  };
+
+  const profileMenuClick = () => {
+    setSelectedMenu("2");
+  };
+
+  const portfolioMenuClick = () => {
+    setSelectedMenu("3");
+  };
+
   return (
-    <div className={styles.main_container}>
-      {/* <nav className={styles.navbar}>
-        <div>
-          <img
-            className={styles.logo}
-            onClick={navigateToHome}
-            src={require("../../images/gmdLogo.png")}
-            alt="logo"
-          />
-        </div>
-        <div>
-          <button onClick={navigateToLogin} className={styles.logOut}>
-            LogOut
-          </button>
-        </div>
-      </nav> */}
-      <UserNavbar userInfo={userDatafromDB} />
-      <div className={styles.project_manager}>
-        <ProfileView userData={userDatafromDB} />
-        <div className={styles.project_view}>
-          <div>
-            <div className={styles.pathAndButton}>
-              <div className={styles.path_Details}>
-                Home <b>&#62; Profile...</b>
-              </div>
-            </div>
-            <div id={styles.scrollControl}>
-              <div className={styles.profileDetails}>
+    <>
+      <UserNavbar userInfo={userData} />
+      <div className="homeContainer">
+        <SocialProfileView userData={userData} />
+        <div className="feed">
+          <div className="feedWrapper">
+            <div className="profileRightTop">
+              <div className="profileCover">
                 <img
-                  src={userDatafromDB["profilePic"]}
-                  className={styles.userPic}
+                  className="profileCoverImg"
+                  src={currentUserForProfilePageView.coverImg}
                   alt=""
                 />
-                <table>
-                  <tbody>
-                    <tr>
-                      <td data-column="First Name">Name</td>
-                      <td data-column="Last Name">{userDatafromDB["name"]}</td>
-                    </tr>
-                    <tr>
-                      <td data-column="First Name">Email</td>
-                      <td data-column="Last Name">{userDatafromDB["email"]}</td>
-                    </tr>
-                    <tr>
-                      <td data-column="First Name">Date of Birth</td>
-                      <td data-column="Last Name">
-                        {userDatafromDB["dateOfBirth"]}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-column="First Name">Gender</td>
-                      <td data-column="Last Name">
-                        {userDatafromDB["gender"]}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-column="First Name">City</td>
-                      <td data-column="Last Name">{userDatafromDB["city"]}</td>
-                    </tr>
-                    <tr>
-                      <td data-column="First Name">Country</td>
-                      <td data-column="Last Name">
-                        {userDatafromDB["country"]}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-column="First Name">User Id</td>
-                      <td data-column="Last Name">{userDatafromDB["_id"]}</td>
-                    </tr>
-                    <tr>
-                      <td data-column="First Name">Badges List</td>
-                      <td data-column="Last Name">
-                        {userDatafromDB["badgesList"]}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td data-column="First Name">Bio</td>
-                      <td data-column="Last Name">{userDatafromDB["Bio"]}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                {/* <button onClick={navigateToEditProfile} className={styles.signUp}>
-              Edit Profile
-            </button> */}
-                <div className={styles.space}>
-                  <CustomizedDialogs>
-                    <EditProfile />
-                  </CustomizedDialogs>
+                <img
+                  className="profileUserImg"
+                  src={currentUserForProfilePageView.profilePic}
+                  alt=""
+                />
+                <div className={styles.editProfilePic}>
+                  <CustomizedDialogsProfilePic>
+                    <EditProfilePic />
+                  </CustomizedDialogsProfilePic>
+                </div>
+                <div className={styles.editCoverImage}>
+                  <CustomizedDialogsCoverImg>
+                    <EditCoverImage />
+                  </CustomizedDialogsCoverImg>
+                </div>
+              </div>
+              <div className="profileInfo">
+                <div className="profileInfoName">
+                  {currentUserForProfilePageView.name}
+                </div>
+                <span className="profileInfoDesc">
+                  {currentUserForProfilePageView.Bio}
+                </span>
+              </div>
+              <div className="menuButtons">
+                <div className="entireButton">
+                  <button
+                    onClick={activityMenuClick}
+                    style={{
+                      backgroundColor:
+                        selectedMenu === "1" ? "#797575" : "transparent",
+                    }}
+                    className="menuSelectionButton"
+                  >
+                    <img
+                      className="iconOfButton"
+                      src={require("../../images/Icons/ActivityPro.png")}
+                      alt="activity"
+                    />
+                  </button>
+                  <div className="buttonTitle">Activity</div>
+                </div>
+                <div className="entireButton">
+                  <button
+                    onClick={profileMenuClick}
+                    style={{
+                      backgroundColor:
+                        selectedMenu === "2" ? "#797575" : "transparent",
+                    }}
+                    className="menuSelectionButton"
+                  >
+                    <img
+                      className="iconOfButton"
+                      src={require("../../images/Icons/profileSocial.png")}
+                      alt="activity"
+                    />
+                  </button>
+                  <div className="buttonTitle">Profile</div>
+                </div>
+                <div className="entireButton">
+                  <button
+                    onClick={portfolioMenuClick}
+                    style={{
+                      backgroundColor:
+                        selectedMenu === "3" ? "#797575" : "transparent",
+                    }}
+                    className="menuSelectionButton"
+                  >
+                    <img
+                      className="iconOfButton"
+                      src={require("../../images/Icons/portfolioSocial.png")}
+                      alt="activity"
+                    />
+                  </button>
+                  <div className="buttonTitle">Portfolio</div>
                 </div>
               </div>
             </div>
+
+            {selectedMenu === "1" && (
+              <div>
+                {posts.map((p) => (
+                  <Post key={p._id} post={p} />
+                ))}
+              </div>
+            )}
+
+            {selectedMenu === "2" && (
+              <div className={styles.profileAndConnections}>
+                <div className={styles.tableMenu}>
+                  <div className={styles.viewAndEditProf}>
+                    <div className={styles.tableHeading}>View Profile</div>
+                    <div className={styles.space}>
+                      <CustomizedDialogs>
+                        <EditProfile />
+                      </CustomizedDialogs>
+                    </div>
+                  </div>
+                  <table className={styles.profileTable}>
+                    <tbody>
+                      <tr>
+                        <td data-column="First Name">Name</td>
+                        <td data-column="Last Name">
+                          {userDataForTheView[0]["name"]}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-column="First Name">Email</td>
+                        <td data-column="Last Name">
+                          {userDataForTheView[0]["email"]}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-column="First Name">Phone</td>
+                        <td data-column="Last Name">
+                          {userDataForTheView[0]["number"]}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-column="First Name">Location</td>
+                        <td data-column="Last Name">
+                          {userDataForTheView[0]["country"]}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-column="First Name">Tools Known</td>
+                        <td data-column="Last Name">
+                          {userDataForTheView[0]["tools"]}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-column="First Name">Experience</td>
+                        <td data-column="Last Name">
+                          {userDataForTheView[0]["experience"]}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-column="First Name">Charge Rate</td>
+                        <td data-column="Last Name">
+                          {userDataForTheView[0]["charge"]}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-column="First Name">Bio</td>
+                        <td data-column="Last Name">
+                          {userDataForTheView[0]["Bio"]}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div>
+                  <Connections
+                    connectionIds={userDataForTheView[0]["followers"]}
+                  />
+                </div>
+              </div>
+            )}
+
+            {selectedMenu === "3" && (
+              <div className="projectsAndServicesCards">
+                <div className="projectCardsSection"> User's Works:-</div>
+                <div className="body">
+                  <div className="container">
+                    {loading ? (
+                      <CircularProgress style={{ color: "white" }} />
+                    ) : (
+                      projectsToGetRendered
+                    )}
+                  </div>
+                </div>
+                {/* <div className="serviceCardsSection"> User's Services:-</div>
+                <div className="body">
+                  <div className="container">
+                    {loadingService ? (
+                      <CircularProgress style={{ color: "white" }} />
+                    ) : (
+                      servicesToGetRendered
+                    )}
+                  </div>
+                </div> */}
+              </div>
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

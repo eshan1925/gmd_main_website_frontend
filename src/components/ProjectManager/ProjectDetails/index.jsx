@@ -11,15 +11,15 @@ const ProjectDetails = () => {
   const userId = userData._id;
   // var config = {
   //     method: 'get',
-  //     url: 'https://get-me-design-backend.herokuapp.com/project-manager/' + userId,
+  //     url: 'http://localhost:8080/project-manager/' + userId,
   //     headers: {}
   // };
 
-  const url =
-    "https://get-me-design-backend.herokuapp.com/project-manager/" + userId;
+  const url = "http://localhost:8080/project-manager/" + userId;
 
   useEffect(() => {
     getAllProjects();
+    console.log("User-:" + userId + " accessed all his projects.");
   });
 
   const getAllProjects = async () => {

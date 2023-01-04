@@ -22,15 +22,8 @@
 }
 
 .editProfile {
-  color: #00c3d0;
-  border: 2px solid transparent;
-  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
-  border-image-slice: 1;
-  width: 128px;
-  height: 49.33px;
-  border-radius: 5px !important;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  font-weight: 700;
-  background-color: transparent;
-  margin-top: 12px;
 }
+

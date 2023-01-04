@@ -59,9 +59,10 @@ form {
   margin-top: 10px;
   margin-bottom: 15px;
   color: #fff;
+  padding-left: 10px;
 }
 ::placeholder {
-  color: #fff;
+  color: #fff !important;
   text-align: center;
   opacity: 0.7;
 }
@@ -170,6 +171,7 @@ hr {
 
 .error_msg,
 .success_msg {
+  height: auto !important;
   width: 308px;
   height: 15px;
   padding: 15px;

@@ -10,16 +10,113 @@
   background-color: #1872f2;
   margin-left: 44%;
   color: white;
-  border-radius: 5px;
+  border-radius: 25px;
   padding: 5px 10px;
   display: flex;
   align-items: center;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  width: 12%;
+  width: 15%;
+  margin-bottom: 15px;
+  justify-content: center;
 }
 
 .rightbarFollowButton:focus {
   outline: none;
 }
+
+table {
+  width: 750px;
+  border-collapse: collapse;
+  border-radius: 5px;
+}
+
+/* Zebra striping */
+/* tr:nth-of-type(odd) {
+  background: transparent;
+} */
+
+th {
+  background: transparent;
+  color: white;
+  font-weight: bold;
+}
+
+td,
+th {
+  padding: 10px;
+  border: 0.1px solid rgb(121, 121, 121);
+  text-align: left;
+  font-size: 18px;
+}
+
+td:nth-child(even){
+  background-color: #3a3b3c;
+}
+
+td:nth-child(odd){
+  background-color: #242526;
+}
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  table {
+    width: 100%;
+  }
+
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    /* Label the data */
+    content: attr(data-column);
+
+    color: #000;
+    font-weight: bold;
+  }
+}
+
+.profileRightTop{
+  margin-bottom: 25px;
+  border-bottom: 1px solid #717474;
+}
+

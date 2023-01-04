@@ -1,0 +1,57 @@
+.main {
+  border: #717474 solid 1.2px;
+  border-radius: 8px;
+}
+
+.mainNav {
+  background-color: #18191a;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.color {
+  background-color: #18191a;
+  height: 650px;
+  width: auto;
+}
+
+#buttonProp {
+  width: 80px;
+}
+
+.editProfile {
+  color: #00c3d0;
+  border: 2px solid transparent;
+  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
+  border-image-slice: 1;
+  width: 128px;
+  height: 49.33px;
+  border-radius: 5px !important;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: transparent;
+  margin-top: 12px;
+}
+
+.createButton{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #3900dc;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.plus{
+  height: 15px;
+  width: 15px;
+}

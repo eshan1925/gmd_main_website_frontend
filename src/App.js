@@ -5,13 +5,24 @@ import LoginPage from "./components/LoginPage";
 import SignUp from "./components/SignUpPage";
 import ProjectManager from "./components/ProjectManager";
 import BlogsComponent from "./components/Blogs";
-import CreateBlog from "./components/CreateBlog";
-import ReadBlog from "./components/ReadBlog";
+import CreateBlog from "./components/Blogs/CreateBlog";
+import ReadBlog from "./components/Blogs/ReadBlog";
 import ProfilePage from "./components/ProfilePage";
 import SocialMediaFeed from "./components/SocialMediaFeed";
 import SocialMediaFeedProfile from "./components/SocialMediaFeed/SocialMediaFeedProfile";
+import VerificationPage from "./components/VerificationPage";
+import Username from "./components/SignUpPage/Username";
+import DynamicPortfolio from "./components/DynamicPortfolio";
+
+// CONTRA components
+// import ProfilePicture from "./components/DynamicPortfolio/ProfilePic";
+// import DOBGenLoc from "./components/DynamicPortfolio/DOBGenLoc";
+// import ProjectsAndServices from "./components/DynamicPortfolio/ProjectsAndServices";
+// import EditPortfolio from "./components/DynamicPortfolio/EditPortfolioPage";
+// import ViewPortfolio from "./components/DynamicPortfolio/ViewPortfolio";
 
 function App() {
+  //TODO POST,SocialMediaFeedProfile ka logging
   const user = sessionStorage.getItem("token");
   const userData = sessionStorage.getItem("userData");
   return (
@@ -22,31 +33,49 @@ function App() {
           <Route path="/about-us" exact element={<AboutUs />} />
           <Route path="/login" exact element={<LoginPage />} />
           <Route path="/signup" exact element={<SignUp />} />
-          {user && <Route path="/social-feed" exact element={<AboutUs />} />}
-          {user && (
+          <Route
+            path="/getmedesign/:token/verification/:userid"
+            exact
+            element={<VerificationPage />}
+          />
+          <Route
+            path="/sign-up/username-mobile-number/:id"
+            exact
+            element={<Username userData={userData} />}
+          />
+          {userData && (
             <Route
-              path="/feeds/:id"
+              path="/social-feed/:id"
               exact
               element={<SocialMediaFeed userData={userData} />}
             />
           )}
 
-          {user && (
+          {userData && (
             <Route
-              path="/feeds/profile/:id"
+              path="/portfolio-section/:id"
+              exact
+              element={<DynamicPortfolio userData={userData} />}
+            />
+          )}
+
+
+          {userData && (
+            <Route
+              path="/social-feed/profile/:id"
               exact
               element={<SocialMediaFeedProfile userData={userData} />}
             />
           )}
 
-          {user && (
+          {userData && (
             <Route
               path="/project-manager/:id"
               exact
               element={<ProjectManager userData={userData} />}
             />
           )}
-          {user && (
+          {userData && (
             <Route
               path="/blogs/:id/all-blogs"
               exact
@@ -55,7 +84,7 @@ function App() {
               }
             />
           )}
-          {user && (
+          {userData && (
             <Route
               path="/blogs/:id/my-blogs"
               exact
@@ -64,7 +93,7 @@ function App() {
               }
             />
           )}
-          {user && (
+          {userData && (
             <Route
               path="/blogs/:id/favourite"
               exact
@@ -73,34 +102,75 @@ function App() {
               }
             />
           )}
-          {user && (
+          {userData && (
             <Route
               path="/blogs/:id/create-new-blog"
               exact
               element={<CreateBlog userData={userData} />}
             />
           )}
-          {user && (
+          {userData && (
             <Route
               path="/blogs/:id/all-blogs/:blogid"
               exact
               element={<ReadBlog userData={userData} category="all-blogs" />}
             />
           )}
-          {user && (
+          {userData && (
             <Route
               path="/blogs/:id/my-blogs/:blogid"
               exact
               element={<ReadBlog userData={userData} category="my-blogs" />}
             />
           )}
-          {user && (
+          {userData && (
             <Route
               path="/profile/:id"
               exact
               element={<ProfilePage userData={userData} />}
             />
           )}
+
+          {/* ROUTES FOR CONTRA FUNCTIONALITY PORTFOLIO
+          {userData && (
+            <Route
+              path="/complete-your-profile/display-picture-liner/:id"
+              exact
+              element={<ProfilePicture userData={userData} />}
+            />
+          )}
+
+          {userData && (
+            <Route
+              path="/complete-your-profile/date-of-birth-and-gender-location/:id"
+              exact
+              element={<DOBGenLoc userData={userData} />}
+            />
+          )}
+
+          {userData && (
+            <Route
+              path="/complete-your-profile/projects-and-services/:id"
+              exact
+              element={<ProjectsAndServices userData={userData} />}
+            />
+          )}
+
+          {userData && (
+            <Route
+              path="/getmedesign/edit-portfolio/:id"
+              exact
+              element={<EditPortfolio userData={userData} />}
+            />
+          )}
+
+          {userData && (
+            <Route
+              path="/getmedesign/view-portfolio/:id"
+              exact
+              element={<ViewPortfolio userData={userData} />}
+            />
+          )} */}
         </Routes>
       </BrowserRouter>
     </div>

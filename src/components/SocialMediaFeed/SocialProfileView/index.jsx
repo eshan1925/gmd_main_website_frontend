@@ -2,27 +2,23 @@ import React from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
 import PurpleButton from "./PurpleButton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SocialProfileView = (props) => {
   const navigate = useNavigate();
   const userData = props.userData;
   const userid = userData._id;
   const [sideBar, setSideBar] = React.useState(true);
-  const navigateToTasks = () => {
-    navigate("/calendar/" + userid);
+
+  const notify = () => toast("✅ Coming Soon!!!");
+
+  const navigateToSocialMediaFeed = () => {
+    navigate("/social-feed/" + userid);
   };
 
-  const navigateToProjects = () => {
+  const navigateToOrganiser = () => {
     navigate("/project-manager/" + userid);
-  };
-  const navigateToMeetings = () => {
-    navigate("/calendar/" + userid);
-  };
-  const navigateToPayments = () => {
-    navigate("/calendar/" + userid);
-  };
-  const navigateToCalendar = () => {
-    navigate("/calendar/" + userid);
   };
   const navigateToBlogs = () => {
     navigate("/blogs/" + userid + "/all-blogs");
@@ -32,11 +28,27 @@ const SocialProfileView = (props) => {
     navigate("/profile/" + userid);
   };
 
+  const navigateToPortfolioCreation = () => {
+    navigate("/portfolio-section/" + userid);
+  };
+
   const sideBarValue = () => {
     setSideBar(!sideBar);
   };
   return (
     <>
+      <ToastContainer
+        // position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        // closeOnClick
+        // rtl={false}
+        // pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       {sideBar ? (
         <>
           <div className={styles.profile_view}>
@@ -46,72 +58,82 @@ const SocialProfileView = (props) => {
 
             <div className={styles.profile_stats}>
               <img
+                className={styles.xp_circle}
+                src={require("../../../images/Icons/xp_circle.png")}
+                alt=""
+              />
+              <img
                 onClick={navigateToProfile}
                 className={styles.profile_pic}
                 src={userData["profilePic"]}
                 alt="profilePic"
               />
               <div className={styles.profile_info}>
-                {userData.name}✅<br />
+                {userData.name}&nbsp;&nbsp;
+                <img
+                  className={styles.blue_tick}
+                  src={require("../../../images/Icons/icons8_ok.png")}
+                  alt="varification_tick"
+                />
+                <br />
                 <div id={styles.friendsAndGroups}>
-                  0 Friends&nbsp;&nbsp;{" "}
-                  0 Groups
+                  {userData["followers"].length} Followers&nbsp;&nbsp;{" "}
+                  {userData["following"].length} Following
                 </div>
               </div>
             </div>
             <div className={styles.profile_details}>
               <button
+                onClick={navigateToSocialMediaFeed}
                 className={styles.navigationButton}
-                onClick={navigateToProjects}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon} src={require("../../../images/Icons/project.png")} alt="" />
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../../images/Icons/project.png")}
+                    alt=""
+                  />
                   <div className={styles.buttonHeading}>Activity</div>
                 </div>
               </button>
-              <button
-                className={styles.navigationButton}
-                onClick={navigateToTasks}
-              >
+              <button className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon} src={require("../../../images/Icons/tasks.png")} alt="" />
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../../images/Icons/marketplace.png")}
+                    alt=""
+                  />
                   <div className={styles.buttonHeading}>MarketPlace</div>
                 </div>
               </button>
-              <button
-                className={styles.navigationButton}
-                onClick={navigateToTasks}
-              >
+              <button className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon} src={require("../../../images/Icons/tasks.png")} alt="" />
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../../images/Icons/tasks.png")}
+                    alt=""
+                  />
                   <div className={styles.buttonHeading}>People</div>
                 </div>
               </button>
-              <button
-                className={styles.navigationButton}
-                onClick={navigateToTasks}
-              >
+              <button className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon} src={require("../../../images/Icons/project.png")} alt="" />
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../../images/Icons/project.png")}
+                    alt=""
+                  />
                   <div className={styles.buttonHeading}>Community</div>
                 </div>
               </button>
-              <button
-                className={styles.navigationButton}
-                onClick={navigateToTasks}
-              >
+              <button className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon} src={require("../../../images/Icons/calendar.png")} alt="" />
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../../images/Icons/calendar.png")}
+                    alt=""
+                  />
                   <div className={styles.buttonHeading}>Groups</div>
-                </div>
-              </button>
-              <button
-                className={styles.navigationButton}
-                onClick={navigateToTasks}
-              >
-                <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon} src={require("../../../images/Icons/tasks.png")} alt="" />
-                  <div className={styles.buttonHeading}>Blogs</div>
                 </div>
               </button>
               <button
@@ -119,7 +141,18 @@ const SocialProfileView = (props) => {
                 onClick={navigateToBlogs}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon}
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../../images/Icons/tasks.png")}
+                    alt=""
+                  />
+                  <div className={styles.buttonHeading}>Blogs</div>
+                </div>
+              </button>
+              <button className={styles.navigationButton} onClick={notify}>
+                <div className={styles.buttonName}>
+                  <img
+                    className={styles.buttonIcon}
                     src={require("../../../images/Icons/meetings.png")}
                     alt=""
                   />
@@ -128,23 +161,22 @@ const SocialProfileView = (props) => {
               </button>
               <button
                 className={styles.navigationButton}
-                onClick={navigateToCalendar}
+                onClick={navigateToOrganiser}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon}
+                  <img
+                    className={styles.buttonIcon}
                     src={require("../../../images/Icons/calendar.png")}
                     alt=""
                   />
-                 <div className={styles.buttonHeading}>Organiser</div>
+                  <div className={styles.buttonHeading}>Organiser</div>
                 </div>
               </button>
-              <button
-                className={styles.navigationButton}
-                onClick={navigateToMeetings}
-              >
+              <button className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon}
-                    src={require("../../../images/Icons/meetings.png")}
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../../images/Icons/jobs.png")}
                     alt=""
                   />
                   <div className={styles.buttonHeading}>Jobs</div>
@@ -152,10 +184,11 @@ const SocialProfileView = (props) => {
               </button>
               <button
                 className={styles.navigationButton}
-                onClick={navigateToPayments}
+                onClick={navigateToPortfolioCreation}
               >
                 <div className={styles.buttonName}>
-                  <img className={styles.buttonIcon}
+                  <img
+                    className={styles.buttonIcon}
                     src={require("../../../images/Icons/meetings.png")}
                     alt=""
                   />
@@ -174,11 +207,11 @@ const SocialProfileView = (props) => {
           </div>
         </>
       ) : (
-          <div className={styles.expansionMenu}>
-            <button onClick={sideBarValue} className={styles.expander}>
-              >
-            </button>
-          </div>
+        <div className={styles.expansionMenu}>
+          <button onClick={sideBarValue} className={styles.expander}>
+            >
+          </button>
+        </div>
       )}
     </>
   );

@@ -5,7 +5,7 @@ const InputComponent = (props) => {
     return (
         <div className={styles.main}>
             <div className={styles.title}>{props.title}</div>
-            <input type={props.inputType} placeholder={props.placeholder} />
+            <input className={styles.inputC} type={props.inputType} placeholder={props.placeholder} />
         </div>
     )
 }

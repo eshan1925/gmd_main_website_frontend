@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserNavbar = (props) => {
   var userData = props.userInfo;
@@ -10,6 +13,8 @@ const UserNavbar = (props) => {
     sessionStorage.removeItem("userData");
     navigate("/login");
   };
+
+  const notify = () => toast("Coming Soon!!!");
 
   const navigateToHome = () => {
     navigate("/");
@@ -41,50 +46,84 @@ const UserNavbar = (props) => {
             alt="logo"
           />
         </div>
-        {/* <div>
-          <button onClick={navigateToLogin} className={styles.logOut}>
-            LogOut
-          </button>
-        </div> */}
-        <div className={styles.nameImage}>
-          <img
-            src={userData["profilePic"]}
-            className={styles.userPic}
-            onClick={handleClick}
-            alt=""
-          />
-          <div onClick={handleClick}>{userData["name"]}</div>
+
+        <SearchBar />
+        <div className={styles.rightOfNavbar}>
+          <div className={styles.iconsOfNotCar}>
+            <div onClick={notify} className={styles.notificationIcon}>
+              <img
+                className={styles.navbarImgNoti}
+                alt="notification"
+                src={require("../../images/Icons/notification.png")}
+              />
+            </div>
+            <div onClick={notify} className={styles.cartIcon}>
+              <img
+                className={styles.navbarImgCart}
+                alt="cart"
+                src={require("../../images/Icons/cart.png")}
+              />
+            </div>
+            <ToastContainer
+              // position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              // closeOnClick
+              // rtl={false}
+              // pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
+          </div>
+          <div className={styles.nameImage}>
+            <img
+              src={userData["profilePic"]}
+              className={styles.userPic}
+              onClick={handleClick}
+              alt=""
+            />
+            <div onClick={handleClick}>{userData["name"]}</div>
+          </div>
         </div>
+
         <div
           className={styles.subMenuWrap}
           id="subMenu"
-          style={{ maxHeight: isActive ? "400px" : "" }}
+          style={{ maxHeight: isActive ? "360px" : "" }}
         >
           <div className={styles.subMenu}>
             <div className={styles.userInfo}>
               <img src={userData["profilePic"]} alt="" />
-              <h3> {userData["name"]} </h3>
+              <h5> {userData["name"]} </h5>
             </div>
             <hr />
 
             <div className={styles.subMenuLink} onClick={navigateToProfile}>
-              <img className={styles.iconProfile} src={require("../../images/profile.png")} alt="" />
+              <img
+                className={styles.iconProfile}
+                src={require("../../images/profile.png")}
+                alt=""
+              />
               <p>View Profile</p>
               <span> > </span>
             </div>
-
-            {/* <div className={styles.subMenuLink}>
-            <img src={require("../../images/setting.png")} alt="" />
-            <p>Setting</p>
-            <span> > </span>
-          </div> */}
             <div className={styles.subMenuLink} onClick={navigateToAboutUs}>
-              <img className={styles.iconProfile} src={require("../../images/help.png")} alt="" />
+              <img
+                className={styles.iconProfile}
+                src={require("../../images/help.png")}
+                alt=""
+              />
               <p>About Us</p>
               <span> > </span>
             </div>
             <div className={styles.subMenuLink} onClick={navigateToLogin}>
-              <img className={styles.iconProfile} src={require("../../images/logout.png")} alt="" />
+              <img
+                className={styles.iconProfile}
+                src={require("../../images/logout.png")}
+                alt=""
+              />
               <p>Log Out</p>
               <span> > </span>
             </div>

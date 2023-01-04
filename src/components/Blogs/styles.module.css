@@ -149,7 +149,8 @@
 .blogCardsSection {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: start;
+  margin-top: 15px;
   flex-wrap: wrap;
 }
 
@@ -177,7 +178,7 @@
   z-index: 100;
 }
 
-button {
+.createBlogButton {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -187,13 +188,13 @@ button {
   background-color: #191a1a;
   color: white;
   font-weight: 600;
-  width: 100%;
+  width: 180px;
+  height: 30px;
   margin-bottom: 15px;
-  height: 25px;
   cursor: pointer;
 }
 
-button:hover {
+.createBlogButton:hover {
   background-color: #717474;
   border-color: #cdcfcf;
 }

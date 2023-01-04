@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
 
-  const navigateToLogin = () => {
-    navigate("/login");
-  };
+  // const navigateToLogin = () => {
+  //   navigate("/login");
+  // };
 
   const navigateToSignUp = () => {
     navigate("/signup");
@@ -27,12 +29,17 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "https://get-me-design-backend.herokuapp.com/api/auth";
+      setLoading(true);
+      const url = "http://localhost:8080/api/auth";
       const { data: res } = await axios.post(url, data);
       sessionStorage.setItem("token", res.data);
+      console.log(res);
       sessionStorage.setItem("userData", JSON.stringify(res.userData));
-
-      window.location = `/feeds/${res.userData._id}`;
+      console.log(
+        "New login to the system...\nuser Details-: " +
+          JSON.stringify(res.userData)
+      );
+      window.location = `/social-feed/${res.userData._id}`;
     } catch (error) {
       if (
         error.response &&
@@ -41,6 +48,8 @@ const LoginPage = () => {
       ) {
         setError(error.response.data.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -126,7 +135,13 @@ const LoginPage = () => {
             <div className={styles.forgotPassword}>Forgot Password ?</div>
           </div>
           <div className={styles.buttons}>
-            <button className={styles.loginButton}>Login</button>
+            <button className={styles.loginButton}>
+              {!loading ? (
+                "Login"
+              ) : (
+                <CircularProgress style={{ color: "white" }} />
+              )}
+            </button>
             <hr />
             <button onClick={navigateToSignUp} className={styles.signUpButton}>
               Sign Up

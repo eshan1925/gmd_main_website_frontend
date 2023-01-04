@@ -6,7 +6,8 @@
 }
 
 .iconProfile {
-  height: 25px;
+  height: 18px;
+  width: 15px;
 }
 
 .logOut {
@@ -42,7 +43,7 @@
 }
 
 .userPic {
-  width: 60px;
+  width: 45px;
   border-radius: 50%;
   cursor: pointer;
   margin-right: 10px;
@@ -63,16 +64,18 @@
   max-height: 400px;
 }
 .subMenu {
-  background: white;
+  background: #242526;
+  border: 0.1px solid #585858;
+  border-radius: 5px;
   padding: 20px;
   margin: 10px;
-  height: 290px;
+  height: 250px;
   width: max-content;
 }
 .userInfo {
   display: flex;
   align-items: center;
-  height: 80px;
+  height: 70px;
   width: 180px;
 }
 .userInfo h3 {
@@ -96,7 +99,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #525252;
+  color: white;
   margin: 12px 0;
   cursor: pointer;
 }
@@ -129,3 +132,36 @@
   margin-right: 50px;
   cursor: pointer;
 }
+
+.rightOfNavbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.notificationIcon , .cartIcon{
+  border-radius: 50%;
+  background-color: #292929;
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+  margin-top: 15px;
+  margin-right: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbarImgNoti, .navbarImgCart {
+  width: 15px;
+  height: 15px;
+}
+
+.iconsOfNotCar{
+  margin-right: 25px;
+  display: flex;
+  flex-direction: row;
+}
+

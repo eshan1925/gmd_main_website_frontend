@@ -1,0 +1,22 @@
+.postUsername {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.postDate {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.nameAnddate {
+  display: flex;
+  flex-direction: column;
+}
+
+.postTopLeft {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+}

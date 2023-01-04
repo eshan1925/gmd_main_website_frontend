@@ -6,87 +6,22 @@
 .mainPage {
   width: 100%;
   background-image: url("../../images/landingbg.png");
+  background-size: cover;
   height: 660px;
   background-repeat: no-repeat;
   backdrop-filter: blur(76px);
   display: flex;
   flex-direction: row;
-}
-
-.concentricCircles {
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  justify-content: space-around;
 }
 
 .ccGirl {
   margin-top: 80px;
-  padding-left: 220px;
-  padding-right: 0px;
-}
-
-.girl {
-  position: absolute;
-  top: 160px;
-  left: 940px;
-  z-index: 2;
-}
-
-.ai,
-.a,
-.rhino,
-.ps,
-.an,
-.diamond {
-  position: absolute;
-  z-index: 2;
-  height: 90px;
-  width: 90px;
-}
-
-.ai {
-  top: 150px;
-  left: 910px;
-}
-
-.a {
-  top: 290px;
-  left: 840px;
-}
-
-.rhino {
-  top: 455px;
-  left: 860px;
-}
-
-.ps {
-  top: 140px;
-  left: 1180px;
-}
-
-.an {
-  top: 270px;
-  left: 1250px;
-}
-
-.diamond {
-  top: 400px;
-  left: 1320px;
-}
-
-.userrev {
-  position: absolute;
-  z-index: 2;
-  top: 510px;
-  left: 1110px;
-  height: 75px;
-  width: 220px;
 }
 
 .content {
   margin-top: 170px;
-  margin-left: 190px;
+
 }
 
 .tagline {
@@ -100,11 +35,21 @@
 }
 
 .getInTouch {
-  margin-top: 15px;
-  color: white;
-  border-radius: 5px;
-  background-color: black;
-  width: 194px;
-  height: 42px;
-  cursor: pointer;
+  margin-top: 15px !important;
+  color: white !important;
+  border-radius: 5px !important;
+  background-color: rgb(24, 24, 24) !important;
+  width: 194px !important;
+  height: 42px !important;
+  cursor: pointer !important;
 }
+
+a {
+  text-decoration: none;
+}
+
+.fullImage {
+  width: 600px;
+  height: 515px;
+}
+

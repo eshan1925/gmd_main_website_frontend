@@ -1,0 +1,52 @@
+#wrapper {
+  width: 90%;
+  border: 1px solid gray;
+  margin: 0 auto;
+  min-height: 300px;
+}
+#field-1 {
+    color:black;
+  margin: 10px;
+  margin-left: 0px;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: #eee;
+  padding: 5px;
+  border-radius: 4px;
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+.bodycopy {
+  font-size: 0.7em;
+  font-weight: normal;
+  font-family: arial;
+}
+#results-icon {
+  width: 30px;
+  height: auto;
+  float: left;
+}
+#button-1 {
+  width: 170px;
+  text-align: center;
+  border: 2px solid black;
+  font-weight: bold;
+  font-family: arial, helvetica;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: silver;
+  padding: 10px;
+}
+
+.headingUsername {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.imageTick {
+  width: 300px;
+  margin: 0 auto;
+}

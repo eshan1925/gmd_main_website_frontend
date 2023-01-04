@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import News from "./News";
 
 const RightBar = () => {
+  console.log("All news article sent successfully!!!");
   return (
     <div className={styles.main}>
       <div className={styles.mainHeading}>

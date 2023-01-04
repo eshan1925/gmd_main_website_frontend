@@ -1,0 +1,85 @@
+.main {
+  background-color: #18191a;
+  color: white;
+  height: 100%;
+}
+
+.rowflex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.NT {
+  margin-left: 2%;
+  margin-bottom: 1em;
+}
+
+.submitButton {
+  background-color: #3900dc;
+  color: white;
+  border-radius: 25px;
+  width: 300px;
+  height: 45px;
+  margin-left: 37%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.textareaBio {
+  background-color: #18191a;
+  margin-left: 2%;
+  width: 90%;
+  height: 145px;
+  border-radius: 5px;
+  color: white;
+}
+
+.mainInput {
+  background-color: #18191a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 1.7%;
+}
+
+.title {
+  font-size: larger;
+}
+
+.inputContainer {
+  background-color: #18191a;
+  margin-top: 2.5em;
+  width: 250px;
+  height: 25px;
+  border-radius: 5px;
+  color: white;
+}
+::placeholder {
+  text-align: center;
+  color: rgb(206, 206, 206);
+}
+
+#scrollControl {
+  overflow: auto;
+  height: 100%;
+}
+
+#scrollControl::-webkit-scrollbar {
+  display: none;
+}
+
+#scrollControl {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.shareOption input[type="file" i]::-webkit-file-upload-button{
+  background-color: #3a3b3c;
+  border-radius: 15px;
+  width: 110px;
+  height: 30px;
+  color: white;
+  border:1px solid #585858;
+  cursor: pointer;
+}

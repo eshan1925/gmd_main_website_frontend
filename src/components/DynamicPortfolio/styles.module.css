@@ -1,0 +1,97 @@
+.main_container_1 {
+  width: 100%;
+  background-color: #191a1a;
+  color: white;
+}
+
+.project_manager {
+  display: flex;
+  flex-direction: row;
+}
+
+.project_view {
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+  width: 85%;
+}
+
+.path_Details {
+  font-size: large;
+  font-weight: 300;
+}
+
+.pathAndButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.path_Details {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction:row;
+}
+
+.createBlogButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #3900dc;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* .creationButtons {
+  width: 320px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+.plus {
+  height: 20px;
+  width: 20px;
+}
+
+.projectsAndServicesCards {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+
+.homeButton{
+  cursor: pointer;
+}
+
+.project_manager{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.project_view{
+  width: 60%;
+}
+
+.projectCardsSection , .serviceCardsSection{
+  font-size: 17px;
+  border-bottom: 1px solid #717474;
+  height: 28px;
+}
+
+.worksAndButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}

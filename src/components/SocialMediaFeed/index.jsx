@@ -7,6 +7,7 @@ import "./extra.css";
 
 const SocialMediaFeed = (props) => {
   const userData = JSON.parse(props.userData);
+  console.log("User-: "+userData._id+" accessed the social media feed page");
   return (
     <>
       <UserNavbar userInfo={userData} />

@@ -148,7 +148,7 @@
   scrollbar-width: none;
 }
 
-button {
+/* button {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -167,4 +167,4 @@ button {
 button:hover {
   background-color: #717474;
   border-color: #cdcfcf;
-}
+} */

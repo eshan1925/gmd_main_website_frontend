@@ -21,19 +21,22 @@
   }
   
   .profile_pic {
-    height: 120px;
-    width: 120px;
-    padding-bottom: 8px;
+    height: 45px;
+    width: 45px;
+    position: relative;
+    top: 56px;
   }
   
   .profile_info {
     text-align: center;
     font-weight: 600;
+    margin-top: 110px;
   }
   
   #friendsAndGroups {
     font-weight: 400;
   }
+  
   
   .profile_details{
     display: flex;
@@ -84,6 +87,7 @@
     margin-top: 7px;
     border: 0.5px solid #717474;
     border-radius: 5px;
+    padding-bottom: 15px;
   }
   
   .buttonName {
@@ -103,6 +107,8 @@
     margin-left: 50px;
     margin-bottom: 7px;
     margin-top: 0px;
+    border: 0px;
+    cursor: pointer;
   }
   
   .expander {
@@ -115,6 +121,8 @@
     margin-left: 50px;
     margin-bottom: 7px;
     margin-top: 0px;
+    margin-right: 20px;
+    cursor: pointer;
   }
   
   .expansionMenu {
@@ -126,3 +134,10 @@
     width: 1%;
   }
   
+
+  .xp_circle{
+    position:absolute;
+    top: 143px;
+    width: 140px;
+    height: 140px;
+  }

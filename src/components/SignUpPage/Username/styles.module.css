@@ -1,0 +1,200 @@
+* {
+  font-family: "Poppins", sans-serif !important ;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  background: #18191a;
+  height: 100vh;
+  align-items: center;
+  color: white;
+}
+
+.loginImage {
+  width: 850px;
+  height: 780px;
+}
+
+.loginDiv {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  width: 500px;
+  margin-left: 95px;
+  margin-top: 15px;
+}
+
+.gmdLogo {
+  height: 49px;
+  width: 164px;
+  cursor: pointer;
+}
+
+.mainHeading {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 39px;
+  background: linear-gradient(94.77deg, #02c2d0 0%, #6c4ffe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.input {
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  background-color: #18191a;
+  height: 35px;
+  width: 330px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  color: #fff;
+  padding-left: 10px;
+}
+::placeholder {
+  color: #fff !important;
+  text-align: center;
+  opacity: 0.7;
+}
+
+label {
+  font-family: "Avenir LT Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.checkBoxAndFP {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 360px;
+  margin-top: 5px;
+}
+
+.rememberMe{
+  margin-top: 2px;
+}
+
+.rememberMe,
+.forgotPassword {
+  width: 300px;
+  height: 25px;
+}
+
+.checkboxx {
+  margin-top: 0px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+}
+
+.forgotPassword {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+  background: linear-gradient(91.62deg, #12b2d7 0%, #516ef2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.rememberMe {
+  font-family: "Avenir LT Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 3%;
+  height: 150px;
+  justify-content: space-evenly;
+}
+
+.loginButton {
+  width: 350px;
+  height: 52px;
+  font-weight: 700;
+  background: #18191a;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background: -webkit-linear-gradient(89.56deg, #00c3cf 2.36%, #6f4bff 99.24%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.signUpButton {
+  width: 350px;
+  height: 52px;
+  color: #00c3d0;
+  border: 2px solid transparent;
+  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
+  border-image-slice: 1;
+  border-radius: 5px !important;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+hr {
+  background: #dcdcdc;
+  opacity: 0.5;
+  width: 250px;
+}
+
+.error_msg,
+.success_msg {
+  height: auto !important;
+  width: 308px;
+  height: 15px;
+  padding: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  background-color: #f34646;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.success_msg {
+  background-color: #5cdd5c;
+}
+
+.available{
+  color: #5cdd5c;
+  font-size: 12px;
+}
+
+.notAvailable{
+  color: #f34646;
+  font-size: 12px;
+}

@@ -1,20 +1,20 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import * as React from "react";
+import PropTypes from "prop-types";
+import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 import styles from "./styles.module.css";
-import { DialogActions } from '@mui/material';
+import { DialogActions } from "@mui/material";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  '& .MuiDialogContent-root': {
+  "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
   },
-  '& .MuiDialogActions-root': {
+  "& .MuiDialogActions-root": {
     padding: theme.spacing(1),
   },
 }));
@@ -58,14 +58,23 @@ export default function CustomizedDialogs({ children }) {
 
   return (
     <div>
-      <Button className={styles.editProfile} variant="outlined" onClick={handleClickOpen}>
-        Edit Profile
-      </Button>
+      <div
+        className={styles.editProfile}
+        variant="outlined"
+        onClick={handleClickOpen}
+      >
+        <img
+          className={styles.editProfile}
+          src={require("../../../images/Icons/pencil.png")}
+          alt="editProfile"
+        />
+      </div>
+
       <BootstrapDialog
         onClose={handleClose}
         open={open}
-        fullWidth = {true}
-        maxWidth="xl"
+        fullWidth={true}
+        maxWidth="lg"
       >
         <BootstrapDialogTitle onClose={handleClose}>
           Edit Profile Window

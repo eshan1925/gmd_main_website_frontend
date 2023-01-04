@@ -1,0 +1,20 @@
+.MuiPaper-root {
+  background-color: #18191a !important;
+  color: white !important;
+  border-radius: 15px !important;
+}
+
+.MuiDialogContent-root{
+    overflow-y: hidden !important;
+    padding: 20px 40px !important;
+}
+
+.storyHeading{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+

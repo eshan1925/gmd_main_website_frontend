@@ -1,0 +1,93 @@
+.main {
+  background-color: rgb(20, 19, 19);
+}
+
+.centerHeadings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  padding-bottom: 10px;
+  margin-top: 25px;
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 80px;
+  text-align: center;
+  background: -webkit-linear-gradient(89.56deg, #00c3cf 2.36%, #6f4bff 99.24%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#subHeading {
+  font-family: "Product Sans";
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 30px;
+  /* identical to box height, or 150% */
+  opacity: 0.7;
+}
+
+.specifics {
+  display: flex;
+  flex-direction: row;
+}
+
+.antiSpecifics {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.webPage {
+  width: 920px;
+  height: 580px;
+  left: 162px;
+  top: 1434px;
+}
+
+.profileIcon {
+  width: 70px;
+  height: 70px;
+}
+.contents {
+  color: #fff;
+  margin-top: 70px;
+}
+
+.contentHeading {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 49px;
+}
+
+.para {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  /* or 150% */
+  color: #ffffff;
+  opacity: 0.6;
+}
+
+.takeATour {
+  margin-top: 10px;
+  width: 172px;
+  height: 52px;
+  font-weight: 700;
+  background: #18191a;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background: -webkit-linear-gradient(89.56deg, #00c3cf 2.36%, #6f4bff 99.24%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}

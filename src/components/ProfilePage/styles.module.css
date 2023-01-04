@@ -1,284 +1,36 @@
-.main_container {
-  height: 100vh;
-  width: 100vw;
-  background-color: #191a1a;
-  color: white;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  font-family: "Product Sans";
-}
-
-.logo {
-  padding-left: 85px;
-  cursor: pointer;
-  height: 40px;
-  width: 120px;
-}
-
-.logOut {
-  margin: 3%;
-  color: #00c3d0;
-  border: 2px solid transparent;
-  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
-  border-image-slice: 1;
-  width: 120px;
-  height: 45px;
-  border-radius: 5px !important;
-  cursor: pointer;
-  font-weight: 700;
-  background-color: transparent;
-  margin-right: 75px;
-}
-
-.navbar {
-  width: 100%;
-  height: 70px;
-  background-color: #191a1a;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #717474;
-}
-
-.navbar h1 {
-  color: white;
+.tableHeading{
   font-size: 25px;
-  margin-left: 20px;
 }
 
-.white_btn {
-  border: none;
-  outline: none;
-  padding: 12px 0;
-  background-color: white;
-  border-radius: 20px;
-  width: 120px;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  margin-right: 20px;
-  color: #191a1a;
-}
-
-.project_manager {
-  display: flex;
-  flex-direction: row;
-  height: 56.7em;
-}
-
-.project_view {
-  display: flex;
-  flex-direction: column;
-  margin: 3%;
-  width: 85%;
-}
-
-.path_Details {
-  font-size: x-large;
-  font-weight: 300;
-}
-
-.project_options {
-  margin-top: 3%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.create_project {
-  width: 175px;
-}
-
-.project_status {
-  background-color: #484848;
-  width: 160px;
-  height: 35px;
-  color: white;
-  border-radius: 25px;
-  text-align: center;
-}
-.profile_view {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-right: 1px solid #717474;
-  padding: 3%;
-  width: 15%;
-}
-
-.profile_stats {
-  display: flex;
-  flex-direction: column;
-  border: 0.5px solid #717474;
-  border-radius: 5px;
-  padding: 10px;
-  padding-bottom: 35px;
-  margin-bottom: 25px;
-}
-
-.profile_pic {
-  margin: 2%;
-}
-
-.profile_info {
-  text-align: center;
-}
-
-.pro_subscription {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.tableMenu{
   width: 100%;
 }
 
-#scrollControl {
-  overflow: auto;
-  height: calc(100% - 30%);
+.profileTable{
+  width: 90%;
 }
 
-#scrollControl::-webkit-scrollbar {
-  display: none;
-}
-
-#scrollControl {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-button {
+.viewAndEditProf{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 0.5px solid #717474;
-  border-radius: 5px;
-  background-color: #191a1a;
-  color: white;
-  font-weight: 600;
-  width: 100%;
-  margin-bottom: 18px;
-  height: 35px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 90%;
 }
 
-button:hover {
-  background-color: #717474;
-  border-color: #cdcfcf;
-}
-
-.profileDetails {
+.profileAndConnections{
   display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
+  flex-direction: row;
 }
 
-.image {
-  height: 150px;
-  width: 250px;
+.editProfilePic{
+  position: absolute;
+  left: 14%;
+  top: 57%;
 }
 
-.userPic {
-  height: 250px;
-  width: 250px;
-  margin-bottom: 15px;
-}
-
-table {
-  width: 750px;
-  border-collapse: collapse;
-  border-radius: 5px;
-}
-
-/* Zebra striping */
-/* tr:nth-of-type(odd) {
-  background: transparent;
-} */
-
-th {
-  background: transparent;
-  color: white;
-  font-weight: bold;
-}
-
-td,
-th {
-  padding: 10px;
-  border: 1px solid #fff;
-  text-align: left;
-  font-size: 18px;
-}
-
-/* 
-Max width before this PARTICULAR table gets nasty
-This query will take effect for any screen smaller than 760px
-and also iPads specifically.
-*/
-@media only screen and (max-width: 760px),
-  (min-device-width: 768px) and (max-device-width: 1024px) {
-  table {
-    width: 100%;
-  }
-
-  /* Force table to not be like tables anymore */
-  table,
-  thead,
-  tbody,
-  th,
-  td,
-  tr {
-    display: block;
-  }
-
-  /* Hide table headers (but not display: none;, for accessibility) */
-  thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  tr {
-    border: 1px solid #ccc;
-  }
-
-  td {
-    /* Behave  like a "row" */
-    border: none;
-    border-bottom: 1px solid #eee;
-    position: relative;
-    padding-left: 50%;
-  }
-
-  td:before {
-    /* Now like a table header */
-    position: absolute;
-    /* Top/left values mimic padding */
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-    /* Label the data */
-    content: attr(data-column);
-
-    color: #000;
-    font-weight: bold;
-  }
-}
-
-.signUp {
-  color: #00c3d0;
-  border: 2px solid transparent;
-  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
-  border-image-slice: 1;
-  width: 128px;
-  height: 49.33px;
-  border-radius: 5px !important;
-  cursor: pointer;
-  font-weight: 700;
-  background-color: transparent;
-  margin-top: 12px;
-}
-
-.space{
-  margin-top: 15px;
+.editCoverImage{
+  position: absolute;
+  left: 93%;
+  top: 65%;
 }

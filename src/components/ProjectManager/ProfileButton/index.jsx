@@ -5,7 +5,7 @@ import React from 'react'
 const ProfileButton = (props) => {
   return (
     <>
-        <button>
+        <button className={styles.buttonn}>
             <div className={styles.buttonName}>
             {props.name}
             </div>

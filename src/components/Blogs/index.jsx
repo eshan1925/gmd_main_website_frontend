@@ -5,6 +5,7 @@ import BlogCard from "./BlogCard";
 import axios from "axios";
 import ProfileView from "../ProfileView";
 import UserNavbar from "../UserNavbar";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const BlogsComponent = (props) => {
   const userData = JSON.parse(props.userData);
@@ -36,17 +37,13 @@ const BlogsComponent = (props) => {
 
   React.useEffect(() => {
     getBlogs();
-  });
+    console.log("Blogs page was accessed by user " + userid);
+  }, []);
 
   const getBlogs = async () => {
     setLoading(true);
     await axios
-      .get(
-        "https://get-me-design-backend.herokuapp.com/blogs/" +
-          userid +
-          "/" +
-          blogCategory
-      )
+      .get("http://localhost:8080/blogs/" + userid + "/" + blogCategory)
       .then((response) => {
         const foundBlogs = response.data;
         getAllBlogs(foundBlogs);
@@ -107,7 +104,7 @@ const BlogsComponent = (props) => {
               </button>
             </div>
 
-            <div id={styles.scrollControl}>
+            <div>
               <div className={styles.blogBar}>
                 <div
                   style={allBlogsSelected ? selectedBlogCategory : {}}
@@ -123,17 +120,21 @@ const BlogsComponent = (props) => {
                 >
                   My Blogs
                 </div>
-                <div
+                {/* <div
                   style={false ? selectedBlogCategory : {}}
                   onClick={navigateToFavouriteBlogs}
                   className={styles.blogSelectionMenu}
                 >
                   Marked Favourite
+                </div> */}
+              </div>
+              {loading ? (
+                <CircularProgress style={{ color: "white" }} />
+              ) : (
+                <div className={styles.blogCardsSection}>
+                  {BlogsToGetRendered}
                 </div>
-              </div>
-              <div className={styles.blogCardsSection}>
-                {BlogsToGetRendered}
-              </div>
+              )}
             </div>
           </div>
         </div>

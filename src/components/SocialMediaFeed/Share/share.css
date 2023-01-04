@@ -8,28 +8,60 @@
 
 .shareWrapper {
   padding: 10px;
+  border: 0.2px solid #585858;
+  border-radius: 8px;
+}
+
+.createPostIcon{
+  height: 18px;
+  width: 18px;
+  margin-right: 10px;
+  margin-left: 15px;
+  
+}
+
+.createPostText{
+  margin-top: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 13px;
 }
 
 .shareTop {
+  border: 1px solid #585858;
+  border-radius: 10px;
   display: flex;
-  align-items: center;
+  align-items:flex-start;
+  margin: 15px;
 }
 
 .shareProfileImg {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 10px;
+  margin: 15px;
+  margin-right: 0px;
 }
 
+
+
 .shareInput {
-  border: 1px solid #585858;
+  border: 0px solid ;
   background-color: #242526;
   width: 85%;
   height: 80px;
   padding: 2%;
+  padding-left: 0%;
+  padding-top: 3%;
   margin-bottom: 10px;
+  color:white;
+}
+
+.shareInput::placeholder{
+  text-align: start;
 }
 
 .shareInput:focus {
@@ -42,7 +74,9 @@
 }
 
 .shareBottom {
+  margin: 15px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
@@ -75,14 +109,16 @@
 .shareButton {
   border: none;
   padding: 7px;
-  border-radius: 5px;
-  background-color: green;
+  border-radius: 20px;
+  background-color: #3900dc;
   font-weight: 500;
   cursor: pointer;
   color: white;
-  width: 20%;
+  width: 15%;
   margin: 20px;
+  margin-top: 10px;
 }
+
 
 .shareImgContainer {
   padding-top: 0 20px 10px 20px;
@@ -104,4 +140,54 @@
 
 .fileBase {
   margin: 100px !important;
+}
+
+.shareOption input[type="file" i]::-webkit-file-upload-button{
+  background-color: #3a3b3c;
+  border-radius: 15px;
+  width: 110px;
+  height: 30px;
+  color: white;
+  border:1px solid #585858;
+  cursor: pointer;
+}
+
+.Feelings,.Location{
+  background-color: #3a3b3c;
+  border-radius: 15px;
+  width: 110px;
+  height: 30px;
+  color: white;
+  border:1px solid #585858;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content:start;
+  align-items: center;
+  font-size: 12px;
+}
+
+.Feelings{
+  margin-right: 10px;
+}
+
+.postButtons{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.locationIcon{
+  height: 13px;
+  width: 13px;
+  margin-right: 8px;
+  margin-left: 4px;
+}
+
+
+.smileyIcon{
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+  margin-left: 4px;
 }

@@ -23,9 +23,13 @@ const CreateProject = (props) => {
     e.preventDefault();
     try {
       data.creatorOfProject = props.userId;
-      const url = "https://get-me-design-backend.herokuapp.com/createproject";
+      const url = "http://localhost:8080/createproject";
       const { data: res } = await axios.post(url, data);
-      window.location = "/";
+      console.log(
+        "User-:" +
+          props.userid +
+          " accessed the create new project page and created a new project."
+      );
     } catch (error) {
       if (
         error.response &&

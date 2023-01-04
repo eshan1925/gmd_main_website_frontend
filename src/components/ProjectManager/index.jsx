@@ -8,13 +8,13 @@ import UserNavbar from "../UserNavbar";
 
 const ProjectManager = (props) => {
   const [value, setValue] = React.useState("Open");
-
+  const user = props.userData;
   const handleChange = (event) => {
     setValue(event.target.value);
   };
 
   const userData = JSON.parse(props.userData);
-
+  console.log("UserId-: "+user._id+" accessed the project manager page.");
   return (
     <div className={styles.main_container}>
       <UserNavbar userInfo={userData} />

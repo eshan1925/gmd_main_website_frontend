@@ -1,0 +1,185 @@
+.main_container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #191a1a;
+  color: white;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: #191a1a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #717474;
+}
+
+.navbar h1 {
+  color: white;
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+.logo {
+  padding-left: 85px;
+  cursor: pointer;
+  height: 40px;
+  width: 120px;
+}
+
+.logOut {
+  margin: 3%;
+  color: #00c3d0;
+  border: 2px solid transparent;
+  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
+  border-image-slice: 1;
+  width: 120px;
+  height: 45px;
+  border-radius: 5px !important;
+  margin-right: 65px;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+.white_btn {
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  background-color: white;
+  border-radius: 20px;
+  width: 120px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 20px;
+  color: #191a1a;
+}
+
+.profile_view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #717474;
+  padding: 3%;
+  width: 15%;
+}
+
+.profile_stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid #717474;
+  border-radius: 5px;
+  padding: 10px;
+  padding-bottom: 35px;
+  margin-bottom: 25px;
+}
+
+.profile_pic {
+  height: 200px;
+  width: 200px;
+  padding-bottom: 10%;
+}
+
+.profile_info {
+  text-align: center;
+}
+
+.pro_subscription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.project_manager {
+  display: flex;
+  flex-direction: row;
+  height: 56.7em;
+}
+
+.project_view {
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+  width: 85%;
+}
+
+.path_Details {
+  font-size: x-large;
+  font-weight: 300;
+}
+
+#scrollControl {
+  overflow: auto;
+  height: calc(100% - 210px);
+}
+
+#scrollControl::-webkit-scrollbar {
+  display: none;
+}
+
+#scrollControl {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.blogBar {
+  margin-top: 2%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: larger;
+}
+
+.blogSelectionMenu {
+  margin-right: 65px;
+  cursor: pointer;
+}
+
+.blogCardsSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#AllBlogs {
+  border-bottom: 1px solid rgba(202, 202, 202, 0.86);
+}
+
+.pathAndButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#container {
+  height: 100vh !important;
+  color: #fff;
+}
+
+.createBlogButton {
+  width: 170px;
+  height: 45px;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  border-radius: 5px;
+}
+
+.path_Details {
+  margin-bottom: 15px;
+}
+
+.blogTitleInput {
+  margin-bottom: 15px;
+  color: white;
+  background-color: transparent;
+}

@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({ email: "", password: "", name: "" });
   const [error, setError] = useState("");
   const [msg, setMsg] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -16,9 +18,9 @@ const SignUp = () => {
     navigate("/login");
   };
 
-  const navigateToSignUp = () => {
-    navigate("/signup");
-  };
+  // const navigateToSignUp = () => {
+  //   navigate("/signup");
+  // };
 
   const navigateToHome = () => {
     navigate("/");
@@ -29,8 +31,12 @@ const SignUp = () => {
     setMsg("");
     e.preventDefault();
     try {
-      const url = "https://get-me-design-backend.herokuapp.com/api/users";
+      setLoading(true);
+      const url = "http://localhost:8080/api/users";
       const { data: res } = await axios.post(url, data);
+      console.log(
+        "New signUp to the system...\nuser Details-: " + JSON.stringify(data)
+      );
       setMsg(res.message);
     } catch (error) {
       if (
@@ -40,6 +46,8 @@ const SignUp = () => {
       ) {
         setError(error.response.data.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -90,6 +98,7 @@ const SignUp = () => {
             required
             className={styles.input}
             placeholder="Password"
+            pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^0-9a-zA-Z]).{8,26}$"
           />
           {error && <div className={styles.error_msg}>{error}</div>}
           {msg && <div className={styles.success_msg}>{msg}</div>}
@@ -101,7 +110,13 @@ const SignUp = () => {
             <div className={styles.forgotPassword}>Forgot Password ?</div>
           </div>
           <div className={styles.buttons}>
-            <button className={styles.loginButton}>Sign up</button>
+            <button className={styles.loginButton}>
+              {!loading ? (
+                "Sign Up"
+              ) : (
+                <CircularProgress style={{ color: "white" }} />
+              )}
+            </button>
             <hr />
             <button onClick={navigateToLogin} className={styles.signUpButton}>
               Login

@@ -1,0 +1,54 @@
+.main {
+  border: #717474 solid 1.2px;
+  border-radius: 8px;
+}
+
+.mainNav {
+  background-color: #18191a;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.color {
+  background-color: #18191a;
+  height: 650px;
+  width: auto;
+}
+
+#buttonProp {
+  width: 80px;
+}
+
+.editProfile{
+  width: 25px;
+  height: 25px;
+  background-color: #d1dbdb;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editProfileImg {
+  width: 15px;
+  height: 15px;
+}
+
+.contactButton{
+  border: none;
+  background-color: #1872f2;
+  color: white;
+  border-radius: 25px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 150px;
+  height: 27px;
+}

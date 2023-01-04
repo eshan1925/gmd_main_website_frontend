@@ -2,26 +2,23 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import axios from "axios";
 import FileBase64 from "react-file-base64";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CircularProgress from "@mui/material/CircularProgress";
 
-const EditProfile = () => {
+const EditServiceProfile = () => {
   var userData = sessionStorage.getItem("userData");
   userData = JSON.parse(userData);
-  //   name: `${userData.name}`,
-  //     gender: `${userData.gender}`,
-  //     bio: `${userData.Bio}`,
-  //     city: `${userData.city}`,
-  //     country: `${userData.country}`,
-  //     dateOfBirth: `${userData.dateOfBirth}`,
-  //     profilePic: `${userData.profilePic}`,
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     _id: userData["_id"],
     name: userData["name"],
-    gender: userData["gender"],
     Bio: userData["Bio"],
-    city: userData["city"],
     country: userData["country"],
-    dateOfBirth: userData["dateOfBirth"],
     profilePic: userData["profilePic"],
+    charge: userData["charge"],
+    experience: userData["experience"],
+    tools: userData["tools"],
   });
 
   const handleChange = ({ currentTarget: input }) => {
@@ -31,6 +28,7 @@ const EditProfile = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const url =
         (process.env.BACKEND_PORT || "http://localhost") +
         ":8080/profile/" +
@@ -45,24 +43,33 @@ const EditProfile = () => {
       //   console.log(foundContent);
       //   sessionStorage.setItem("userData",foundContent);
       // })
+      console.log(
+        "User-:" +
+          userData["_id"] +
+          " accessed the edit profile page and edited his profile.."
+      );
+      window.location.reload();
     } catch (error) {
       if (
         error.response &&
         error.response.status >= 400 &&
         error.response.status <= 500
       ) {
-        console.log(error.response.data.message);
+        toast("Some Error Occured!!! Please try again");
+        console.log(error);
       }
+    } finally {
+      setLoading(false);
     }
   };
   return (
     <div id={styles.scrollControl} className={styles.main}>
       <form onSubmit={onSubmit}>
-        <div className={styles.rowflex}>
+        {/* <div className={styles.rowflex}>
           <div className={styles.mainInput}>
             <div className={styles.title}>Name</div>
             <input
-            className={styles.inputContainer}
+              className={styles.inputContainer}
               name="name"
               value={data.name}
               type="text"
@@ -71,33 +78,9 @@ const EditProfile = () => {
             />
           </div>
           <div className={styles.mainInput}>
-            <div className={styles.title}>Gender</div>
+            <div className={styles.title}>Location</div>
             <input
-            className={styles.inputContainer}
-              name="gender"
-              value={data.gender}
-              type="text"
-              placeholder="Gender"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className={styles.rowflex}>
-          <div className={styles.mainInput}>
-            <div className={styles.title}>City</div>
-            <input
-            className={styles.inputContainer}
-              name="city"
-              value={data.city}
-              type="text"
-              placeholder="Enter the City"
-              onChange={handleChange}
-            />
-          </div>
-          <div className={styles.mainInput}>
-            <div className={styles.title}>Country</div>
-            <input
-            className={styles.inputContainer}
+              className={styles.inputContainer}
               name="country"
               value={data.country}
               type="text"
@@ -105,23 +88,52 @@ const EditProfile = () => {
               onChange={handleChange}
             />
           </div>
-        </div>
+        </div> */}
         <div className={styles.rowflex}>
           <div className={styles.mainInput}>
             <div className={styles.title}>Profile Pic</div>
-            <FileBase64
-              multiple={false}
-              id="upload"
-              onDone={({ base64 }) => setData({ ...data, profilePic: base64 })}
+            <label htmlFor="file" className="shareOption">
+              <FileBase64
+                multiple={false}
+                id="upload"
+                onDone={({ base64 }) =>
+                  setData({ ...data, profilePic: base64 })
+                }
+              />
+            </label>
+          </div>
+          <div className={styles.mainInput}>
+            <div className={styles.title}>Tools Known</div>
+            <input
+              className={styles.inputContainer}
+              name="tools"
+              value={data.tools}
+              type="text"
+              placeholder="Enter the Tools Known"
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className={styles.rowflex}>
+          <div className={styles.mainInput}>
+            <div className={styles.title}>Experience</div>
+            <input
+              className={styles.inputContainer}
+              name="experience"
+              value={data.experience}
+              type="text"
+              placeholder="In X years and Y months"
+              onChange={handleChange}
             />
           </div>
           <div className={styles.mainInput}>
-            <div className={styles.title}>Date of Birth</div>
+            <div className={styles.title}>Charge Rate</div>
             <input
-            className={styles.inputContainer}
-              name="dateOfBirth"
-              value={data.dateOfBirth}
-              type="date"
+              className={styles.inputContainer}
+              name="charge"
+              value={data.charge}
+              type="text"
+              placeholder="Minimum desired Charge"
               onChange={handleChange}
             />
           </div>
@@ -133,13 +145,31 @@ const EditProfile = () => {
           value={data.Bio}
           placeholder="Bio"
           onChange={handleChange}
+          className={styles.textareaBio}
         />
         <button className={styles.submitButton} type="submit">
-          Update Profile
+          {loading ? (
+            <CircularProgress style={{ color: "white" }} />
+          ) : (
+            "Update Profile"
+          )}
         </button>
       </form>
+      <ToastContainer
+        // position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        // closeOnClick
+        // rtl={false}
+        // pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        type="error"
+      />
     </div>
   );
 };
 
-export default EditProfile;
+export default EditServiceProfile;

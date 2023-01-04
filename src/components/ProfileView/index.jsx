@@ -2,28 +2,25 @@ import React from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
 import PurpleButton from "./PurpleButton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProfileView = (props) => {
   const navigate = useNavigate();
   const userData = props.userData;
   const userid = userData._id;
   const [sideBar, setSideBar] = React.useState(true);
-  const navigateToTasks = () => {
-    navigate("/calendar/" + userid);
+  
+  const notify = () => toast('✅ Coming Soon!!!');
+
+  const navigateToSocialMediaFeed = () => {
+    navigate("/social-feed/" + userid);
   };
 
   const navigateToProjects = () => {
     navigate("/project-manager/" + userid);
   };
-  const navigateToMeetings = () => {
-    navigate("/calendar/" + userid);
-  };
-  const navigateToPayments = () => {
-    navigate("/calendar/" + userid);
-  };
-  const navigateToCalendar = () => {
-    navigate("/calendar/" + userid);
-  };
+
   const navigateToBlogs = () => {
     navigate("/blogs/" + userid + "/all-blogs");
   };
@@ -37,6 +34,18 @@ const ProfileView = (props) => {
   };
   return (
     <>
+        <ToastContainer
+              // position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              // closeOnClick
+              // rtl={false}
+              // pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
       {sideBar ? (
         <>
           <div className={styles.profile_view}>
@@ -72,9 +81,22 @@ const ProfileView = (props) => {
                   <div className={styles.buttonHeading}>Projects</div>
                 </div>
               </button>
+              {/* <button
+              onClick={navigateToSocialMediaFeed}
+                className={styles.navigationButton}
+              >
+                <div className={styles.buttonName}>
+                  <img
+                    className={styles.buttonIcon}
+                    src={require("../../images/Icons/project.png")}
+                    alt=""
+                  />
+                  <div className={styles.buttonHeading}>Activity</div>
+                </div>
+              </button> */}
               <button
                 className={styles.navigationButton}
-                onClick={navigateToTasks}
+                onClick={notify}
               >
                 <div className={styles.buttonName}>
                   <img
@@ -100,7 +122,7 @@ const ProfileView = (props) => {
               </button>
               <button
                 className={styles.navigationButton}
-                onClick={navigateToCalendar}
+                onClick={notify}
               >
                 <div className={styles.buttonName}>
                   <img
@@ -113,7 +135,7 @@ const ProfileView = (props) => {
               </button>
               <button
                 className={styles.navigationButton}
-                onClick={navigateToMeetings}
+                onClick={notify}
               >
                 <div className={styles.buttonName}>
                   <img
@@ -126,7 +148,7 @@ const ProfileView = (props) => {
               </button>
               <button
                 className={styles.navigationButton}
-                onClick={navigateToPayments}
+                onClick={notify}
               >
                 <div className={styles.buttonName}>
                   <img
