@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Avenir LT Pro";
+  src: local("Avenir LT Pro"),url("./Fonts/avenir-lt/AvenirLTProBlack.otf") format("truetype");
+}
+
 body {
   margin: 0;
+  font-family: "Avenir LT Pro","Product Sans","Poppins", sans-serif !important ;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

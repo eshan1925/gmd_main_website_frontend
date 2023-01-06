@@ -1,0 +1,49 @@
+.commentt{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.usernameAndProfilePic{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.usernameAndDate{
+    display: flex;
+    align-items:baseline;
+    
+}
+
+.dateOfComment{
+    font-size: 12px;
+    margin-left: 10px;
+    color:#616262;
+    font-weight: 600;
+}
+
+.profilePic{
+    width: 30px;
+    height: 30px;
+}
+
+.userName{
+    font-size: 15px;
+}
+
+.commentText{
+    background-color: #3a3b3c;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    color: #616262;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.deleteComment{
+    margin-left: 10px;
+    font-size: 12px;
+    cursor: pointer;
+}

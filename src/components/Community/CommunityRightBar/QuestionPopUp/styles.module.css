@@ -1,0 +1,51 @@
+.main {
+  border: #717474 solid 1.2px;
+  border-radius: 8px;
+}
+
+.mainNav {
+  background-color: #18191a;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.color {
+  background-color: #18191a;
+  height: 650px;
+  width: auto;
+}
+
+#buttonProp {
+  width: 80px;
+}
+
+.editProfile{
+  width: 25px;
+  height: 25px;
+  background-color: #d1dbdb;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editProfileImg {
+  width: 15px;
+  height: 15px;
+}
+.PurpleButton{
+  background-color: #3900dc;
+  color: white;
+  border-radius: 25px;
+  width: 290px;
+  height: 45px;
+  outline: none;
+  border: none;
+  font-size: 12px;
+  margin-top: 50px;
+  cursor: pointer;
+}
+

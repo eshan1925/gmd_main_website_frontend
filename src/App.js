@@ -13,6 +13,7 @@ import SocialMediaFeedProfile from "./components/SocialMediaFeed/SocialMediaFeed
 import VerificationPage from "./components/VerificationPage";
 import Username from "./components/SignUpPage/Username";
 import DynamicPortfolio from "./components/DynamicPortfolio";
+import Community from "./components/Community";
 
 // CONTRA components
 // import ProfilePicture from "./components/DynamicPortfolio/ProfilePic";
@@ -128,6 +129,13 @@ function App() {
               path="/profile/:id"
               exact
               element={<ProfilePage userData={userData} />}
+            />
+          )}
+          {userData && (
+            <Route
+              path="/community-forum/:id"
+              exact
+              element={<Community userData={userData} />}
             />
           )}
 

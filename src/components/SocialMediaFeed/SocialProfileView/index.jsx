@@ -32,6 +32,10 @@ const SocialProfileView = (props) => {
     navigate("/portfolio-section/" + userid);
   };
 
+  const navigateToCommunity = () =>{
+    navigate("/community-forum/"+userid);
+  }
+
   const sideBarValue = () => {
     setSideBar(!sideBar);
   };
@@ -52,9 +56,9 @@ const SocialProfileView = (props) => {
       {sideBar ? (
         <>
           <div className={styles.profile_view}>
-            <button onClick={sideBarValue} className={styles.shrinker}>
+            {/* <button onClick={sideBarValue} className={styles.shrinker}>
               Shrink this Menu!
-            </button>
+            </button> */}
 
             <div className={styles.profile_stats}>
               <img
@@ -116,7 +120,7 @@ const SocialProfileView = (props) => {
                   <div className={styles.buttonHeading}>People</div>
                 </div>
               </button>
-              <button className={styles.navigationButton} onClick={notify}>
+              <button className={styles.navigationButton} onClick={navigateToCommunity}>
                 <div className={styles.buttonName}>
                   <img
                     className={styles.buttonIcon}

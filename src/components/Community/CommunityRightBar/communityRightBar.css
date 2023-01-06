@@ -1,0 +1,41 @@
+
+.communityRB{
+    width: 300px;
+    margin: 15px;
+}
+
+.topContributors{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    border: 1px solid #717474;
+    border-radius: 5px;
+}
+
+.profilePicTC{
+    width: 30px;
+    height: 30px;
+}
+
+.headingtc{
+    margin-top: 15px;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+.contributroInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px;
+}
+
+.nameAndProfilePic{
+    display: flex;
+    flex-direction: row;
+}
+
+.numberOfContri{
+    font-size: 15px;
+}

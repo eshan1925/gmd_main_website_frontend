@@ -1,0 +1,42 @@
+.community{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+}
+
+
+.cfeed{
+    width: 70%;
+    margin: 10px;
+}
+
+.cnavbar{
+    width: 30%;
+    border-right: 1px solid #717474;
+}
+
+.forumHeading{
+    margin-top: 25px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.menuForSelection{
+    margin-top: 45px;
+}
+
+.menu-heading{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.menu-icon{
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}

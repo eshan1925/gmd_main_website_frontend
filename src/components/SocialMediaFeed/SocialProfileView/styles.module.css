@@ -5,6 +5,7 @@
     padding: 1.5%;
     width: 18%;
     transition: 0.5s;
+    height: 100vh;
   }
   
   .profile_stats {
@@ -137,7 +138,7 @@
 
   .xp_circle{
     position:absolute;
-    top: 143px;
+    top: 112px;
     width: 140px;
     height: 140px;
   }
