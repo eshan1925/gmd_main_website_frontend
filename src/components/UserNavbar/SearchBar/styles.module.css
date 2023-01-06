@@ -36,7 +36,7 @@
   font-size: 16px;
   background-color: #18191A;
   background-image: url("../../../images/Icons/search_icon.svg");
-  background-position: 15px 10px;
+  background-position: 15px 7px;
   background-repeat: no-repeat;
   background-size: 25px;
   padding: 8px 20px 8px 40px;
@@ -44,4 +44,5 @@
   transition: width 0.8s ease-in-out;
   outline: none;
   opacity: 0.9;
+  font-family: 'Avenir LT Pro';
 }

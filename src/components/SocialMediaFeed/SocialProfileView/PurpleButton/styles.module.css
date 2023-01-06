@@ -2,9 +2,11 @@
     background-color: #3900dc;
     color: white;
     border-radius: 25px;
-    width: 150px;
-    height: 35px;
+    width: 125px;
+    height: 25px;
     outline: none;
     border: none;
     font-size: 12px;
+    font-size: 9px;
+    font-family: 'Avenir LT Pro Black';
 }

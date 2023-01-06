@@ -43,7 +43,7 @@
 }
 
 .userPic {
-  width: 45px;
+  width: 35px;
   border-radius: 50%;
   cursor: pointer;
   margin-right: 10px;
@@ -84,7 +84,7 @@
   font-size:medium;
 }
 .userInfo img {
-  width: 50px;
+  width: 40px;
   border-radius: 50%;
   margin-right: 15px;
 }
@@ -107,7 +107,7 @@
   width: 100%;
 }
 .subMenuLink img {
-  width: 40px;
+  width: 30px;
   background: #e5e5e5;
   border-radius: 50%;
   padding: 8px;
@@ -129,8 +129,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-right: 50px;
+  margin-right: 25px;
   cursor: pointer;
+  font-size: smaller;
 }
 
 .rightOfNavbar{
@@ -142,8 +143,8 @@
 .notificationIcon , .cartIcon{
   border-radius: 50%;
   background-color: #292929;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   margin: 10px;
   margin-top: 15px;
   margin-right: 0px;

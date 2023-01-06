@@ -81,8 +81,8 @@ const SocialProfileView = (props) => {
                 />
                 <br />
                 <div id={styles.friendsAndGroups}>
-                  {userData["followers"].length} Followers&nbsp;&nbsp;{" "}
-                  {userData["following"].length} Following
+                  <span id={styles.friendsAndGroupsNumbers}>{userData["followers"].length}</span> Followers&nbsp;&nbsp;{" "}
+                  <span id={styles.friendsAndGroupsNumbers}>{userData["following"].length}</span> Following
                 </div>
               </div>
             </div>
@@ -107,7 +107,7 @@ const SocialProfileView = (props) => {
                     src={require("../../../images/Icons/marketplace.png")}
                     alt=""
                   />
-                  <div className={styles.buttonHeading}>MarketPlace</div>
+                  <div className={styles.buttonHeading}>Marketplace</div>
                 </div>
               </button>
               <button className={styles.navigationButton} onClick={notify}>

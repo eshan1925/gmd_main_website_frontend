@@ -3,6 +3,7 @@
     flex-direction: column;
     border-right: 1px solid #717474;
     padding: 1.5%;
+    padding-top: 2%;
     width: 18%;
     transition: 0.5s;
     height: 100vh;
@@ -18,32 +19,41 @@
     padding: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    height: 200px;
+    height: 270px;
   }
   
   .profile_pic {
     height: 45px;
     width: 45px;
     position: relative;
-    top: 56px;
+    top: 22%;
   }
   
   .profile_info {
     text-align: center;
     font-weight: 600;
-    margin-top: 110px;
+    margin-top: 135px;
+    font-size: larger;
+    font-family: 'Avenir LT Pro Black';
   }
   
   #friendsAndGroups {
-    font-weight: 400;
+    font-family: 'Avenir LT Pro';
+    font-size: 11px;
+    padding-top: 5px;
+  }
+
+  #friendsAndGroupsNumbers {
+    font-family: 'Avenir LT Pro Black';
+    font-size: small;
   }
   
   
   .profile_details{
     display: flex;
     flex-wrap: wrap;
-    width: 105%;
-    margin-left: -5px;
+    width: 107%;
+    margin-left: -7px;
   }
 
   .navigationButton {
@@ -59,9 +69,12 @@
     font-weight: 400;
     width: 45%;
     margin: 6px;
-    height: 35px;
+    margin-right: 3px;
+    margin-top: 3px;
+    height: 43px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: 600;
   }
   
   .navigationButton:hover {
@@ -72,7 +85,8 @@
   .buttonHeading {
     width: 100px;
     text-align: start;
-    margin-left: 20px;
+    margin-left: 15px;
+    font-family: 'Avenir LT Pro';
   }
   
   .buttonIcon {
@@ -90,6 +104,10 @@
     border-radius: 5px;
     padding-bottom: 15px;
   }
+
+  .proImage {
+    width: 40%;
+  }
   
   .buttonName {
     display: flex;
@@ -103,13 +121,14 @@
     background-color: #00a6ff;
     color: white;
     border-radius: 25px;
-    width: 150px;
-    height: 25px;
-    margin-left: 50px;
+    width: 40%;
+    height: 20px;
+    margin-left: 5rem;
     margin-bottom: 7px;
     margin-top: 0px;
     border: 0px;
     cursor: pointer;
+    font-size: x-small;
   }
   
   .expander {
@@ -138,7 +157,7 @@
 
   .xp_circle{
     position:absolute;
-    top: 112px;
-    width: 140px;
-    height: 140px;
+    top: 18%;
+    width: 9rem;
+    height: 9rem;
   }

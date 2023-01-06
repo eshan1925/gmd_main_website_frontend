@@ -1,6 +1,11 @@
 @font-face {
   font-family: "Avenir LT Pro";
-  src: local("Avenir LT Pro"),url("./Fonts/avenir-lt/AvenirLTProBlack.otf") format("truetype");
+  src: local("Avenir LT Pro"),url("./Fonts/avenir-lt/AvenirLTProBook.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Avenir LT Pro Black";
+  src: local("Avenir LT Pro Black"),url("./Fonts/avenir-lt/AvenirLTProBlack.otf") format("truetype");
 }
 
 body {
