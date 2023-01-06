@@ -1,92 +1,99 @@
 .post {
-    width: 100%;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-    margin: 30px 0;
-    background-color: #242526;
-  }
-  
-  .postWrapper {
-    padding: 30px;
-  }
+  width: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  margin: 30px 0;
+  background-color: #242526;
+}
 
-  
-  .postTop {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .postTopLeft {
-    display: flex;
-    align-items: center;
-  }
-  
-  .postProfileImg {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .postUsername {
-    font-size: 15px;
-    font-weight: 500;
-    margin: 0 10px;
-    cursor: pointer;
-  }
-  
-  .postDate{
-      font-size: 12px;
-      margin-left: 10px
-  }
-  
-  .postCenter{
-      margin: 20px 0;
-  }
-  
-  .postImg{
-      margin-top: 20px;
-      width: 100%;
-      max-height: 500px;
-      object-fit: contain;
-  }
-  
-  .postBottom{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-  }
-  
-  .postBottomLeft{
-      display: flex;
-      align-items: center;   
-  }
-  
-  .likeIcon{
-      width: 24px;
-      height: 24px;
-      margin-right: 5px;
-      cursor: pointer;
-  }
-  
-  .postLikeCounter{
-      font-size: 15px;
-  }
-  
-  .postCommentText{
-      cursor: pointer;
-      border-bottom: 1px dashed gray;
-      font-size: 15px;
-  }
+.postWrapper {
+  padding: 30px;
+}
 
-  .followButton{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    border: none;
+.postTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.postTopLeft {
+  display: flex;
+  align-items: center;
+}
+
+.postProfileImg {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.postUsername {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.postDate {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.postCenter {
+  margin: 20px 0;
+}
+
+.postImg {
+  margin-top: 20px;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.postBottomm {
+  border-top: 0.5px solid #3a3b3c;
+  border-bottom: 0.5px solid #3a3b3c;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.postBottomLeft {
+  display: flex;
+  align-items: center;
+}
+
+.sharePost {
+  display: flex;
+  align-items: center;
+}
+
+.likeIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.postLikeCounter {
+  font-size: 15px;
+}
+
+.postCommentText {
+  cursor: pointer;
+  border-bottom: 1px dashed gray;
+  font-size: 15px;
+}
+
+.followButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
   padding: 7px;
   border-radius: 20px;
   background-color: #3900dc;
@@ -94,18 +101,43 @@
   cursor: pointer;
   color: white;
   width: 100px;
-  }
+}
 
-  .followPlus{
-    height: 15px;
-    width: 15px;
-  }
+.followPlus {
+  height: 15px;
+  width: 15px;
+}
 
-  .nameAnddate{
-    display: flex;
-    flex-direction: column;
-  }
+.nameAnddate {
+  display: flex;
+  flex-direction: column;
+}
 
-  .noLink{
-    all:none !important;
-  }
+.noLink {
+  all: none !important;
+}
+
+.commentsPost {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+  justify-content: space-between;
+  align-items: center;
+  width: 105px;
+  cursor: pointer;
+}
+
+.commentCounter {
+  border-radius: 50%;
+  border: 1px solid #fff;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favouriteMarker,
+.sharePost {
+  margin-left: 15px;
+  cursor: pointer;
+}

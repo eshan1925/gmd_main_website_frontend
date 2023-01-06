@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import BlogCard from "./BlogCard";
 import axios from "axios";
-import ProfileView from "../ProfileView";
+import SocialProfileView from "../SocialMediaFeed/SocialProfileView";
 import UserNavbar from "../UserNavbar";
 import CircularProgress from "@mui/material/CircularProgress";
 
@@ -89,7 +89,7 @@ const BlogsComponent = (props) => {
     <div className={styles.main_container_1}>
       <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
-        <ProfileView userData={userData} />
+        <SocialProfileView selectedMenu="6" userData={userData} />
         <div className={styles.project_view}>
           <div>
             <div className={styles.pathAndButton}>

@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import CircularProgress from "@mui/material/CircularProgress";
 import styles from "./styles.module.css";
 
-
 const Username = () => {
   const [username, setUsername] = useState("");
   const [number, setNumber] = useState("");
@@ -14,6 +13,7 @@ const Username = () => {
   const [currentUsernamesInDb, setCurrentUsernamesInDb] = useState({});
   const [available, setAvailable] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitLoading, setSubmitLoading] = useState(false);
   const [sendOtp, setSendOtp] = useState(false);
   const [OTP, setOTP] = useState("");
   const text = window.location.pathname;
@@ -77,6 +77,12 @@ const Username = () => {
     toast("You are verified!!!");
   };
 
+  function redirectPage() {
+    setSubmitLoading(true);
+    document.location.href =
+      "http://localhost:3000/social-feed/" + currentUserID;
+  }
+
   const handleSubmit = async (e) => {
     if (!available) {
       toast("Username you selected is not available!!!");
@@ -100,10 +106,11 @@ const Username = () => {
 
       updatedUserData = updatedUserData.data[0];
       console.log(updatedUserData);
-      sessionStorage.removeItem("userData");
-      sessionStorage.setItem("userData", JSON.stringify(updatedUserData));
 
-      navigate("/social-feed/" + currentUserID);
+      await sessionStorage.removeItem("userData");
+      await sessionStorage.setItem("userData", JSON.stringify(updatedUserData));
+
+      setTimeout(redirectPage, 5000);
     }
   };
 
@@ -217,7 +224,11 @@ const Username = () => {
           <hr />
           {verified ? (
             <button onClick={handleSubmit} className={styles.signUpButton}>
-              Submit
+              {!submitLoading ? (
+                <>Submit</>
+              ) : (
+                <CircularProgress style={{ color: "white" }} />
+              )}
             </button>
           ) : null}
         </div>

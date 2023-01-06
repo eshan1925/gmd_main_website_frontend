@@ -4,6 +4,7 @@ import ProjectDetails from "./ProjectDetails";
 import CustomizedDialogs from "./PopupBox/index";
 import CreateProject from "./CreateProject";
 import ProfileView from "../ProfileView";
+import SocialProfileView from "../SocialMediaFeed/SocialProfileView";
 import UserNavbar from "../UserNavbar";
 
 const ProjectManager = (props) => {
@@ -19,7 +20,7 @@ const ProjectManager = (props) => {
     <div className={styles.main_container}>
       <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
-        <ProfileView userData={userData} />
+        <SocialProfileView selectedMenu="8" userData={userData} />
         <div className={styles.project_view}>
           <div className={styles.path_Details}>
             Home &#62; Organiser <b>&#62; Projects</b>

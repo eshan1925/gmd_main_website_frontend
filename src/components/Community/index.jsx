@@ -11,7 +11,7 @@ const Community = (props) => {
     <>
       <UserNavbar userInfo={userData} />
       <div className="homeContainer">
-        <SocialProfileView userData={userData} />
+        <SocialProfileView selectedMenu="4" userData={userData} />
         <CommunityNavBarAndFeed currentUser={userData} />
         <CommunityRightbar currentUser={userData} />
       </div>

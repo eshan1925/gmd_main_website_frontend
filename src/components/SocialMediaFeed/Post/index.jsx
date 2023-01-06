@@ -104,26 +104,36 @@ const Post = ({ post }) => {
           <span className="postText">{post?.desc}</span>
           <img className="postImg" src={post.img} alt="" />
         </div>
-        <div className="postBottom">
+        <div className="postBottomm">
           <div className="postBottomLeft">
             <img
               className="likeIcon"
-              src={require("../../../images/social/like.png")}
+              src={require("../../../images/Icons/like.png")}
               onClick={likeHandler}
               alt=""
             />
-            <img
-              className="likeIcon"
-              src={require("../../../images/social/heart.png")}
-              onClick={likeHandler}
-              alt=""
-            />
-            <span className="postLikeCounter">{like} people like it</span>
+            <span className="postLikeCounter">{like} Like</span>
           </div>
-          <div className="postBottomRight">
+          {/* <div className="postBottomRight">
             <span className="postCommentText" onClick={comingSoonToast}>
               {post.comment} comments
             </span>
+          </div> */}
+
+          <div onClick={comingSoonToast} className="commentsPost">
+            <div className="commentCounter">0</div>
+            <div className="textOfComment">Comment</div>
+          </div>
+          <div onClick={comingSoonToast} className="favouriteMarker">
+            Mark As Favourite
+          </div>
+          <div onClick={comingSoonToast} className="sharePost">
+            <img
+              className="likeIcon"
+              src={require("../../../images/Icons/share.png")}
+              alt=""
+            />
+            Share
           </div>
         </div>
       </div>

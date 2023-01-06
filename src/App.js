@@ -14,6 +14,7 @@ import VerificationPage from "./components/VerificationPage";
 import Username from "./components/SignUpPage/Username";
 import DynamicPortfolio from "./components/DynamicPortfolio";
 import Community from "./components/Community";
+import CircularProgress from "@mui/material/CircularProgress";
 
 // CONTRA components
 // import ProfilePicture from "./components/DynamicPortfolio/ProfilePic";

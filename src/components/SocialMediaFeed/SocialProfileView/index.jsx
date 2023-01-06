@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const SocialProfileView = (props) => {
   const navigate = useNavigate();
   const userData = props.userData;
+  const selectedMenu = props.selectedMenu;
   const userid = userData._id;
   const [sideBar, setSideBar] = React.useState(true);
 
@@ -32,9 +33,9 @@ const SocialProfileView = (props) => {
     navigate("/portfolio-section/" + userid);
   };
 
-  const navigateToCommunity = () =>{
-    navigate("/community-forum/"+userid);
-  }
+  const navigateToCommunity = () => {
+    navigate("/community-forum/" + userid);
+  };
 
   const sideBarValue = () => {
     setSideBar(!sideBar);
@@ -81,8 +82,14 @@ const SocialProfileView = (props) => {
                 />
                 <br />
                 <div id={styles.friendsAndGroups}>
-                  <span id={styles.friendsAndGroupsNumbers}>{userData["followers"].length}</span> Followers&nbsp;&nbsp;{" "}
-                  <span id={styles.friendsAndGroupsNumbers}>{userData["following"].length}</span> Following
+                  <span id={styles.friendsAndGroupsNumbers}>
+                    {userData["followers"].length}
+                  </span>{" "}
+                  Followers&nbsp;&nbsp;{" "}
+                  <span id={styles.friendsAndGroupsNumbers}>
+                    {userData["following"].length}
+                  </span>{" "}
+                  Following
                 </div>
               </div>
             </div>
@@ -90,8 +97,14 @@ const SocialProfileView = (props) => {
               <button
                 onClick={navigateToSocialMediaFeed}
                 className={styles.navigationButton}
+                  style={{
+                    backgroundColor:
+                      selectedMenu === "1" ? "#3a3a3a" : "transparent",
+                  }}
               >
-                <div className={styles.buttonName}>
+                <div
+                  className={styles.buttonName}
+                >
                   <img
                     className={styles.buttonIcon}
                     src={require("../../../images/Icons/project.png")}
@@ -100,7 +113,10 @@ const SocialProfileView = (props) => {
                   <div className={styles.buttonHeading}>Activity</div>
                 </div>
               </button>
-              <button className={styles.navigationButton} onClick={notify}>
+              <button style={{
+                    backgroundColor:
+                      selectedMenu === "2" ? "#3a3a3a" : "transparent",
+                  }} className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
                   <img
                     className={styles.buttonIcon}
@@ -110,7 +126,10 @@ const SocialProfileView = (props) => {
                   <div className={styles.buttonHeading}>Marketplace</div>
                 </div>
               </button>
-              <button className={styles.navigationButton} onClick={notify}>
+              <button style={{
+                    backgroundColor:
+                      selectedMenu === "3" ? "#3a3a3a" : "transparent",
+                  }} className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
                   <img
                     className={styles.buttonIcon}
@@ -120,7 +139,14 @@ const SocialProfileView = (props) => {
                   <div className={styles.buttonHeading}>People</div>
                 </div>
               </button>
-              <button className={styles.navigationButton} onClick={navigateToCommunity}>
+              <button
+                className={styles.navigationButton}
+                onClick={navigateToCommunity}
+                style={{
+                    backgroundColor:
+                      selectedMenu === "4" ? "#3a3a3a" : "transparent",
+                  }}
+              >
                 <div className={styles.buttonName}>
                   <img
                     className={styles.buttonIcon}
@@ -130,7 +156,10 @@ const SocialProfileView = (props) => {
                   <div className={styles.buttonHeading}>Community</div>
                 </div>
               </button>
-              <button className={styles.navigationButton} onClick={notify}>
+              <button style={{
+                    backgroundColor:
+                      selectedMenu === "5" ? "#3a3a3a" : "transparent",
+                  }} className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
                   <img
                     className={styles.buttonIcon}
@@ -143,6 +172,10 @@ const SocialProfileView = (props) => {
               <button
                 className={styles.navigationButton}
                 onClick={navigateToBlogs}
+                style={{
+                    backgroundColor:
+                      selectedMenu === "6" ? "#3a3a3a" : "transparent",
+                  }}
               >
                 <div className={styles.buttonName}>
                   <img
@@ -153,7 +186,10 @@ const SocialProfileView = (props) => {
                   <div className={styles.buttonHeading}>Blogs</div>
                 </div>
               </button>
-              <button className={styles.navigationButton} onClick={notify}>
+              <button style={{
+                    backgroundColor:
+                      selectedMenu === "7" ? "#3a3a3a" : "transparent",
+                  }} className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
                   <img
                     className={styles.buttonIcon}
@@ -166,6 +202,10 @@ const SocialProfileView = (props) => {
               <button
                 className={styles.navigationButton}
                 onClick={navigateToOrganiser}
+                style={{
+                    backgroundColor:
+                      selectedMenu === "8" ? "#3a3a3a" : "transparent",
+                  }}
               >
                 <div className={styles.buttonName}>
                   <img
@@ -176,7 +216,10 @@ const SocialProfileView = (props) => {
                   <div className={styles.buttonHeading}>Organiser</div>
                 </div>
               </button>
-              <button className={styles.navigationButton} onClick={notify}>
+              <button style={{
+                    backgroundColor:
+                      selectedMenu === "9" ? "#3a3a3a" : "transparent",
+                  }} className={styles.navigationButton} onClick={notify}>
                 <div className={styles.buttonName}>
                   <img
                     className={styles.buttonIcon}
@@ -187,6 +230,10 @@ const SocialProfileView = (props) => {
                 </div>
               </button>
               <button
+              style={{
+                    backgroundColor:
+                      selectedMenu === "10" ? "#3a3a3a" : "transparent",
+                  }}
                 className={styles.navigationButton}
                 onClick={navigateToPortfolioCreation}
               >

@@ -98,7 +98,6 @@ const SignUp = () => {
             required
             className={styles.input}
             placeholder="Password"
-            pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^0-9a-zA-Z]).{8,26}$"
           />
           {error && <div className={styles.error_msg}>{error}</div>}
           {msg && <div className={styles.success_msg}>{msg}</div>}

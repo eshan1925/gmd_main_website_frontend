@@ -12,7 +12,7 @@ const SocialMediaFeed = (props) => {
     <>
       <UserNavbar userInfo={userData} />
       <div className="homeContainer">
-        <SocialProfileView userData={userData} />
+        <SocialProfileView selectedMenu="1" userData={userData} />
         <Feed user={userData} homePage={false} />
         <Rightbar profile="" />
       </div>

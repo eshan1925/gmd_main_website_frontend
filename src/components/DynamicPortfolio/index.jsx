@@ -124,7 +124,7 @@ const DynamicPortfolio = (props) => {
     <div className={styles.main_container_1}>
       <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
-        <SocialProfileView userData={userData} />
+        <SocialProfileView selectedMenu="10" userData={userData} />
         <div className={styles.project_view}>
           <div>
             <div className={styles.pathAndButton}>
