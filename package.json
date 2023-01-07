@@ -23,7 +23,7 @@
     "react-file-base64": "^1.0.3",
     "react-insta-stories": "^2.4.2",
     "react-markdown": "^8.0.3",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.4",
     "react-toastify": "^9.1.1",
@@ -32,6 +32,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy" : "npm run build",
+"deploy" : "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -56,6 +58,7 @@
     ]
   },
   "devDependencies": {
-    "file-loader": "^6.2.0"
+    "file-loader": "^6.2.0",
+    "gh-pages": "^4.0.0"
   }
 }
