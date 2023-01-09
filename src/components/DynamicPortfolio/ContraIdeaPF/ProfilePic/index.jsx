@@ -9,10 +9,10 @@ const ProfilePic = (props) => {
   const [oneLiner, setOneLiner] = useState("");
   const [profilePic, setProfilePic] = useState(null);
   const handleSubmit = async (e) => {
-    console.log(oneLiner+" "+profilePic.length);
+    console.log(oneLiner + " " + profilePic.length);
     console.log(currentUserData);
     await axios.post(
-      "http://localhost:8080/dynamicPortfolio/profilePicAndOneLinerIntheDB/" +
+      "https://getmedesignbackend.up.railway.app/dynamicPortfolio/profilePicAndOneLinerIntheDB/" +
         currentUserData._id,
       { profilePic: profilePic, oneLiner: oneLiner }
     );

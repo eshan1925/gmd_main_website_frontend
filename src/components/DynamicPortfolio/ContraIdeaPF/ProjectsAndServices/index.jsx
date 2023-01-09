@@ -6,23 +6,23 @@ const ProjectsAndServices = (props) => {
   var currentUserData = JSON.parse(props.userData);
   const navigate = useNavigate();
   const [projectDetail, setprojectDetail] = useState({
-    creatorOfProject:currentUserData._id,
+    creatorOfProject: currentUserData._id,
     title: "",
     link: "",
     description: "",
   });
 
   const [service, setService] = useState({
-    creatorOfService:currentUserData._id,
+    creatorOfService: currentUserData._id,
     name: "",
     title: "",
     description: "",
-    link:"",
+    link: "",
     cost: "",
   });
   const handleSubmit = async (e) => {
     var updatedUserData = await axios.get(
-      "http://localhost:8080/profile/" + currentUserData._id
+      "https://getmedesignbackend.up.railway.app/profile/" + currentUserData._id
     );
 
     updatedUserData = updatedUserData.data[0];
@@ -36,7 +36,7 @@ const ProjectsAndServices = (props) => {
     e.preventDefault();
     try {
       const { projectDetail: res } = await axios.post(
-        "http://localhost:8080/dynamicPortfolio/projects/" +
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/projects/" +
           currentUserData._id,
         projectDetail
       );
@@ -47,7 +47,7 @@ const ProjectsAndServices = (props) => {
 
   const handleSubmitServices = async (e) => {
     await axios.post(
-      "http://localhost:8080/dynamicPortfolio/services/" +
+      "https://getmedesignbackend.up.railway.app/dynamicPortfolio/services/" +
         currentUserData._id,
       service
     );

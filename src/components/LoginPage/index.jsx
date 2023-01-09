@@ -30,7 +30,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const url = "http://localhost:8080/api/auth";
+      const url = "https://getmedesignbackend.up.railway.app/api/auth";
       const { data: res } = await axios.post(url, data);
       sessionStorage.setItem("token", res.data);
       console.log(res);

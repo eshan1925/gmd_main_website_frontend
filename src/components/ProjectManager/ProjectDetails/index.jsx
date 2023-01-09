@@ -11,11 +11,12 @@ const ProjectDetails = () => {
   const userId = userData._id;
   // var config = {
   //     method: 'get',
-  //     url: 'http://localhost:8080/project-manager/' + userId,
+  //     url: 'https://getmedesignbackend.up.railway.app/project-manager/' + userId,
   //     headers: {}
   // };
 
-  const url = "http://localhost:8080/project-manager/" + userId;
+  const url =
+    "https://getmedesignbackend.up.railway.app/project-manager/" + userId;
 
   useEffect(() => {
     getAllProjects();

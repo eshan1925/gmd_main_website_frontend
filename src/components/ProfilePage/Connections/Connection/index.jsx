@@ -13,7 +13,7 @@ const Connection = (props) => {
   const fetchUserProfileInfo = async (e) => {
     setLoading(true);
     await axios
-      .get("http://localhost:8080/profile/" + connectionId)
+      .get("https://getmedesignbackend.up.railway.app/profile/" + connectionId)
       .then((response) => {
         const fetchedDataFromRoute = response.data;
         setConnectionData(fetchedDataFromRoute[0]);

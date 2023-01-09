@@ -23,7 +23,7 @@ const CreateProject = (props) => {
     e.preventDefault();
     try {
       data.creatorOfProject = props.userId;
-      const url = "http://localhost:8080/createproject";
+      const url = "https://getmedesignbackend.up.railway.app/createproject";
       const { data: res } = await axios.post(url, data);
       console.log(
         "User-:" +

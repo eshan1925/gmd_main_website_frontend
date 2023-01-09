@@ -24,7 +24,10 @@ const DynamicPortfolio = (props) => {
   const fetchCurrentProjects = async (e) => {
     setLoading(true);
     await axios
-      .get("http://localhost:8080/dynamicPortfolio/projects/" + userid)
+      .get(
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/projects/" +
+          userid
+      )
       .then((response) => {
         const currentProjects = response.data;
         setProjects(currentProjects);
@@ -37,7 +40,10 @@ const DynamicPortfolio = (props) => {
   const fetchCurrentServices = async (e) => {
     setLoadingService(true);
     await axios
-      .get("http://localhost:8080/dynamicPortfolio/services/" + userid)
+      .get(
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/services/" +
+          userid
+      )
       .then((response) => {
         const currentProjects = response.data;
         setServices(currentProjects);

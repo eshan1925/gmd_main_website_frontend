@@ -23,7 +23,10 @@ const Share = () => {
     };
 
     try {
-      await axios.post("http://localhost:8080/api/posts/", newPost);
+      await axios.post(
+        "https://getmedesignbackend.up.railway.app/api/posts/",
+        newPost
+      );
       console.log("New post by user-: " + user._id);
       window.location.reload();
     } catch (error) {

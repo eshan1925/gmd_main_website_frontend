@@ -26,7 +26,7 @@ const CreateBlog = (props) => {
     data["timeOfCreation"] = today;
     data["blogContent"] = value;
     try {
-      const url = "http://localhost:8080/new-blog-post";
+      const url = "https://getmedesignbackend.up.railway.app/new-blog-post";
       const { data: res } = await axios.post(url, data);
       console.log(
         "Create Blogs page was accessed by user and a new blog was created, userId " +

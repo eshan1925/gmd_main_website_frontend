@@ -30,7 +30,8 @@ const StoriesBar = (props) => {
       try {
         setLoading(true);
         const res = await axios.get(
-          "http://localhost:8080/api/story/timeline/" + userData._id
+          "https://getmedesignbackend.up.railway.app/api/story/timeline/" +
+            userData._id
         );
         setCurrentStories(
           res.data.sort((s1, s2) => {

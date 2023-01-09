@@ -37,7 +37,10 @@ const ProfilePage = (props) => {
   const fetchCurrentProjects = async (e) => {
     setLoading(true);
     await axios
-      .get("http://localhost:8080/dynamicPortfolio/projects/" + userid)
+      .get(
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/projects/" +
+          userid
+      )
       .then((response) => {
         const currentProjects = response.data;
         setProjects(currentProjects);
@@ -50,7 +53,10 @@ const ProfilePage = (props) => {
   const fetchCurrentServices = async (e) => {
     setLoadingService(true);
     await axios
-      .get("http://localhost:8080/dynamicPortfolio/services/" + userid)
+      .get(
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/services/" +
+          userid
+      )
       .then((response) => {
         const currentProjects = response.data;
         setServices(currentProjects);
@@ -63,7 +69,7 @@ const ProfilePage = (props) => {
   const fetchUserProfileInfo = async (e) => {
     setProfileLoading(true);
     await axios
-      .get("http://localhost:8080/profile/" + userid)
+      .get("https://getmedesignbackend.up.railway.app/profile/" + userid)
       .then((response) => {
         const fetchedDataFromRoute = response.data;
         setUserDataForTheView(fetchedDataFromRoute);
@@ -74,11 +80,11 @@ const ProfilePage = (props) => {
   React.useEffect(() => {
     const fetchPosts = async () => {
       var currentUserProfile = await axios.get(
-        "http://localhost:8080/profile/" + userid
+        "https://getmedesignbackend.up.railway.app/profile/" + userid
       );
       setCurrentUserforProfilePageView(currentUserProfile["data"][0]);
       const res = await axios.get(
-        "http://localhost:8080/api/posts/profile/" + userid
+        "https://getmedesignbackend.up.railway.app/api/posts/profile/" + userid
       );
 
       setPosts(

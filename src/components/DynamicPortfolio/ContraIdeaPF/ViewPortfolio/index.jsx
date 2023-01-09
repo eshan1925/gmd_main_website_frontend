@@ -12,10 +12,12 @@ const ViewPortfolio = () => {
 
   const getUserProjectsAndService = async (e) => {
     const userProjects = await axios.get(
-      "http://localhost:8080/dynamicPortfolio/projects/" + userData._id
+      "https://getmedesignbackend.up.railway.app/dynamicPortfolio/projects/" +
+        userData._id
     );
     const userServices = await axios.get(
-      "http://localhost:8080/dynamicPortfolio/services/" + userData._id
+      "https://getmedesignbackend.up.railway.app/dynamicPortfolio/services/" +
+        userData._id
     );
   };
 

@@ -20,7 +20,8 @@ const Feed = (props) => {
       try {
         setLoading(true);
         const res = await axios.get(
-          "http://localhost:8080/api/posts/timeline/" + userData._id
+          "https://getmedesignbackend.up.railway.app/api/posts/timeline/" +
+            userData._id
         );
         setPosts(
           res.data.sort((p1, p2) => {

@@ -24,7 +24,7 @@ const Topic = ({ post }) => {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        `http://localhost:8080/profile/${post.userId}`
+        `https://getmedesignbackend.up.railway.app/profile/${post.userId}`
       );
       setUser(res.data[0]);
     };
@@ -34,9 +34,14 @@ const Topic = ({ post }) => {
 
   const likeHandler = async () => {
     try {
-      await axios.put("http://localhost:8080/api/posts/" + post._id + "/like", {
-        userId: currentUser._id,
-      });
+      await axios.put(
+        "https://getmedesignbackend.up.railway.app/api/posts/" +
+          post._id +
+          "/like",
+        {
+          userId: currentUser._id,
+        }
+      );
     } catch (error) {}
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
@@ -50,14 +55,14 @@ const Topic = ({ post }) => {
     try {
       if (followed) {
         await axios.put(
-          `http://localhost:8080/profile/${currentUser._id}/unfollow`,
+          `https://getmedesignbackend.up.railway.app/profile/${currentUser._id}/unfollow`,
           {
             userId: user._id,
           }
         );
       } else {
         await axios.put(
-          `http://localhost:8080/profile/${currentUser._id}/follow`,
+          `https://getmedesignbackend.up.railway.app/profile/${currentUser._id}/follow`,
           {
             userId: user._id,
           }

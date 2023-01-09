@@ -18,7 +18,14 @@ const ReadBlog = (props) => {
   const getBlogData = async () => {
     setLoading(true);
     await axios
-      .get("http://localhost:8080/blogs/" + userid + "/" + category + "/" + c)
+      .get(
+        "https://getmedesignbackend.up.railway.app/blogs/" +
+          userid +
+          "/" +
+          category +
+          "/" +
+          c
+      )
       .then((response) => {
         const foundContent = response.data[0];
         setBlogData(foundContent);

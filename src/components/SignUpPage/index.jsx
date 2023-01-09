@@ -32,7 +32,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const url = "http://localhost:8080/api/users";
+      const url = "https://getmedesignbackend.up.railway.app/api/users";
       const { data: res } = await axios.post(url, data);
       console.log(
         "New signUp to the system...\nuser Details-: " + JSON.stringify(data)

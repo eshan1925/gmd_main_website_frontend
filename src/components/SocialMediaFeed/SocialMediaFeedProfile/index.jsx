@@ -38,7 +38,8 @@ const SocialMediaFeedProfile = (props) => {
     setLoading(true);
     await axios
       .get(
-        "http://localhost:8080/dynamicPortfolio/projects/" + userWithTheProfile
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/projects/" +
+          userWithTheProfile
       )
       .then((response) => {
         const currentProjects = response.data;
@@ -54,7 +55,8 @@ const SocialMediaFeedProfile = (props) => {
     setLoadingService(true);
     await axios
       .get(
-        "http://localhost:8080/dynamicPortfolio/services/" + userWithTheProfile
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/services/" +
+          userWithTheProfile
       )
       .then((response) => {
         const currentProjects = response.data;
@@ -69,7 +71,10 @@ const SocialMediaFeedProfile = (props) => {
   const fetchUserProfileInfo = async (e) => {
     setProfileLoading(true);
     await axios
-      .get("http://localhost:8080/profile/" + userWithTheProfile)
+      .get(
+        "https://getmedesignbackend.up.railway.app/profile/" +
+          userWithTheProfile
+      )
       .then((response) => {
         const fetchedDataFromRoute = response.data;
         console.log(fetchedDataFromRoute);
@@ -81,17 +86,19 @@ const SocialMediaFeedProfile = (props) => {
   useEffect(() => {
     const fetchPosts = async () => {
       var instantUser = await axios.get(
-        "http://localhost:8080/profile/" + user._id
+        "https://getmedesignbackend.up.railway.app/profile/" + user._id
       );
       instantUser = instantUser.data[0];
       setFollowed(instantUser.followers.includes(userWithTheProfile));
       var currentUserProfile = await axios.get(
-        "http://localhost:8080/profile/" + userWithTheProfile
+        "https://getmedesignbackend.up.railway.app/profile/" +
+          userWithTheProfile
       );
       console.log(currentUserProfile["data"]);
       setCurrentUserforProfilePageView(currentUserProfile["data"][0]);
       const res = await axios.get(
-        "http://localhost:8080/api/posts/profile/" + userWithTheProfile
+        "https://getmedesignbackend.up.railway.app/api/posts/profile/" +
+          userWithTheProfile
       );
 
       setPosts(
@@ -177,13 +184,19 @@ const SocialMediaFeedProfile = (props) => {
   const handleClick = async () => {
     try {
       if (followed) {
-        await axios.put(`http://localhost:8080/profile/${user._id}/unfollow`, {
-          userId: userWithTheProfile,
-        });
+        await axios.put(
+          `https://getmedesignbackend.up.railway.app/profile/${user._id}/unfollow`,
+          {
+            userId: userWithTheProfile,
+          }
+        );
       } else {
-        await axios.put(`http://localhost:8080/profile/${user._id}/follow`, {
-          userId: userWithTheProfile,
-        });
+        await axios.put(
+          `https://getmedesignbackend.up.railway.app/profile/${user._id}/follow`,
+          {
+            userId: userWithTheProfile,
+          }
+        );
       }
       setFollowed(!followed);
     } catch (err) {
@@ -234,7 +247,7 @@ const SocialMediaFeedProfile = (props) => {
                 </span>
                 {userData._id !== userWithTheProfile && (
                   <CustomizedDialogsContact>
-                    <Contact idOfPerson={userWithTheProfile}/>
+                    <Contact idOfPerson={userWithTheProfile} />
                   </CustomizedDialogsContact>
                 )}
               </div>

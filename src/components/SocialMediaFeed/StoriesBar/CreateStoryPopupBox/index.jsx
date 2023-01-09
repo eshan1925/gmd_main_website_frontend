@@ -28,7 +28,10 @@ export default function MaxWidthDialogForCreatingStory(props) {
     };
 
     try {
-      await axios.post("http://localhost:8080/api/story/", newStory);
+      await axios.post(
+        "https://getmedesignbackend.up.railway.app/api/story/",
+        newStory
+      );
       console.log("New story by user-: " + user._id);
       window.location.reload();
     } catch (error) {

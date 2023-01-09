@@ -26,7 +26,7 @@ const Username = () => {
 
   const usernamesFetcher = async (e) => {
     var currentUsernames = await axios.get(
-      "http://localhost:8080/dynamicPortfolio/usernamesIntheDB/"
+      "https://getmedesignbackend.up.railway.app/dynamicPortfolio/usernamesIntheDB/"
     );
     currentUsernames = currentUsernames.data;
     currentUsernames = currentUsernames.map(function (elem) {
@@ -90,18 +90,18 @@ const Username = () => {
       toast("Please verify your mobile number!!");
     } else {
       await axios.post(
-        "http://localhost:8080/dynamicPortfolio/usernamesIntheDB/" +
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/usernamesIntheDB/" +
           currentUserID,
         { username: username }
       );
       await axios.post(
-        "http://localhost:8080/dynamicPortfolio/mobileNumberIntheDB/" +
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/mobileNumberIntheDB/" +
           currentUserID,
         { number: number }
       );
 
       var updatedUserData = await axios.get(
-        "http://localhost:8080/profile/" + currentUserID
+        "https://getmedesignbackend.up.railway.app/profile/" + currentUserID
       );
 
       updatedUserData = updatedUserData.data[0];

@@ -13,7 +13,7 @@ const Username = (props) => {
 
   const handleSubmit = async (e) => {
     var currentUsernames = await axios.get(
-      "http://localhost:8080/dynamicPortfolio/usernamesIntheDB/" +
+      "https://getmedesignbackend.up.railway.app/dynamicPortfolio/usernamesIntheDB/" +
         currentUserData[0]._id
     );
     currentUsernames = currentUsernames.data;
@@ -27,7 +27,7 @@ const Username = (props) => {
     } else {
       console.log("Username available!!!");
       await axios.post(
-        "http://localhost:8080/dynamicPortfolio/usernamesIntheDB/" +
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/usernamesIntheDB/" +
           currentUserData[0]._id,
         { username: username }
       );

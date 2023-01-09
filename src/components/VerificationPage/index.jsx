@@ -6,20 +6,24 @@ const VerificationPage = () => {
   const currentUrl = window.location.href;
   var splitURL = currentUrl.toString().split("/");
   var currentUser = splitURL.splice(-1);
-  const token = splitURL[splitURL.length-2];
+  const token = splitURL[splitURL.length - 2];
   function redirectPage() {
-    document.location.href = "http://localhost:3000/sign-up/username-mobile-number/"+currentUser;
+    document.location.href =
+      "http://localhost:3000/sign-up/username-mobile-number/" + currentUser;
   }
 
   const profileLoginFunction = async (e) => {
     const url =
-      "http://localhost:8080/api/users/" + currentUser + "/verify/" + token;
+      "https://getmedesignbackend.up.railway.app/api/users/" +
+      currentUser +
+      "/verify/" +
+      token;
     const res = await axios.get(url);
     if (res.status === 200) {
       setVerification(true);
       console.log("A new user was verified!!!");
       const sessionUser = await axios.get(
-        "http://localhost:8080/profile/" + currentUser
+        "https://getmedesignbackend.up.railway.app/profile/" + currentUser
       );
       //   sessionStorage.setItem("token", res.data);
       sessionStorage.setItem("userData", JSON.stringify(sessionUser));
