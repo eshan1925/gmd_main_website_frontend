@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
-import ProfileView from "../../ProfileView";
+import SocialProfileView from "../../SocialMediaFeed/SocialProfileView";
 import MDEditor from "@uiw/react-md-editor";
 import UserNavbar from "../../UserNavbar";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -50,7 +50,7 @@ const ReadBlog = (props) => {
     <div className={styles.main_container}>
       <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
-        <ProfileView userData={userData} />
+      <SocialProfileView selectedMenu="6" userData={userData} />
         <div className={styles.project_view}>
           <div>
             <div className={styles.pathAndButton}>
