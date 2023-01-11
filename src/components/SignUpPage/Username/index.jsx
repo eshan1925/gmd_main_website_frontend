@@ -80,7 +80,7 @@ const Username = () => {
   function redirectPage() {
     setSubmitLoading(true);
     document.location.href =
-      "http://localhost:3000/social-feed/" + currentUserID;
+      "http://13.232.149.146/social-feed/" + currentUserID;
   }
 
   const handleSubmit = async (e) => {
@@ -110,7 +110,7 @@ const Username = () => {
       await sessionStorage.removeItem("userData");
       await sessionStorage.setItem("userData", JSON.stringify(updatedUserData));
 
-      setTimeout(redirectPage, 3000);
+      setTimeout(redirectPage, 2000);
     }
   };
 
