@@ -10,7 +10,7 @@ const VerificationPage = () => {
   const token = splitURL[splitURL.length - 2];
   function redirectPage() {
     document.location.href =
-      "https://getmedesignbackend.up.railway.app/sign-up/username-mobile-number/" + currentUser;
+      "https://13.232.149.146/sign-up/username-mobile-number/" + currentUser;
   }
 
   const profileLoginFunction = async (e) => {
