@@ -77,11 +77,11 @@ const Username = () => {
     toast("You are verified!!!");
   };
 
-  // function redirectPage() {
-  //   setSubmitLoading(true);
-  //   document.location.href =
-  //     "http://localhost:3000/social-feed/" + currentUserID;
-  // }
+  function redirectPage() {
+    setSubmitLoading(true);
+    document.location.href =
+      "http://localhost:3000/social-feed/" + currentUserID;
+  }
 
   const handleSubmit = async (e) => {
     if (!available) {
@@ -110,7 +110,7 @@ const Username = () => {
       await sessionStorage.removeItem("userData");
       await sessionStorage.setItem("userData", JSON.stringify(updatedUserData));
 
-      // setTimeout(redirectPage, 5000);
+      setTimeout(redirectPage, 3000);
     }
   };
 
