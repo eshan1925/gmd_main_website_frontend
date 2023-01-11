@@ -8,7 +8,7 @@ const BlogCard = (props) => {
   const navigate = useNavigate();
   const blogId = props.blogId;
   const navigateToSelectedBlog = () => {
-    navigate("/blogs/" + userId + "/all-blogs/" + blogId);
+    navigate("/blogs/" + userId + "/" + blogId);
   };
 
   const [writer, setWriterData] = React.useState("");
@@ -24,7 +24,7 @@ const BlogCard = (props) => {
 
   React.useEffect(() => {
     getDataOfWriter();
-  });
+  }, [props.userId]);
 
   var dateOfCreation = new Date(props.creationTime);
   dateOfCreation = dateOfCreation.toISOString();

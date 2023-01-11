@@ -22,7 +22,7 @@ const SocialProfileView = (props) => {
     navigate("/project-manager/" + userid);
   };
   const navigateToBlogs = () => {
-    navigate("/blogs/" + userid + "/all-blogs");
+    navigate("/blogs/" + userid );
   };
 
   const navigateToProfile = () => {

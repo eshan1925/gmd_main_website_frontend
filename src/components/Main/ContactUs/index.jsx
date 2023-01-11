@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./styles.module.css";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactUs = () => {
   const [data, setFormData] = React.useState({
@@ -17,25 +19,32 @@ const ContactUs = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log("Contact Us form was used...");
     e.preventDefault();
-    var body =
-      "Hey this is a mail sent form the Contact Us form at your website-: \n Below is the information received \n" +
-      JSON.stringify(data);
-    window.open(
-      "mailto:contactus@getmedesign.com?subject=" +
-        "Contact Us form Email" +
-        "&body=" +
-        body
-    );
-    setFormData({
-      name: "",
-      companyName: "",
-      projectRequirement: "",
-      projectBudget: "",
-      number: "",
-      email: "",
-    });
+    try {
+      await axios.post(
+        "https://getmedesignbackend.up.railway.app/contact-us/new-contact-request",
+        data
+      );
+      console.log("Contact Us form was used...");
+      toast("We received your request!!!");
+      setFormData({
+        name: "",
+        companyName: "",
+        projectRequirement: "",
+        projectBudget: "",
+        number: "",
+        email: "",
+      });
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        toast("Some Error Occured!!! Please try again");
+        console.log(error);
+      }
+    }
   };
   return (
     <div className={styles.main}>
@@ -97,7 +106,6 @@ const ContactUs = () => {
               />
               <input
                 type="tel"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 className={styles.number}
                 placeholder="Phone Number*"
                 onChange={handleChange}
@@ -117,6 +125,19 @@ const ContactUs = () => {
           </form>
         </div>
       </div>
+      <ToastContainer
+        // position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        // closeOnClick
+        // rtl={false}
+        // pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        type="error"
+      />
     </div>
   );
 };

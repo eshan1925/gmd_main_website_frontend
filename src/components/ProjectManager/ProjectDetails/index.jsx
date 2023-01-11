@@ -21,7 +21,7 @@ const ProjectDetails = () => {
   useEffect(() => {
     getAllProjects();
     console.log("User-:" + userId + " accessed all his projects.");
-  });
+  }, [userId]);
 
   const getAllProjects = async () => {
     await axios

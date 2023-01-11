@@ -14,7 +14,6 @@ import VerificationPage from "./components/VerificationPage";
 import Username from "./components/SignUpPage/Username";
 import DynamicPortfolio from "./components/DynamicPortfolio";
 import Community from "./components/Community";
-import CircularProgress from "@mui/material/CircularProgress";
 
 // CONTRA components
 // import ProfilePicture from "./components/DynamicPortfolio/ProfilePic";
@@ -79,28 +78,10 @@ function App() {
           )}
           {userData && (
             <Route
-              path="/blogs/:id/all-blogs"
+              path="/blogs/:id"
               exact
               element={
-                <BlogsComponent userData={userData} category="all-blogs" />
-              }
-            />
-          )}
-          {userData && (
-            <Route
-              path="/blogs/:id/my-blogs"
-              exact
-              element={
-                <BlogsComponent userData={userData} category="my-blogs" />
-              }
-            />
-          )}
-          {userData && (
-            <Route
-              path="/blogs/:id/favourite"
-              exact
-              element={
-                <BlogsComponent userData={userData} category="Favourite" />
+                <BlogsComponent userData={userData} />
               }
             />
           )}
@@ -113,18 +94,18 @@ function App() {
           )}
           {userData && (
             <Route
-              path="/blogs/:id/all-blogs/:blogid"
+              path="/blogs/:id/:blogid"
               exact
-              element={<ReadBlog userData={userData} category="all-blogs" />}
+              element={<ReadBlog userData={userData} />}
             />
           )}
-          {userData && (
+          {/* {userData && (
             <Route
               path="/blogs/:id/my-blogs/:blogid"
               exact
               element={<ReadBlog userData={userData} category="my-blogs" />}
             />
-          )}
+          )} */}
           {userData && (
             <Route
               path="/profile/:id"

@@ -1,146 +1,28 @@
-
-
 .main_container_1 {
-  height: 100vh;
-  width: 100vw;
+  width: auto;
   background-color: #191a1a;
   color: white;
-  overflow-y: hidden;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-.subNavbar {
-  width: 100%;
-  height: 70px;
-  background-color: #191a1a;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #717474;
-}
-
-.subNavbar h1 {
-  color: white;
-  font-size: 25px;
-  margin-left: 20px;
-}
-
-.logo {
-  padding-left: 85px;
-  cursor: pointer;
-  height: 40px;
-  width: 120px;
-}
-
-.logOut {
-  margin: 3%;
-  color: #00c3d0;
-  border: 2px solid transparent;
-  border-image: linear-gradient(98.39deg, #00c3d0 0%, #6f4bff 99.91%);
-  border-image-slice: 1;
-  width: 120px;
-  height: 45px;
-  border-radius: 5px !important;
-  margin-right: 65px;
-  cursor: pointer;
-  font-weight: 700;
-  background-color: transparent;
-}
-
-.white_btn {
-  border: none;
-  outline: none;
-  padding: 12px 0;
-  background-color: white;
-  border-radius: 20px;
-  width: 120px;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  margin-right: 20px;
-  color: #191a1a;
-}
-
-.profile_view {
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #717474;
-  padding: 1.5%;
-  width: 18%;
-}
-
-.profile_stats {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 0.5px solid #717474;
-  border-radius: 5px;
-  padding: 10px;
-  padding-bottom: 35px;
-  margin-bottom: 20px;
-  height: 240px;
-}
-
-.profile_pic {
-  height: 200px;
-  width: 200px;
-  padding-bottom: 8%;
-}
-
-.profile_info {
-  text-align: center;
-}
-
-.pro_subscription {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-}
-
-.project_manager {
+.project_manager{
   display: flex;
   flex-direction: row;
-  height: 56.7em;
 }
 
-.project_view {
-  display: flex;
-  flex-direction: column;
-  margin: 3%;
-  width: 85%;
-}
-
-.path_Details {
-  font-size: x-large;
-  font-weight: 300;
-}
-
-#scrollControl {
-  overflow: auto;
-  height: calc(100% - 210px);
-}
-
-#scrollControl::-webkit-scrollbar {
-  display: none;
-}
-
-#scrollControl {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;
-}
 
 .blogBar {
-  margin-top: 2%;
-  width: 100%;
+  margin:10px;
+  margin-left: 25px;
   display: flex;
   flex-direction: row;
   font-size: larger;
+  
 }
 
-.blogSelectionMenu {
-  margin-right: 65px;
+.blogSelectionMenu{
+  margin-right: 25px;
   cursor: pointer;
 }
 
@@ -149,27 +31,25 @@
   flex-direction: row;
   justify-content: start;
   margin-top: 15px;
+  margin-left: 25px;
   flex-wrap: wrap;
+  width: 1150px;
 }
 
-.selectedBlogCategory {
-  border-bottom: 1px solid rgba(202, 202, 202, 0.86);
-}
 
 .pathAndButton {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin-top: 25px;
   justify-content: space-between;
+  width: 1130px;
 }
 
-.createBlogButton {
-  width: 170px;
-  height: 45px;
-  cursor: pointer;
-}
 
 .path_Details {
-  margin-bottom: 15px;
+  margin: 25px;
+  font-size: 20px;
 }
 
 .spinner {
@@ -177,22 +57,14 @@
 }
 
 .createBlogButton {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 0.5px solid #717474;
-  border-radius: 5px;
-  background-color: #191a1a;
+  background-color: #3900dc;
   color: white;
-  font-weight: 600;
-  width: 180px;
-  height: 30px;
-  margin-bottom: 15px;
+  border-radius: 25px;
+  width: 150px;
+  height: 45px;
+  outline: none;
+  border: none;
+  font-size: 12px;
   cursor: pointer;
 }
 
-.createBlogButton:hover {
-  background-color: #717474;
-  border-color: #cdcfcf;
-}

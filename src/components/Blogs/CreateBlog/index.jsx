@@ -4,7 +4,7 @@ import MDEditor from "@uiw/react-md-editor";
 import FileBase64 from "react-file-base64";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ProfileView from "../../ProfileView";
+import SocialProfileView from "../../SocialMediaFeed/SocialProfileView";
 import UserNavbar from "../../UserNavbar";
 import CircularProgress from "@mui/material/CircularProgress";
 
@@ -17,7 +17,8 @@ const CreateBlog = (props) => {
     creatorid: userid,
     creatorName: creatorName,
     blogTitle: "",
-    image: "",
+    image:
+      "https://res.cloudinary.com/open-box-it-services/image/upload/v1672339224/GMD/noCover_nqkacb.png",
   });
   const [value, setValue] = React.useState("**Hello world!!!**");
   const handleSubmit = async (e) => {
@@ -32,7 +33,7 @@ const CreateBlog = (props) => {
         "Create Blogs page was accessed by user and a new blog was created, userId " +
           userid
       );
-      navigate("/blogs/" + userid + "/my-blogs");
+      navigate("/blogs/" + userid);
     } catch (error) {
       console.log(error);
     } finally {
@@ -46,7 +47,7 @@ const CreateBlog = (props) => {
     <div className={styles.main_container}>
       <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
-        <ProfileView userData={userData} />
+        <SocialProfileView selectedMenu="6" userData={userData} />
         <div className={styles.project_view}>
           <div id={styles.scrollControl}>
             <div className={styles.pathAndButton}>

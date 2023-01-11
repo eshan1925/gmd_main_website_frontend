@@ -65,19 +65,15 @@ export default function CustomizedDialogs({ children }) {
         onClose={handleClose}
         open={open}
         fullWidth = {true}
-        maxWidth="xl"
+        maxWidth="md"
+        style={{ height: "820px" }} 
       >
-        <BootstrapDialogTitle onClose={handleClose}>
+        <BootstrapDialogTitle style={{ height: "20px" }}  onClose={handleClose}>
           Project Details
         </BootstrapDialogTitle>
         <DialogContent className={styles.color} dividers>
           {children}
         </DialogContent>
-        <DialogActions>
-          {/* <Button autoFocus onClick={handleClose}>
-            Create
-          </Button> */}
-        </DialogActions>
       </BootstrapDialog>
     </div>
   );

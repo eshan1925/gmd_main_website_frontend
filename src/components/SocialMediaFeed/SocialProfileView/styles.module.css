@@ -4,7 +4,7 @@
     border-right: 1px solid #717474;
     padding: 1.5%;
     padding-top: 2%;
-    width: 18%;
+    width: 18% !important;
     transition: 0.5s;
     height: 100vh;
   }

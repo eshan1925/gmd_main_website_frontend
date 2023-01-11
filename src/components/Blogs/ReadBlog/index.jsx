@@ -19,12 +19,7 @@ const ReadBlog = (props) => {
     setLoading(true);
     await axios
       .get(
-        "https://getmedesignbackend.up.railway.app/blogs/" +
-          userid +
-          "/" +
-          category +
-          "/" +
-          c
+        "https://getmedesignbackend.up.railway.app/blogs/" + userid + "/" + c
       )
       .then((response) => {
         const foundContent = response.data[0];
@@ -50,7 +45,7 @@ const ReadBlog = (props) => {
     <div className={styles.main_container}>
       <UserNavbar userInfo={userData} />
       <div className={styles.project_manager}>
-      <SocialProfileView selectedMenu="6" userData={userData} />
+        <SocialProfileView selectedMenu="6" userData={userData} />
         <div className={styles.project_view}>
           <div>
             <div className={styles.pathAndButton}>

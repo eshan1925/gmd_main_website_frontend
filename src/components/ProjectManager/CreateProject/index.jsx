@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
-import { Button } from "@mui/material";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
+import { ToastContainer, toast } from "react-toastify";
 
 const CreateProject = (props) => {
   const [data, setData] = useState({
@@ -14,6 +15,7 @@ const CreateProject = (props) => {
     langauge: "",
     attachments: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -22,22 +24,26 @@ const CreateProject = (props) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       data.creatorOfProject = props.userId;
-      const url = "https://getmedesignbackend.up.railway.app/createproject";
+      const url =
+        "https://getmedesignbackend.up.railway.app/createproject/new-project";
       const { data: res } = await axios.post(url, data);
       console.log(
-        "User-:" +
-          props.userid +
-          " accessed the create new project page and created a new project."
+        "User-: accessed the create new project page and created a new project."
       );
+      window.location.reload();
     } catch (error) {
       if (
         error.response &&
         error.response.status >= 400 &&
         error.response.status <= 500
       ) {
+        toast("Some Error Occured!!! Please try again");
         console.log(error.response.data.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -121,6 +127,7 @@ const CreateProject = (props) => {
           value={data.description}
           placeholder="Describe your Project"
           onChange={handleChange}
+          className={styles.textAreaDes}
         />
         <input
           className={styles.inputt}
@@ -128,10 +135,27 @@ const CreateProject = (props) => {
           name="creatorOfProject"
           value={props.userId}
         />
-        <button className={styles.submitButton} type="submit">
-          Create Project
+        <button type="submit" className={styles.submitButton}>
+          {loading ? (
+            <CircularProgress style={{ color: "white" }} />
+          ) : (
+            "Create Project"
+          )}
         </button>
       </form>
+      <ToastContainer
+        // position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        // closeOnClick
+        // rtl={false}
+        // pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        type="error"
+      />
     </div>
   );
 };

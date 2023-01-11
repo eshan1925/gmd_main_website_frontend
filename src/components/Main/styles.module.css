@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Product Sans";
+  src: local("Product Sans"),url("../../Fonts/product-sans/Product\ Sans\ Regular.ttf") format("truetype");
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -28,7 +33,7 @@
   color: #fff;
   font-size: 45px;
   font-weight: 700;
-  font-family: 'Product Sans';
+  font-family: "Product Sans" !important;
 }
 
 .subTagline {

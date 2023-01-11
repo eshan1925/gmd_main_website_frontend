@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const VerificationPage = () => {
   const [verification, setVerification] = useState(false);
@@ -32,7 +33,7 @@ const VerificationPage = () => {
           JSON.stringify(sessionUser)
       );
 
-      setTimeout(redirectPage, 5000);
+      setTimeout(redirectPage, 3500);
     }
   };
 
@@ -42,7 +43,7 @@ const VerificationPage = () => {
 
   return (
     <div className="card">
-      <div className="cardi">
+      {/* <div className="cardi">
         <i className="checkmark">✓</i>
       </div>
       {verification ? (
@@ -53,7 +54,8 @@ const VerificationPage = () => {
       <p className="message">
         Congratulations!!! You are verified;
         <br /> Please wait, you are being redirected...
-      </p>
+      </p> */}
+      <CircularProgress style={{ color: "black" }} />
     </div>
   );
 };

@@ -11,42 +11,56 @@ const BlogsComponent = (props) => {
   const userData = JSON.parse(props.userData);
   const userid = userData._id;
   const [blogs, getAllBlogs] = React.useState("");
+  const [myblogs, setAllmyBlogs] = React.useState("");
   const [loading, setLoading] = React.useState(false);
-  const [allBlogsSelected, setAllBlogsSelected] = React.useState(true);
-  const [myBlogsSelected, setMyBlogsSelected] = React.useState(false);
+  const [selectedMenu, setSelectedMenu] = React.useState("1");
   const navigate = useNavigate();
-  const blogCategory = props.category;
 
   const createNewBlogHandler = () => {
     navigate("/blogs/" + userid + "/create-new-blog");
   };
 
-  const navigateToBlogs = () => {
-    setAllBlogsSelected(true);
-    setMyBlogsSelected(false);
-    navigate("/blogs/" + userid + "/all-blogs");
+  const allBlogMenuClick = () => {
+    setSelectedMenu("1");
   };
-  const navigateToMyBlogs = () => {
-    setMyBlogsSelected(true);
-    setAllBlogsSelected(false);
-    navigate("/blogs/" + userid + "/my-blogs");
-  };
-  const navigateToFavouriteBlogs = () => {
-    navigate("/blogs/" + userid + "/favourite");
+
+  const myBlogMenuClick = () => {
+    setSelectedMenu("2");
   };
 
   React.useEffect(() => {
-    getBlogs();
+    getAlltheBlogs();
+    getMyBlogs();
     console.log("Blogs page was accessed by user " + userid);
-  }, []);
+  }, [userid]);
 
-  const getBlogs = async () => {
+  const getAlltheBlogs = async () => {
     setLoading(true);
     await axios
-      .get("https://getmedesignbackend.up.railway.app/blogs/" + userid + "/" + blogCategory)
+      .get(
+        "https://getmedesignbackend.up.railway.app/blogs/" +
+          userid +
+          "/all-blogs"
+      )
       .then((response) => {
         const foundBlogs = response.data;
         getAllBlogs(foundBlogs);
+        setLoading(false);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  };
+
+  const getMyBlogs = async () => {
+    setLoading(true);
+    await axios
+      .get(
+        "https://getmedesignbackend.up.railway.app/blogs/" +
+          userid +
+          "/my-blogs"
+      )
+      .then((response) => {
+        const foundBlogs = response.data;
+        setAllmyBlogs(foundBlogs);
         setLoading(false);
       })
       .catch((error) => console.error(`Error: ${error}`));
@@ -60,7 +74,7 @@ const BlogsComponent = (props) => {
     BlogsToGetRendered.length = 0;
     BlogsToGetRendered.push(
       <center>
-        <h1>No Blogs created from the user</h1>
+        <h1>No Blogs found!!!</h1>
       </center>
     );
   } else {
@@ -69,7 +83,7 @@ const BlogsComponent = (props) => {
       BlogsToGetRendered.push(
         <BlogCard
           blogId={data._id}
-          userId={userid}
+          userId={data.creatorid}
           creatorName={data.creatorName}
           creationTime={data.timeOfCreation}
           image={data.image}
@@ -80,10 +94,32 @@ const BlogsComponent = (props) => {
     });
   }
 
-  const selectedBlogCategory = {
-    borderBottom: "1px solid rgba(202, 202, 202, 0.86)",
-    color: "white",
-  };
+  var getMyBlogsInArr = [];
+  getMyBlogsInArr = myblogs;
+  var myBlogsToGetRendered = [];
+  if (getMyBlogsInArr.length === 0) {
+    myBlogsToGetRendered.length = 0;
+    myBlogsToGetRendered.push(
+      <center>
+        <h1>No Blogs created from the user!!!</h1>
+      </center>
+    );
+  } else {
+    myBlogsToGetRendered.length = 0;
+    getMyBlogsInArr.forEach((data) => {
+      myBlogsToGetRendered.push(
+        <BlogCard
+          blogId={data._id}
+          userId={data.creatorid}
+          creatorName={data.creatorName}
+          creationTime={data.timeOfCreation}
+          image={data.image}
+          content={data.blogContent}
+          title={data.blogTitle}
+        />
+      );
+    });
+  }
 
   return (
     <div className={styles.main_container_1}>
@@ -100,22 +136,34 @@ const BlogsComponent = (props) => {
                 onClick={createNewBlogHandler}
                 className={styles.createBlogButton}
               >
-                Create a new Blog ➕
+                + Create a new Blog
               </button>
             </div>
 
             <div>
               <div className={styles.blogBar}>
                 <div
-                  style={allBlogsSelected ? selectedBlogCategory : {}}
-                  onClick={navigateToBlogs}
+                  style={{
+                    borderBottom:
+                      selectedMenu === "1"
+                        ? "1px solid rgba(202, 202, 202, 0.86)"
+                        : "",
+                    color: selectedMenu === "1" ? "white" : "",
+                  }}
+                  onClick={allBlogMenuClick}
                   className={styles.blogSelectionMenu}
                 >
                   All Blogs
                 </div>
                 <div
-                  style={myBlogsSelected ? selectedBlogCategory : {}}
-                  onClick={navigateToMyBlogs}
+                  style={{
+                    borderBottom:
+                      selectedMenu === "2"
+                        ? "1px solid rgba(202, 202, 202, 0.86)"
+                        : "",
+                    color: selectedMenu === "1" ? "white" : "",
+                  }}
+                  onClick={myBlogMenuClick}
                   className={styles.blogSelectionMenu}
                 >
                   My Blogs
@@ -132,7 +180,8 @@ const BlogsComponent = (props) => {
                 <CircularProgress style={{ color: "white" }} />
               ) : (
                 <div className={styles.blogCardsSection}>
-                  {BlogsToGetRendered}
+                  {selectedMenu === "1" && <>{BlogsToGetRendered}</>}
+                  {selectedMenu === "2" && <>{myBlogsToGetRendered}</>}
                 </div>
               )}
             </div>
