@@ -22,8 +22,7 @@ const QuestionBox = (props) => {
     try {
       setLoading(true);
       const url =
-        (process.env.BACKEND_PORT || "http://localhost") +
-        ":8080/community-forum/new-activity";
+      "https://getmedesignbackend.up.railway.app/community-forum/new-activity";
       const { data: res } = await axios.post(url, data);
 
       console.log(

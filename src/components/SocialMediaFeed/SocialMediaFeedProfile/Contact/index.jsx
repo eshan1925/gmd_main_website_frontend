@@ -24,8 +24,7 @@ const Contact = (props) => {
     try {
       setLoading(true);
       const url =
-        (process.env.BACKEND_PORT || "http://localhost") +
-        ":8080/contact-for-requirement/deal";
+        "https://getmedesignbackend.up.railway.app/contact-for-requirement/deal";
       const { data: res } = await axios.post(url, data);
 
       console.log(

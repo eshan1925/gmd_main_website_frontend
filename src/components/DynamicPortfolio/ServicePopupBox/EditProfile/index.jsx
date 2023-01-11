@@ -28,8 +28,7 @@ const EditServiceProfile = () => {
     try {
       setLoading(true);
       const url =
-        (process.env.BACKEND_PORT || "http://localhost") +
-        ":8080/dynamicPortfolio/services/" +
+        "https://getmedesignbackend.up.railway.app/dynamicPortfolio/services/" +
         userData._id ;
       const { data: res } = await axios.post(url, data);
 

@@ -64,8 +64,8 @@ const LoginPage = () => {
   // });
 
   const setCookie = () => {
-    document.cookie = "myEmail=" + data.email + ";path=http:localhost:3000";
-    document.cookie = "myPwd=" + data.password + ";path=http:localhost:3000";
+    document.cookie = "myEmail=" + data.email + ";path=http://13.232.149.146";
+    document.cookie = "myPwd=" + data.password + ";path=http://13.232.149.146";
   };
 
   const getCookie = (cname) => {

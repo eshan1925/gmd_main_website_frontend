@@ -10,7 +10,7 @@ const VerificationPage = () => {
   const token = splitURL[splitURL.length - 2];
   function redirectPage() {
     document.location.href =
-      "http://localhost:3000/sign-up/username-mobile-number/" + currentUser;
+      "https://getmedesignbackend.up.railway.app/sign-up/username-mobile-number/" + currentUser;
   }
 
   const profileLoginFunction = async (e) => {
@@ -33,7 +33,7 @@ const VerificationPage = () => {
           JSON.stringify(sessionUser)
       );
 
-      setTimeout(redirectPage, 3500);
+      setTimeout(redirectPage, 2000);
     }
   };
 

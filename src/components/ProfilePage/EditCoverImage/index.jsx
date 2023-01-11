@@ -19,8 +19,7 @@ const EditCoverImage = () => {
     try {
       setLoading(true);
       const url =
-        (process.env.BACKEND_PORT || "http://localhost") +
-        ":8080/profile/" +
+        "https://getmedesignbackend.up.railway.app/profile/" +
         userData._id +
         "/edit-profile";
       const { data: res } = await axios.put(url, data);
