@@ -85,9 +85,9 @@ const DynamicPortfolio = (props) => {
                 alt="projectImage"
               />
               <h3>{data.title}</h3>
-              <a href={data.link} target="blank">
+              {/* <a href={data.link} target="blank">
                 Visit
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

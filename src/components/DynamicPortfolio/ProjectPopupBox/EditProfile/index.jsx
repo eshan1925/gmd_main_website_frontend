@@ -73,7 +73,7 @@ const EditProfile = () => {
               onChange={handleChange}
             />
           </div>
-          <div className={styles.mainInput}>
+          {/* <div className={styles.mainInput}>
             <div className={styles.title}>Project Link</div>
             <input
               className={styles.inputContainer}
@@ -83,7 +83,7 @@ const EditProfile = () => {
               placeholder="Project link"
               onChange={handleChange}
             />
-          </div>
+          </div> */}
         </div>
         <div className={styles.rowflex}>
           <div className={styles.mainInput}>

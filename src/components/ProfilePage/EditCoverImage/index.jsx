@@ -11,6 +11,7 @@ const EditCoverImage = () => {
   userData = JSON.parse(userData);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
+    _id:userData["_id"],
     coverImg: userData["coverImg"],
   });
 
@@ -60,7 +61,7 @@ const EditCoverImage = () => {
         <div className={styles.buttonWidth}>
           <button className={styles.submitButton} type="submit">
             {loading ? (
-              <CircularProgress style={{ color: "white" }} />
+              <CircularProgress size="20px" style={{ color: "white" }} />
             ) : (
               "Set Cover Image"
             )}
