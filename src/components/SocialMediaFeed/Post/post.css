@@ -36,7 +36,7 @@
   cursor: pointer;
 }
 
-.postDate {
+.postDate,.postLocation {
   font-size: 12px;
   margin-left: 10px;
 }

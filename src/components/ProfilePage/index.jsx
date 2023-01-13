@@ -30,6 +30,7 @@ const ProfilePage = (props) => {
   const [loading, setLoading] = React.useState(false);
   const [loadingService, setLoadingService] = React.useState(false);
   const [profileLoading, setProfileLoading] = React.useState(false);
+  const [postsLoading, setPostsLoading] = React.useState(false);
   const [userDataForTheView, setUserDataForTheView] = React.useState({}); //UserData
   const [projects, setProjects] = React.useState([]);
   const [services, setServices] = React.useState([]);
@@ -79,19 +80,27 @@ const ProfilePage = (props) => {
   };
   React.useEffect(() => {
     const fetchPosts = async () => {
-      var currentUserProfile = await axios.get(
-        "https://getmedesignbackend.up.railway.app/profile/" + userid
-      );
-      setCurrentUserforProfilePageView(currentUserProfile["data"][0]);
-      const res = await axios.get(
-        "https://getmedesignbackend.up.railway.app/api/posts/profile/" + userid
-      );
+      try {
+        setPostsLoading(true);
+        var currentUserProfile = await axios.get(
+          "https://getmedesignbackend.up.railway.app/profile/" + userid
+        );
+        setCurrentUserforProfilePageView(currentUserProfile["data"][0]);
+        const res = await axios.get(
+          "https://getmedesignbackend.up.railway.app/api/posts/profile/" +
+            userid
+        );
 
-      setPosts(
-        res.data.sort((p1, p2) => {
-          return new Date(p2.createdAt) - new Date(p1.createdAt);
-        })
-      );
+        setPosts(
+          res.data.sort((p1, p2) => {
+            return new Date(p2.createdAt) - new Date(p1.createdAt);
+          })
+        );
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setPostsLoading(false);
+      }
     };
     fetchPosts();
     fetchCurrentProjects();
@@ -162,14 +171,6 @@ const ProfilePage = (props) => {
     });
   }
 
-  const navigateToEditProfile = () => {
-    navigate("/profile/" + userData["_id"] + "/edit-profile");
-  };
-
-  const navigateToSocialFeed = () => {
-    navigate("/social-feed/" + userData["_id"]);
-  };
-
   const activityMenuClick = () => {
     setSelectedMenu("1");
   };
@@ -191,16 +192,34 @@ const ProfilePage = (props) => {
           <div className="feedWrapper">
             <div className="profileRightTop">
               <div className="profileCover">
-                <img
-                  className="profileCoverImg"
-                  src={currentUserForProfilePageView.coverImg}
-                  alt=""
-                />
-                <img
-                  className="profileUserImg"
-                  src={currentUserForProfilePageView.profilePic}
-                  alt=""
-                />
+                {profileLoading ? (
+                  <CircularProgress
+                    className="profileCoverImg"
+                    size="25px"
+                    style={{ color: "white" }}
+                  />
+                ) : (
+                  <img
+                    className="profileCoverImg"
+                    src={currentUserForProfilePageView.coverImg}
+                    alt=""
+                  />
+                )}
+
+                {profileLoading ? (
+                  <CircularProgress
+                    className="profileUserImg"
+                    size="25px"
+                    style={{ color: "white" }}
+                  />
+                ) : (
+                  <img
+                    className="profileUserImg"
+                    src={currentUserForProfilePageView.profilePic}
+                    alt=""
+                  />
+                )}
+
                 <div className={styles.editProfilePic}>
                   <CustomizedDialogsProfilePic>
                     <EditProfilePic />
@@ -277,9 +296,18 @@ const ProfilePage = (props) => {
 
             {selectedMenu === "1" && (
               <div>
-                {posts.map((p) => (
-                  <Post key={p._id} post={p} />
-                ))}
+                {
+                  <div>
+                    {postsLoading ? (
+                      <CircularProgress
+                        size="25px"
+                        style={{ color: "white" }}
+                      />
+                    ) : (
+                      posts.map((p) => <Post key={p._id} post={p} />)
+                    )}
+                  </div>
+                }
               </div>
             )}
 

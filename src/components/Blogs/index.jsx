@@ -44,40 +44,46 @@ const BlogsComponent = (props) => {
       )
       .then((response) => {
         const foundBlogs = response.data;
-        getAllBlogs(foundBlogs);
+        getAllBlogs(
+          foundBlogs.sort((b1, b2) => {
+            return new Date(b2.timeOfCreation) - new Date(b1.timeOfCreation);
+          })
+        );
         setLoading(false);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
 
   const getMyBlogs = async () => {
-    setLoading(true);
-    await axios
-      .get(
-        "https://getmedesignbackend.up.railway.app/blogs/" +
-          userid +
-          "/my-blogs"
-      )
-      .then((response) => {
-        const foundBlogs = response.data;
-        setAllmyBlogs(foundBlogs);
-        setLoading(false);
-      })
-      .catch((error) => console.error(`Error: ${error}`));
+    try {
+      setLoading(true);
+      await axios
+        .get(
+          "https://getmedesignbackend.up.railway.app/blogs/" +
+            userid +
+            "/my-blogs"
+        )
+        .then((response) => {
+          const foundBlogs = response.data;
+          setAllmyBlogs(
+            foundBlogs.sort((b1, b2) => {
+              return new Date(b2.timeOfCreation) - new Date(b1.timeOfCreation);
+            })
+          );
+        })
+        .catch((error) => console.error(`Error: ${error}`));
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   var getBlogsInArr = [];
   getBlogsInArr = blogs;
   var BlogsToGetRendered = [];
 
-  if (getBlogsInArr.length === 0) {
-    BlogsToGetRendered.length = 0;
-    BlogsToGetRendered.push(
-      <center>
-        <h1>No Blogs found!!!</h1>
-      </center>
-    );
-  } else {
+  if (getBlogsInArr.length !== 0) {
     BlogsToGetRendered.length = 0;
     getBlogsInArr.forEach((data) => {
       BlogsToGetRendered.push(
@@ -92,6 +98,13 @@ const BlogsComponent = (props) => {
         />
       );
     });
+  } else {
+    BlogsToGetRendered.length = 0;
+    BlogsToGetRendered.push(
+      <center>
+        <h1>No Blogs found!!!</h1>
+      </center>
+    );
   }
 
   var getMyBlogsInArr = [];

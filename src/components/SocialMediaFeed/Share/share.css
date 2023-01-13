@@ -194,3 +194,12 @@
   margin-right: 8px;
   margin-left: 4px;
 }
+
+.locationInfo{
+  font-size: 13px;
+  font-weight: bold;
+  color: #b1b1b1;
+  margin-right: 15px;
+  display: flex;
+  justify-content: flex-end;
+}

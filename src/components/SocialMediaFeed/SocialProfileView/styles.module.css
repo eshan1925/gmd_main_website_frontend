@@ -5,8 +5,10 @@
     padding: 1.5%;
     padding-top: 2%;
     width: 18% !important;
+    min-width: 18%;
     transition: 0.5s;
-    height: 100vh;
+    height: 95%;
+    min-height: 95%;
   }
   
   .profile_stats {

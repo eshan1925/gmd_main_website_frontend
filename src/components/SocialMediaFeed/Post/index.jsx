@@ -94,6 +94,7 @@ const Post = ({ post }) => {
                 {user.name}
               </span>
               <span className="postDate">{format(post.createdAt)}</span>
+              {post.location&&<span className="postLocation">- {post.location}</span>}
             </div>
           </div>
           <div className="postTopRight">

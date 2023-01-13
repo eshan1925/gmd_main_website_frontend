@@ -13,6 +13,9 @@ const Share = () => {
   const desc = useRef();
   const [file, setFile] = useState(null);
   const [dataUrl, setDataUrl] = useState(null);
+  const [longitude, setLongitude] = useState();
+  const [latitude, setLatitude] = useState();
+  const [location, setLocation] = useState("");
   const ref = useRef();
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -20,6 +23,7 @@ const Share = () => {
       userId: user._id,
       desc: desc.current.value,
       img: file,
+      location:location,
     };
 
     try {
@@ -49,6 +53,38 @@ const Share = () => {
     };
     reader.readAsDataURL(event.target.files[0]);
   };
+
+  const getLocation = async () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      try {
+        const url =
+          "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" +
+          latitude +
+          "&longitude=" +
+          longitude +
+          "&localityLanguage=en";
+        const data = await axios.get(url);
+        setLocation(
+          data.data.locality +
+            "," +
+            data.data.principalSubdivision +
+            "," +
+            data.data.countryName
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  };
+
+  function showPosition(position) {
+    setLatitude(position.coords.latitude);
+    setLongitude(position.coords.longitude);
+  }
+
   return (
     <div className="share">
       <div className="shareWrapper">
@@ -80,6 +116,7 @@ const Share = () => {
             />
           </div>
         )}
+        {location && <div className="locationInfo">-at {location}</div>}
         <form className="shareBottom" onSubmit={submitHandler}>
           <div className="shareOptions">
             <div className="postButtons">
@@ -119,7 +156,7 @@ const Share = () => {
                 />
                 <div>Feelings</div>
               </div>
-              <div className="Location">
+              <div onClick={getLocation} className="Location">
                 <img
                   className="locationIcon"
                   src={require("../../../images/Icons/location.png")}
@@ -141,6 +178,7 @@ const Share = () => {
               <span className="shareOptionText">Feelings</span>
             </div> */}
           </div>
+          
           <button className="shareButton" type="submit">
             Post
           </button>

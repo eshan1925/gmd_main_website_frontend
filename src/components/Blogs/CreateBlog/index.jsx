@@ -65,31 +65,41 @@ const CreateBlog = (props) => {
                 )}
               </button>
             </div>
-            Blog Title-:&nbsp;&nbsp;
-            <input
-              className={styles.blogTitleInput}
-              type="text"
-              placeholder="Enter Blog title"
-              value={data.blogTitle}
-              onChange={(e) => setData({ ...data, blogTitle: e.target.value })}
-            />
-            <div>
+            <div className={styles.titleHeading}>
+              Title
+              <br />
+              <input
+                className={styles.blogTitleInput}
+                type="text"
+                placeholder="< Blog Title Goes Here >"
+                value={data.blogTitle}
+                onChange={(e) =>
+                  setData({ ...data, blogTitle: e.target.value })
+                }
+              />
+              <div className={styles.wrapper}>
               <MDEditor
                 id={styles.container}
                 value={value}
                 onChange={setValue}
               />
-              <MDEditor.Markdown
+              </div>
+              {/* <MDEditor.Markdown
+                id={styles.container}
                 source={value}
                 style={{ whiteSpace: "pre-wrap" }}
-              />
+              /> */}
             </div>
-            Blog Image-: &nbsp;&nbsp;
-            <FileBase64
-              multiple={false}
-              id="upload"
-              onDone={({ base64 }) => setData({ ...data, image: base64 })}
-            />
+            <div className={styles.blogImageInput}>
+              Blog Representation Image-: &nbsp;&nbsp;
+              <label htmlFor="file" className={styles.blogImageUploadButton}>
+                <FileBase64
+                  multiple={false}
+                  id="upload"
+                  onDone={({ base64 }) => setData({ ...data, image: base64 })}
+                />
+              </label>
+            </div>
           </div>
         </div>
       </div>

@@ -2,11 +2,13 @@ import styles from "./styles.module.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const BlogCard = (props) => {
   const userId = props.userId;
   const navigate = useNavigate();
   const blogId = props.blogId;
+  const [loading, setLoading] = React.useState(false);
   const navigateToSelectedBlog = () => {
     navigate("/blogs/" + userId + "/" + blogId);
   };
@@ -14,12 +16,19 @@ const BlogCard = (props) => {
   const [writer, setWriterData] = React.useState("");
 
   const getDataOfWriter = async () => {
-    await axios
-      .get("https://getmedesignbackend.up.railway.app/profile/" + props.userId)
-      .then((response) => {
-        const foundDetails = response.data;
-        setWriterData(foundDetails[0]);
-      });
+    try {
+      setLoading(true);
+      await axios
+        .get("https://getmedesignbackend.up.railway.app/profile/" + props.userId)
+        .then((response) => {
+          const foundDetails = response.data;
+          setWriterData(foundDetails[0]);
+        });
+    } catch (error) {
+      console.log(error);
+    }finally{
+      setLoading(false);
+    }
   };
 
   React.useEffect(() => {
@@ -50,11 +59,15 @@ const BlogCard = (props) => {
         </div>
         <div className={styles.card__footer}>
           <div className={styles.user}>
-            <img
-              src={writer.profilePic}
-              alt="user__image"
-              className={styles.user__image}
-            />
+            {loading ? (
+              <CircularProgress size="15px" style={{ color: "#3a3a3a" }} />
+            ) : (
+              <img
+                src={writer.profilePic}
+                alt="user__image"
+                className={styles.user__image}
+              />
+            )}
             <div className={styles.user__info}>
               <div>{props.creatorName}</div>
               <div className={styles.position}>{dateOfCreation}</div>
