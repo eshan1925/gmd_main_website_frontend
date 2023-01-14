@@ -3,6 +3,8 @@ import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -84,6 +86,21 @@ const LoginPage = () => {
     return "";
   };
 
+  const forgotPassword = async () => {
+    if (data.email) {
+      try {
+        await axios.post(
+          "https://getmedesignbackend.up.railway.app/fp/forgot-password/generate-token/" + data.email
+        );
+        toast("An email sent to account for resetting password!!!");
+      } catch (error) {
+        toast("Some error occured!!!");
+      }
+    } else {
+      toast("Please enter Email first!!!");
+    }
+  };
+
   return (
     <div onLoad={getCookieData} className={styles.main}>
       <img
@@ -132,7 +149,9 @@ const LoginPage = () => {
               />{" "}
               <div className={styles.rememberMe}>Remember Me</div>
             </div>
-            <div className={styles.forgotPassword}>Forgot Password ?</div>
+            <div className={styles.forgotPassword} onClick={forgotPassword}>
+              Forgot Password ?
+            </div>
           </div>
           <div className={styles.buttons}>
             <button className={styles.loginButton}>
@@ -149,6 +168,18 @@ const LoginPage = () => {
           </div>
         </form>
       </div>
+      <ToastContainer
+        // position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        // closeOnClick
+        // rtl={false}
+        // pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };

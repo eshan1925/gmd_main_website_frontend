@@ -16,6 +16,10 @@ const UserNavbar = (props) => {
 
   const notify = () => toast("Coming Soon!!!");
 
+  //https://blog.bitsrc.io/building-a-live-event-alert-system-with-react-socket-io-and-push-notifications-22b7106db50f
+
+  //https://medium.anands.me/how-to-build-a-realtime-notification-feed-in-your-react-app-with-node-backend-ae0b586fbc79
+
   const navigateToHome = () => {
     navigate("/");
   };

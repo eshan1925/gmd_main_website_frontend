@@ -14,6 +14,7 @@ import VerificationPage from "./components/VerificationPage";
 import Username from "./components/SignUpPage/Username";
 import DynamicPortfolio from "./components/DynamicPortfolio";
 import Community from "./components/Community";
+import ForgotPassword from "./components/ForgotPassword";
 
 // CONTRA components
 // import ProfilePicture from "./components/DynamicPortfolio/ProfilePic";
@@ -44,6 +45,13 @@ function App() {
             exact
             element={<Username userData={userData} />}
           />
+
+          <Route
+            path="/getmedesign/:token/reset-new-password/:id"
+            exact
+            element={<ForgotPassword userData={userData} />}
+          />
+
           {userData && (
             <Route
               path="/social-feed/:id"
@@ -59,7 +67,6 @@ function App() {
               element={<DynamicPortfolio userData={userData} />}
             />
           )}
-
 
           {userData && (
             <Route
@@ -80,9 +87,7 @@ function App() {
             <Route
               path="/blogs/:id"
               exact
-              element={
-                <BlogsComponent userData={userData} />
-              }
+              element={<BlogsComponent userData={userData} />}
             />
           )}
           {userData && (

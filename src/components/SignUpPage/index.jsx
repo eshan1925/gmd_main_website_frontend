@@ -106,7 +106,6 @@ const SignUp = () => {
               <input className={styles.checkboxx} type="checkbox" />{" "}
               <div className={styles.rememberMe}>Remember Me</div>
             </div>
-            <div className={styles.forgotPassword}>Forgot Password ?</div>
           </div>
           <div className={styles.buttons}>
             <button className={styles.loginButton}>
