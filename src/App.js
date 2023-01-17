@@ -15,6 +15,7 @@ import Username from "./components/SignUpPage/Username";
 import DynamicPortfolio from "./components/DynamicPortfolio";
 import Community from "./components/Community";
 import ForgotPassword from "./components/ForgotPassword";
+import NotFound from "./components/NotFound";
 
 // CONTRA components
 // import ProfilePicture from "./components/DynamicPortfolio/ProfilePic";
@@ -166,6 +167,8 @@ function App() {
               element={<ViewPortfolio userData={userData} />}
             />
           )} */}
+
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

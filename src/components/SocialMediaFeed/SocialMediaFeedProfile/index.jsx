@@ -112,9 +112,9 @@ const SocialMediaFeedProfile = (props) => {
     fetchUserProfileInfo();
   }, [userData._id, user._id]);
 
-  console.log(projects);
-  console.log(services);
-  console.log(userDataForTheView);
+  // console.log(projects);
+  // console.log(services);
+  // console.log(userDataForTheView);
 
   var getPCInArr = [];
   getPCInArr = projects;
@@ -229,7 +229,7 @@ const SocialMediaFeedProfile = (props) => {
               <div className="profileCover">
                 <img
                   className="profileCoverImg"
-                  src={require("../../../images/noCover.png")}
+                  src={currentUserForProfilePageView.coverImg}
                   alt=""
                 />
                 <img
